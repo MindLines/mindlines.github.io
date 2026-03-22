@@ -1,0 +1,5131 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Владислав Дмитришин - Моушн-дизайн портфолио</title>
+
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="Владислав Дмитришин - Моушн-дизайн портфолио" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Владислав Дмитришин - Моушн-дизайн портфолио"
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://mindlines.github.io" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Владислав Дмитришин - Моушн-дизайн портфолио" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Montserrat:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet" />
+
+  <!-- Inline CSS -->
+  <style>
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  min-height: 100%;
+}
+
+body {
+  min-height: 100%;
+  margin: 0;
+  background-color: #0D0C10;
+  background-image: url('assets/noise.png');
+  background-repeat: repeat;
+  background-size: 220px 220px;
+  color: #FFFFFF;
+  font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-weight: 320;
+  line-height: 1.21;
+  transition: background-color 0.1s;
+  position: relative;
+}
+
+/* ===== STAR SYSTEM ===== */
+body::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 700px;
+  background: linear-gradient(to top,
+    rgba(22, 15, 44, 0.5) 0%,
+    rgba(22, 15, 44, 0.4) 30%,
+    rgba(22, 15, 44, 0.3) 60%,
+    rgba(22, 15, 44, 0) 100%
+  );
+  pointer-events: none;
+  z-index: 0;
+  opacity: 1;
+}
+
+.stars-container {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 700px;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.star {
+  position: absolute;
+  top: var(--y, 0);
+  left: var(--x, 0);
+  width: var(--size, 4px);
+  height: var(--size, 4px);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' preserveAspectRatio='xMidYMid meet'%3E%3Cpath d='M50 0 L56 44 L100 50 L56 56 L50 100 L44 56 L0 50 L44 44 Z' fill='white'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: transparent;
+  animation: twinkle var(--duration, 4s) ease-in-out infinite var(--delay, 0s);
+  opacity: 1;
+  filter: drop-shadow(0 0 2px rgba(255, 255, 255, 0.4));
+  will-change: transform, opacity;
+}
+
+.star[data-center="true"] {
+  margin-left: calc(var(--size) / -2);
+}
+
+.star.small { --size: 3px; }
+.star.medium { --size: 6px; }
+.star.large { --size: 9px; }
+.star.fast { --duration: 3s; }
+.star.slow { --duration: 6s; }
+
+@keyframes twinkle {
+  0%, 100% { opacity: 0.2; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(1.2); }
+}
+
+/* ===== HERO SECTION ===== */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  font-variation-settings: normal;
+  z-index: 1;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  max-width: 1040px;
+  width: 100%;
+}
+
+.hero-supertitle {
+  font-family: "Montserrat", sans-serif;
+  font-size: 28px;
+  font-weight: 400;
+  font-style: italic;
+  color: #FFFFFF;
+  margin-bottom: 8px;
+  letter-spacing: -0.01em;
+}
+
+.hero-title {
+  font-family: "Montserrat", sans-serif;
+  font-size: 54px;
+  font-weight: 700;
+  margin-bottom: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  flex-wrap: wrap;
+  position: relative;
+}
+
+/* Individual letter spacing for precise typography */
+.hero-title-p { letter-spacing: -0.04em; }
+.hero-title-o1 { font-weight: 400; letter-spacing: -0.04em; }
+.hero-title-r { letter-spacing: 0.05em; }
+.hero-title-t { letter-spacing: 0.01em; }
+.hero-title-f { letter-spacing: 0.02em; }
+
+.hero-title-o2 {
+  font-weight: 400;
+  letter-spacing: 0em;
+  position: relative;
+  display: inline-block;
+  font-size: 1.074em;
+  --star-top: 50.0%;
+  --star-left: 50.0%;
+  --star-size: 0.268em;
+  --star-rotate: 0deg;
+}
+
+.hero-title-l { letter-spacing: -0.01em; }
+.hero-title-i { letter-spacing: -0.03em; }
+.hero-title-o3 { font-weight: 400; letter-spacing: 0em; }
+
+.hero-title-o2 .star-container {
+  position: absolute;
+  top: var(--star-top);
+  left: var(--star-left);
+  width: var(--star-size);
+  height: var(--star-size);
+  transform: translate3d(-50%, -50%, 0) rotate(var(--star-rotate));
+  -webkit-transform: translate3d(-50%, -50%, 0) rotate(var(--star-rotate));
+  z-index: 2;
+  color: #FFFFFF;
+  transform-origin: 50% 50%;
+  -webkit-transform-origin: 50% 50%;
+  pointer-events: none;
+  will-change: transform;
+}
+
+.star-container {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.star-container .star-svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.star-path {
+  fill: currentColor;
+}
+
+/* ===== BUTTONS ===== */
+.button-container {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 24px;
+  border-radius: 32px;
+  font-size: 18px;
+  font-weight: 500;
+  font-family: "Inter", sans-serif;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  border: none;
+  text-decoration: none;
+  white-space: nowrap;
+  font-variation-settings: "wght" 500;
+}
+
+.btn:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(198, 255, 42, 0.4);
+}
+
+.btn-primary {
+  background-color: #b2ff26;
+  color: #000000;
+  box-shadow: 0px 6px 22.3px 1px rgba(185, 255, 20, 0.16);
+}
+
+.btn-primary:hover {
+  background-color: #b2ff26;
+  transform: translateY(-2px);
+  box-shadow: none;
+}
+
+.btn-primary:active {
+  transform: translateY(0px);
+  box-shadow: 0px 6px 22.3px 1px rgba(204, 255, 20, 0.16);
+}
+
+.btn-secondary {
+  background-color: transparent;
+  color: #FFFFFF;
+  border: 1px solid #9A9A9A;
+  box-shadow: none;
+  font-weight: 400;
+  font-variation-settings: "wght" 400;
+}
+
+.btn-secondary:hover {
+  border-color: #FFFFFF;
+  background-color: rgba(255, 255, 255, 0.05);
+  transform: translateY(-2px);
+}
+
+.btn-secondary:active {
+  transform: translateY(0px);
+}
+
+.btn-with-arrow {
+  gap: 12px;
+  padding-top: 11px;
+  padding-bottom: 11px;
+  padding-left: 24px;
+  padding-right: 10px;
+  height: 42px;
+  width: auto;
+  min-width: 110px;
+  justify-content: flex-start;
+  align-self: flex-start;
+}
+
+.btn-arrow-icon {
+  width: 30px;
+  height: 30px;
+  background: #FFFFFF;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.btn-arrow-icon svg {
+  width: 10px;
+  height: 10px;
+  display: block;
+}
+
+/* ===== VIDEO GALLERY SYSTEM ===== */
+.vg-background-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -2;
+  pointer-events: none;
+}
+
+.vg-background-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transition: opacity 0.3s ease;
+  transform-origin: center center;
+}
+
+.vg-background-layer img,
+.vg-background-layer video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Gradient canvas - WebGL background */
+#vg-gradient-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  pointer-events: none;
+  display: block;
+}
+
+.vg-video-gallery {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  perspective: var(--vg-perspective, 730px);
+  perspective-origin: var(--vg-perspective-origin-x, 50%) var(--vg-perspective-origin-y, 50%);
+  transform-style: preserve-3d;
+}
+
+.vg-scene-container {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transform:
+    rotateX(0deg)
+    rotateY(var(--vg-scene-rotateY, 0deg))
+    rotateZ(0deg)
+    translateX(var(--vg-scene-translateX, 0px))
+    translateY(var(--vg-scene-translateY, 0px))
+    translateZ(var(--vg-scene-translateZ, 0px))
+    scaleX(var(--vg-scene-scaleX, 1.2))
+    scaleY(var(--vg-scene-scaleY, 1.2))
+    scaleZ(1);
+}
+
+.vg-wall {
+  position: absolute;
+  overflow: visible;
+  transform-style: preserve-3d;
+}
+
+/* Wall positioning - complex 3D transforms */
+.vg-wall-right {
+  height: 366px;
+  left: calc(50% - 586px);
+  top: calc(50% - 183px);
+  width: 1172px;
+  z-index: 1;
+  transform:
+    rotateY(-90deg)
+    translateZ(var(--vg-right-translateZ, -300px))
+    translateX(var(--vg-right-translateX, 0px))
+    translateY(var(--vg-right-translateY, 0px));
+}
+
+.vg-wall-left {
+  height: 366px;
+  left: calc(50% - 586px);
+  top: calc(50% - 183px);
+  width: 1172px;
+  z-index: 1;
+  transform:
+    rotateY(90deg)
+    translateZ(var(--vg-left-translateZ, -299px))
+    translateX(var(--vg-left-translateX, 0px))
+    translateY(var(--vg-left-translateY, 0px));
+}
+
+.vg-wall-floor {
+  height: 1000px;
+  left: calc(50% - 272.5px);
+  top: calc(50% - 500px);
+  width: 545px;
+  z-index: 1;
+  transform:
+    rotateX(90deg)
+    translateZ(var(--vg-floor-translateZ, -162px))
+    translateX(var(--vg-floor-translateX, 0px))
+    translateY(var(--vg-floor-translateY, 68px));
+}
+
+.vg-wall-ceiling {
+  height: 1000px;
+  left: calc(50% - 272.5px);
+  top: calc(50% - 500px);
+  width: 545px;
+  z-index: 1;
+  transform:
+    rotateX(-90deg)
+    translateZ(var(--vg-ceiling-translateZ, -160px))
+    translateX(var(--vg-ceiling-translateX, 0px))
+    translateY(var(--vg-ceiling-translateY, -67px));
+}
+
+.vg-wall-end {
+  height: var(--vg-end-wall-height, 359px);
+  left: calc(50% - var(--vg-end-wall-width, 593px) / 2);
+  top: calc(50% - var(--vg-end-wall-height, 359px) / 2);
+  width: var(--vg-end-wall-width, 593px);
+  background-color: transparent;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  transform:
+    rotateY(0deg)
+    translateZ(var(--vg-end-wall-z, -266px))
+    scale(var(--vg-end-wall-scale, 1));
+  z-index: 2;
+}
+
+.vg-media-container {
+  position: absolute;
+  visibility: visible;
+  transform: translateX(0) translateY(0) scale(1) rotate(0deg) translateZ(0);
+  transform-style: preserve-3d;
+  transition: none;
+  width: 150px;
+  height: 100px;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.vg-media-editor {
+  position: fixed;
+  top: 16px;
+  right: 16px;
+  width: min(380px, calc(100vw - 32px));
+  max-height: calc(100vh - 32px);
+  padding: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 14px;
+  background: rgba(13, 12, 16, 0.96);
+  color: #FFFFFF;
+  z-index: 2000;
+  overflow-y: auto;
+  box-shadow: 0 18px 48px rgba(0, 0, 0, 0.42);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  display: none;
+}
+
+.vg-media-editor.active {
+  display: block;
+}
+
+.vg-media-editor__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.vg-media-editor__title {
+  font-size: 15px;
+  font-weight: 600;
+  font-family: "Inter", sans-serif;
+}
+
+.vg-media-editor__hint {
+  font-size: 12px;
+  line-height: 1.35;
+  color: #A8A8B3;
+  margin-bottom: 12px;
+}
+
+.vg-media-editor__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.vg-media-editor__field {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.vg-media-editor__field--full {
+  grid-column: 1 / -1;
+}
+
+.vg-media-editor__label {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #A8A8B3;
+}
+
+.vg-media-editor__input,
+.vg-media-editor__select,
+.vg-media-editor__textarea {
+  width: 100%;
+  padding: 9px 10px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.04);
+  color: #FFFFFF;
+  font-size: 13px;
+  font-family: "Consolas", "SFMono-Regular", monospace;
+}
+
+.vg-media-editor__select {
+  color-scheme: dark;
+  background-color: rgba(18, 17, 24, 0.98);
+  color: #FFFFFF;
+}
+
+.vg-media-editor__select option {
+  background-color: #121118;
+  color: #FFFFFF;
+}
+
+.vg-media-editor__input:focus,
+.vg-media-editor__select:focus,
+.vg-media-editor__textarea:focus {
+  outline: none;
+  border-color: rgba(178, 255, 38, 0.75);
+  box-shadow: 0 0 0 3px rgba(178, 255, 38, 0.16);
+}
+
+.vg-media-editor__textarea {
+  min-height: 190px;
+  resize: vertical;
+  line-height: 1.45;
+}
+
+.vg-media-editor__actions {
+  display: flex;
+  gap: 8px;
+  margin-top: 12px;
+  margin-bottom: 10px;
+  flex-wrap: wrap;
+}
+
+.vg-media-editor__button {
+  appearance: none;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.04);
+  color: #FFFFFF;
+  padding: 8px 14px;
+  font-size: 13px;
+  font-family: "Inter", sans-serif;
+  cursor: pointer;
+}
+
+.vg-media-editor__button:hover {
+  background: rgba(255, 255, 255, 0.09);
+}
+
+.vg-media-editor__button--primary {
+  background: #b2ff26;
+  color: #000000;
+  border-color: #b2ff26;
+}
+
+.vg-media-editor__button--primary:hover {
+  background: #c2ff58;
+}
+
+@media (max-width: 767px) {
+  .vg-media-editor {
+    width: calc(100vw - 24px);
+    top: 12px;
+    right: 12px;
+    left: 12px;
+    max-height: calc(100vh - 24px);
+  }
+
+  .vg-media-editor__grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.vg-media-container img,
+.vg-media-container video {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: contain;
+  object-position: center;
+  background-color: transparent;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  image-rendering: auto;
+  transform: translateZ(0);
+}
+
+/* ===== GRID SYSTEM ===== */
+.vg-grid-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+  transform-style: preserve-3d;
+}
+
+.vg-grid-plane {
+  position: absolute;
+  transform-style: preserve-3d;
+}
+
+.vg-grid-line {
+  position: absolute;
+  background-color: var(--vg-grid-color, #151325);
+}
+
+    /* Floor Grid */
+    .vg-grid-floor-plane {
+      transform:
+        rotateX(90deg)
+        translateZ(var(--vg-floor-translateZ, -162px))
+        translateX(var(--vg-floor-translateX, 0px))
+        translateY(var(--vg-floor-translateY, 67px));
+      width: var(--vg-floor-grid-width, 534px);
+      height: var(--vg-floor-grid-height, 1000px);
+      left: calc(50% - (var(--vg-floor-grid-width, 534px) / 2));
+      top: calc(50% - (var(--vg-floor-grid-height, 1000px) / 2));
+    }
+
+    .vg-grid-floor-plane .vg-grid-line.horizontal {
+      width: 100%;
+      left: 0;
+      transform-origin: 0 0;
+    }
+
+    .vg-grid-floor-plane .vg-grid-line.vertical {
+      height: 100%;
+      top: 0;
+      transform-origin: 0 0;
+    }
+
+/* Right Wall Grid */
+.vg-grid-right-plane {
+  transform:
+    rotateY(-90deg)
+    translateZ(var(--vg-right-translateZ, -300px))
+    translateX(var(--vg-right-translateX, 0px))
+    translateY(var(--vg-right-translateY, 0px));
+  width: var(--vg-right-grid-width, 1180px);
+  height: var(--vg-right-grid-height, 360px);
+  left: calc(50% - (var(--vg-right-grid-width, 1170px) / 2));
+  top: calc(50% - (var(--vg-right-grid-height, 360px) / 2));
+}
+
+.vg-grid-right-plane .vg-grid-line.horizontal {
+  width: 100%;
+  left: 0;
+  transform-origin: 0 0;
+}
+
+.vg-grid-right-plane .vg-grid-line.vertical {
+  height: 100%;
+  top: 0;
+  transform-origin: 0 0;
+}
+
+/* Left Wall Grid */
+.vg-grid-left-plane {
+  transform:
+    rotateY(90deg)
+    translateZ(var(--vg-left-translateZ, -299px))
+    translateX(var(--vg-left-translateX, 0px))
+    translateY(var(--vg-left-translateY, 0px));
+  width: var(--vg-left-grid-width, 1171px);
+  height: var(--vg-left-grid-height, 360px);
+  left: calc(50% - (var(--vg-left-grid-width, 1171px) / 2));
+  top: calc(50% - (var(--vg-left-grid-height, 360px) / 2));
+}
+
+.vg-grid-left-plane .vg-grid-line.horizontal {
+  width: 100%;
+  left: 0;
+  transform-origin: 0 0;
+}
+
+.vg-grid-left-plane .vg-grid-line.vertical {
+  height: 100%;
+  top: 0;
+  transform-origin: 0 0;
+}
+
+/* Ceiling Grid */
+.vg-grid-ceiling-plane {
+  transform:
+    rotateX(-90deg)
+    translateZ(var(--vg-ceiling-translateZ, -160px))
+    translateX(var(--vg-ceiling-translateX, 0px))
+    translateY(var(--vg-ceiling-translateY, -67px));
+  width: var(--vg-ceiling-grid-width, 536px);
+  height: var(--vg-ceiling-grid-height, 1000px);
+  left: calc(50% - (var(--vg-ceiling-grid-width, 536px) / 2));
+  top: calc(50% - (var(--vg-ceiling-grid-height, 1000px) / 2));
+}
+
+.vg-grid-ceiling-plane .vg-grid-line.horizontal {
+  width: 100%;
+  left: 0;
+  transform-origin: 0 0;
+}
+
+.vg-grid-ceiling-plane .vg-grid-line.vertical {
+  height: 100%;
+  top: 0;
+  transform-origin: 0 0;
+}
+
+/* Hero Overlay */
+.vg-hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+  text-align: center;
+  z-index: 10;
+  transform-style: preserve-3d;
+}
+
+/* ===== CSS CUSTOM PROPERTIES ===== */
+:root {
+  --vg-perspective: 730px;
+  --vg-scene-translateX: 0px;
+  --vg-scene-translateY: 0px;
+  --vg-scene-translateZ: 0px;
+  --vg-scene-scaleX: 1.2;
+  --vg-scene-scaleY: 1.2;
+  --vg-grid-line-width: 2px;
+  --vg-grid-color: #151325;
+
+  /* End wall variables */
+  --vg-end-wall-z: -266px;
+  --vg-end-wall-width: 593px;
+  --vg-end-wall-height: 359px;
+  --vg-end-wall-scale: 1;
+
+  /* Individual line thickness values */
+  --vg-floor-horizontal-line-1: 3.4;
+  --vg-floor-horizontal-line-2: 3;
+  --vg-floor-horizontal-line-3: 2.8;
+  --vg-floor-horizontal-line-4: 2.6;
+  --vg-floor-horizontal-line-5: 2.4;
+  --vg-floor-horizontal-line-6: 1.6;
+  --vg-floor-horizontal-line-7: 1;
+  --vg-floor-horizontal-line-8: 1;
+  --vg-floor-horizontal-line-9: 1;
+  --vg-floor-horizontal-line-10: 1;
+
+  --vg-ceiling-horizontal-line-1: 1;
+  --vg-ceiling-horizontal-line-2: 1;
+  --vg-ceiling-horizontal-line-3: 1.6;
+  --vg-ceiling-horizontal-line-4: 1.8;
+  --vg-ceiling-horizontal-line-5: 2.2;
+  --vg-ceiling-horizontal-line-6: 2.8;
+  --vg-ceiling-horizontal-line-7: 3;
+  --vg-ceiling-horizontal-line-8: 3.2;
+  --vg-ceiling-horizontal-line-9: 3.6;
+  --vg-ceiling-horizontal-line-10: 1;
+
+  --vg-left-vertical-line-1: 1;
+  --vg-left-vertical-line-2: 1;
+  --vg-left-vertical-line-3: 1;
+  --vg-left-vertical-line-4: 1;
+  --vg-left-vertical-line-5: 1.8;
+  --vg-left-vertical-line-6: 2;
+  --vg-left-vertical-line-7: 2.2;
+  --vg-left-vertical-line-8: 2.8;
+  --vg-left-vertical-line-9: 3.2;
+  --vg-left-vertical-line-10: 1;
+
+  --vg-right-vertical-line-1: 3;
+  --vg-right-vertical-line-2: 2.8;
+  --vg-right-vertical-line-3: 2.2;
+  --vg-right-vertical-line-4: 2;
+  --vg-right-vertical-line-5: 1.8;
+  --vg-right-vertical-line-6: 1;
+  --vg-right-vertical-line-7: 1;
+  --vg-right-vertical-line-8: 1;
+  --vg-right-vertical-line-9: 1;
+  --vg-right-vertical-line-10: 1;
+
+  /* Grid settings */
+  --vg-floor-grid-size-x: 90px;
+  --vg-floor-grid-size-y: 90px;
+  --vg-floor-grid-pos-x: 0px;
+  --vg-floor-grid-pos-y: 2px;
+  --vg-floor-grid-width: 534px;
+  --vg-floor-grid-height: 1000px;
+
+  --vg-ceiling-grid-size-x: 90px;
+  --vg-ceiling-grid-size-y: 89px;
+  --vg-ceiling-grid-pos-x: 0px;
+  --vg-ceiling-grid-pos-y: 8px;
+  --vg-ceiling-grid-width: 536px;
+  --vg-ceiling-grid-height: 997px;
+
+  --vg-left-grid-size-x: 100px;
+  --vg-left-grid-size-y: 90px;
+  --vg-left-grid-pos-x: 48px;
+  --vg-left-grid-pos-y: 0px;
+  --vg-left-grid-width: 1171px;
+  --vg-left-grid-height: 360px;
+
+  --vg-right-grid-size-x: 101px;
+  --vg-right-grid-size-y: 90px;
+  --vg-right-grid-pos-x: 20px;
+  --vg-right-grid-pos-y: 0px;
+  --vg-right-grid-width: 1187px;
+  --vg-right-grid-height: 360px;
+}
+
+/* ===== MAIN CONTAINER ===== */
+.container {
+  width: 100%;
+  max-width: 1040px;
+  margin: 0 auto;
+  padding: 156px 20px 80px;
+  position: relative;
+  z-index: 1;
+}
+
+/* ===== ABOUT SECTION ===== */
+.about-card {
+  height: 284px;
+  width: 100%;
+  background: #111014;
+  border: 1px solid #212121;
+  border-radius: 6px;
+  display: flex;
+  align-items: stretch;
+  overflow: hidden;
+  margin-bottom: 40px;
+}
+
+.about-media {
+  width: 259px;
+  display: flex;
+  flex: 0 0 259px;
+  overflow: hidden;
+}
+
+.about-accent {
+  width: 8px;
+  flex: 0 0 8px;
+  background: #D0FF61;
+  z-index: 1;
+}
+
+.about-photo {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  transition: opacity 0.3s ease;
+}
+
+.about-text {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 14px;
+  padding: 0 40px;
+}
+
+.about-text p {
+  margin: 0;
+  font-size: 18px;
+  line-height: 26px;
+  font-weight: 300;
+  font-variation-settings: "wght" 300;
+  color: #AFAFAF;
+}
+
+.about-lead-white {
+  color: #FFFFFF;
+  font-weight: 300;
+  font-variation-settings: "wght" 300;
+}
+
+/* ===== SKILLS SECTION ===== */
+.badges-section {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 80px;
+}
+
+.badges-row {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background-color: #131217;
+  border: 1px solid #212121;
+  border-radius: 8px;
+  padding: 12px 20px;
+  color: #E3E3E3;
+  font-size: 16px;
+  font-weight: 300;
+  font-variation-settings: "wght" 300;
+  transition: all 0.2s ease;
+  cursor: pointer;
+  white-space: nowrap;
+  flex-shrink: 1;
+  min-width: 0;
+}
+
+.badge:hover {
+  background-color: #161519;
+  border-color: #2E2E2E;
+  transform: translateY(-2px);
+}
+
+.badge-icon {
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.badge-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* Desktop badges layout (980px and up) */
+@media (min-width: 980px) {
+  .badges-row { flex-wrap: nowrap; }
+  .badge:nth-child(1) { max-width: 140px; flex: 1 1 140px; }
+  .badge:nth-child(2) { max-width: 183px; flex: 1 1 183px; }
+  .badge:nth-child(3) { max-width: 168px; flex: 1 1 168px; }
+  .badge:nth-child(4) { max-width: 150px; flex: 1 1 150px; }
+  .badge:nth-child(5) { max-width: 122px; flex: 1 1 122px; }
+  .badge:nth-child(6) { max-width: 190px; flex: 1 1 190px; }
+
+  .badges-row:nth-child(2) .badge:nth-child(1) { max-width: 140px; flex: 1 1 140px; }
+  .badges-row:nth-child(2) .badge:nth-child(2) { max-width: 183px; flex: 1 1 183px; }
+  .badges-row:nth-child(2) .badge:nth-child(3) { max-width: 297px; flex: 1 1 297px; }
+  .badges-row:nth-child(2) .badge:nth-child(4) { max-width: 160px; flex: 1 1 160px; }
+  .badges-row:nth-child(2) .badge:nth-child(5) { max-width: 190px; flex: 1 1 190px; }
+}
+
+/* ===== EXPERIENCE SECTION ===== */
+.experience-section {
+  margin-top: 40px;
+}
+
+.section-title {
+  font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: 34px;
+  font-weight: 600;
+  font-variation-settings: "wght" 600;
+  letter-spacing: 1px;
+  margin-bottom: 22px;
+  color: #FFFFFF;
+}
+
+.section-title::first-letter {
+  color: #C6FF2A;
+}
+
+.experience-grid {
+  display: grid;
+  grid-template-columns: 462px 462px;
+  column-gap: 66px;
+  row-gap: 56px;
+}
+
+.experience-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.company-name {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 18px;
+  font-weight: 400;
+  font-variation-settings: "wght" 300;
+  color: #FFFFFF;
+  line-height: 1.4;
+  margin: 0 0 10px;
+}
+
+.company-icon {
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  font-size: 14px;
+}
+
+.company-icon.no-radius {
+  border-radius: 0;
+}
+
+.experience-role {
+  font-size: 16px;
+  font-weight: 400;
+  font-variation-settings: "wght" 300;
+  color: #FFFFFF;
+  line-height: 1.4;
+  margin: 0 0 6px;
+}
+
+.experience-description {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.experience-description p {
+  font-size: 16px;
+  font-weight: 300;
+  font-variation-settings: "wght" 300;
+  color: #939393;
+  line-height: 22px;
+  margin: 0;
+}
+
+/* Custom max-widths for each experience description */
+.experience-card:nth-child(1) .experience-description { max-width: 462px; }
+.experience-card:nth-child(2) .experience-description { max-width: 422px; }
+.experience-card:nth-child(3) .experience-description { max-width: 450px; }
+.experience-card:nth-child(4) .experience-description { max-width: 434px; }
+.experience-card:nth-child(5) .experience-description { max-width: 448px; }
+.experience-card:nth-child(6) .experience-description { max-width: 434px; }
+
+/* ===== PROJECTS SECTION ===== */
+.projects-section {
+  margin-top: 80px;
+}
+
+#projects {
+  scroll-margin-top: 40px;
+}
+
+.projects-category {
+  display: flex;
+  align-items: flex-end;
+  gap: 28px;
+  margin-bottom: 50px;
+}
+
+.projects-category.second-category {
+  margin-top: 140px;
+}
+
+.category-tab {
+  font-size: 18px;
+  font-weight: 340;
+  font-variation-settings: "wght" 340;
+  color: #FFFFFF;
+  flex-shrink: 0;
+  line-height: 1.21;
+}
+
+.category-line {
+  flex: 1;
+  height: 2px;
+  background: #201E24;
+  position: relative;
+  margin-bottom: 4px;
+}
+
+.category-line::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 40px;
+  height: 2px;
+  background: #C6FF2A;
+}
+
+/* Project Card */
+.project-card {
+  width: 100%;
+  background: #111014;
+  border: 1px solid #212121;
+  border-radius: 6px;
+  display: flex;
+  align-items: stretch;
+  overflow: hidden;
+  min-height: 376px;
+}
+
+.project-card--compact {
+  min-height: 274px;
+  background: #0B0A0F;
+  margin-top: 96px;
+}
+
+.project-card + .project-card {
+  margin-top: 96px;
+}
+
+.project-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 54px;
+  width: 462px;
+  flex-shrink: 0;
+}
+
+.project-info {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.project-title {
+  font-size: 28px;
+  font-weight: 400;
+  font-variation-settings: "wght" 400;
+  color: #FFFFFF;
+  line-height: 1.21;
+  margin: 0;
+}
+
+.project-description {
+  font-size: 16px;
+  font-weight: 300;
+  font-variation-settings: "wght" 300;
+  color: #c5c5c5;
+  line-height: 22px;
+  margin: 0;
+  max-width: 316px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.project-description p {
+  margin: 0;
+}
+
+.project-content .btn-primary {
+  margin-top: 36px;
+}
+
+.project-media {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0px 32px 0px 0px;
+  min-width: 0;
+  width: 100%;
+  position: relative;
+}
+
+/* ===== PROJECT MEDIA GRIDS ===== */
+/* Base grid variables */
+.project-media-grid {
+  --original-width: 465px;
+  --original-height: 270px;
+  --gap: 12px;
+  --col-1: 82px;
+  --col-2: 143px;
+  --col-3: 82px;
+  --col-4: 122px;
+  --row-height: 82px;
+  --scale: 1;
+  --scaled-width: calc(var(--original-width) * var(--scale));
+  --scaled-height: calc(var(--original-height) * var(--scale));
+  --scaled-gap: calc(var(--gap) * var(--scale));
+  --scaled-col-1: calc(var(--col-1) * var(--scale));
+  --scaled-col-2: calc(var(--col-2) * var(--scale));
+  --scaled-col-3: calc(var(--col-3) * var(--scale));
+  --scaled-col-4: calc(var(--col-4) * var(--scale));
+  --scaled-row-height: calc(var(--row-height) * var(--scale));
+  --scaled-font-size: calc(24px * var(--scale));
+  --scaled-border-radius: calc(6px * var(--scale));
+
+  display: grid;
+  grid-template-columns: var(--scaled-col-1) var(--scaled-col-2) var(--scaled-col-3) var(--scaled-col-4);
+  grid-template-rows: repeat(3, var(--scaled-row-height));
+  gap: var(--scaled-gap);
+  width: var(--scaled-width);
+  height: var(--scaled-height);
+  min-width: var(--scaled-width);
+  min-height: var(--scaled-height);
+  max-width: var(--scaled-width);
+  max-height: var(--scaled-height);
+  margin: 0 auto;
+}
+
+.project-media-grid-alt {
+  --original-width: 466px;
+  --original-height: 270px;
+  --gap: 12px;
+  --col-1: 122px;
+  --col-2: 106px;
+  --col-3: 42px;
+  --col-4: 160px;
+  --row-1: 102px;
+  --row-2: 72px;
+  --row-3: 72px;
+  --scale: 1;
+  --scaled-width: calc(var(--original-width) * var(--scale));
+  --scaled-height: calc(var(--original-height) * var(--scale));
+  --scaled-gap: calc(var(--gap) * var(--scale));
+  --scaled-col-1: calc(var(--col-1) * var(--scale));
+  --scaled-col-2: calc(var(--col-2) * var(--scale));
+  --scaled-col-3: calc(var(--col-3) * var(--scale));
+  --scaled-col-4: calc(var(--col-4) * var(--scale));
+  --scaled-row-1: calc(var(--row-1) * var(--scale));
+  --scaled-row-2: calc(var(--row-2) * var(--scale));
+  --scaled-row-3: calc(var(--row-3) * var(--scale));
+  --scaled-font-size: calc(24px * var(--scale));
+  --scaled-border-radius: calc(6px * var(--scale));
+
+  display: grid;
+  grid-template-columns:
+    var(--scaled-col-1)
+    var(--scaled-col-2)
+    var(--scaled-col-3)
+    var(--scaled-col-4);
+  grid-template-rows:
+    var(--scaled-row-1)
+    var(--scaled-row-2)
+    var(--scaled-row-3);
+  gap: var(--scaled-gap);
+  width: var(--scaled-width);
+  height: var(--scaled-height);
+  min-width: var(--scaled-width);
+  min-height: var(--scaled-height);
+  max-width: var(--scaled-width);
+  max-height: var(--scaled-height);
+  margin: 0 auto;
+}
+
+.project-media-grid-ai {
+  --original-width: 465px;
+  --original-height: 270px;
+  --gap: 12px;
+  --col-1: 120px;
+  --col-2: 167px;
+  --col-3: 154px;
+  --row-1: 82px;
+  --row-2: 82px;
+  --row-3: 82px;
+  --scale: 1;
+  --scaled-width: calc(var(--original-width) * var(--scale));
+  --scaled-height: calc(var(--original-height) * var(--scale));
+  --scaled-gap: calc(var(--gap) * var(--scale));
+  --scaled-col-1: calc(var(--col-1) * var(--scale));
+  --scaled-col-2: calc(var(--col-2) * var(--scale));
+  --scaled-col-3: calc(var(--col-3) * var(--scale));
+  --scaled-row-1: calc(var(--row-1) * var(--scale));
+  --scaled-row-2: calc(var(--row-2) * var(--scale));
+  --scaled-row-3: calc(var(--row-3) * var(--scale));
+  --scaled-font-size: calc(24px * var(--scale));
+  --scaled-border-radius: calc(6px * var(--scale));
+
+  display: grid;
+  grid-template-columns:
+    var(--scaled-col-1)
+    var(--scaled-col-2)
+    var(--scaled-col-3);
+  grid-template-rows:
+    var(--scaled-row-1)
+    var(--scaled-row-2)
+    var(--scaled-row-3);
+  gap: var(--scaled-gap);
+  width: var(--scaled-width);
+  height: var(--scaled-height);
+  min-width: var(--scaled-width);
+  min-height: var(--scaled-height);
+  max-width: var(--scaled-width);
+  max-height: var(--scaled-height);
+  margin: 0 auto;
+}
+
+.project-media-grid-gold {
+  --original-width: 465px;
+  --original-height: 270px;
+  --gap: 12px;
+  --col-1: 226px;
+  --col-2: 227px;
+  --row-1: 129px;
+  --row-2: 129px;
+  --scale: 1;
+  --scaled-width: calc(var(--original-width) * var(--scale));
+  --scaled-height: calc(var(--original-height) * var(--scale));
+  --scaled-gap: calc(var(--gap) * var(--scale));
+  --scaled-col-1: calc(var(--col-1) * var(--scale));
+  --scaled-col-2: calc(var(--col-2) * var(--scale));
+  --scaled-row-1: calc(var(--row-1) * var(--scale));
+  --scaled-row-2: calc(var(--row-2) * var(--scale));
+  --scaled-font-size: calc(24px * var(--scale));
+  --scaled-border-radius: calc(6px * var(--scale));
+
+  display: grid;
+  grid-template-columns:
+    var(--scaled-col-1)
+    var(--scaled-col-2);
+  grid-template-rows:
+    var(--scaled-row-1)
+    var(--scaled-row-2);
+  gap: var(--scaled-gap);
+  width: var(--scaled-width);
+  height: var(--scaled-height);
+  min-width: var(--scaled-width);
+  min-height: var(--scaled-height);
+  max-width: var(--scaled-width);
+  max-height: var(--scaled-height);
+  margin: 0 auto;
+}
+
+.project-media-grid-gallery {
+  --original-width: 465px;
+  --original-height: 140px;
+  --gap: 8px;
+  --col-1: 66px;
+  --col-2: 139px;
+  --col-3: 104px;
+  --col-4: 132px;
+  --row-1: 66px;
+  --row-2: 66px;
+  --scale: 1;
+  --scaled-width: calc(var(--original-width) * var(--scale));
+  --scaled-height: calc(var(--original-height) * var(--scale));
+  --scaled-gap: calc(var(--gap) * var(--scale));
+  --scaled-col-1: calc(var(--col-1) * var(--scale));
+  --scaled-col-2: calc(var(--col-2) * var(--scale));
+  --scaled-col-3: calc(var(--col-3) * var(--scale));
+  --scaled-col-4: calc(var(--col-4) * var(--scale));
+  --scaled-row-1: calc(var(--row-1) * var(--scale));
+  --scaled-row-2: calc(var(--row-2) * var(--scale));
+  --scaled-font-size: calc(18px * var(--scale));
+  --scaled-border-radius: calc(4px * var(--scale));
+
+  display: grid;
+  grid-template-columns:
+    var(--scaled-col-1)
+    var(--scaled-col-2)
+    var(--scaled-col-3)
+    var(--scaled-col-4);
+  grid-template-rows:
+    var(--scaled-row-1)
+    var(--scaled-row-2);
+  gap: var(--scaled-gap);
+  width: var(--scaled-width);
+  height: var(--scaled-height);
+  min-width: var(--scaled-width);
+  min-height: var(--scaled-height);
+  max-width: var(--scaled-width);
+  max-height: var(--scaled-height);
+  margin: 0 auto;
+}
+
+.media-box {
+  background: #2a2a2a;
+  border-radius: var(--scaled-border-radius);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.media-box img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  object-position: center;
+}
+
+.media-box-number {
+  font-size: var(--scaled-font-size);
+  font-weight: 600;
+  color: #b2ff26;
+  font-family: "Inter", sans-serif;
+}
+
+/* Grid positioning for each media box */
+.project-media-grid .media-box:nth-child(1) { grid-column: 1; grid-row: 1; }
+.project-media-grid .media-box:nth-child(2) { grid-column: 1; grid-row: 2 / 4; }
+.project-media-grid .media-box:nth-child(3) { grid-column: 2; grid-row: 1 / 4; }
+.project-media-grid .media-box:nth-child(4) { grid-column: 3 / 5; grid-row: 1; }
+.project-media-grid .media-box:nth-child(5) { grid-column: 3; grid-row: 2; }
+.project-media-grid .media-box:nth-child(6) { grid-column: 3; grid-row: 3; }
+.project-media-grid .media-box:nth-child(7) { grid-column: 4; grid-row: 2 / 4; }
+
+.project-media-grid-alt .media-box:nth-child(1) { grid-column: 1; grid-row: 1 / 4; }
+.project-media-grid-alt .media-box:nth-child(2) { grid-column: 2; grid-row: 1; }
+.project-media-grid-alt .media-box:nth-child(3) { grid-column: 3 / 5; grid-row: 1; }
+.project-media-grid-alt .media-box:nth-child(4) { grid-column: 2 / 4; grid-row: 2 / 4; }
+.project-media-grid-alt .media-box:nth-child(5) { grid-column: 4; grid-row: 2 / 4; }
+
+.project-media-grid-ai .media-box:nth-child(1) { grid-column: 1; grid-row: 1 / 4; }
+.project-media-grid-ai .media-box:nth-child(2) { grid-column: 2; grid-row: 1; }
+.project-media-grid-ai .media-box:nth-child(3) { grid-column: 2; grid-row: 2 / 4; }
+.project-media-grid-ai .media-box:nth-child(4) { grid-column: 3; grid-row: 1 / 4; }
+
+.project-media-grid-gold .media-box:nth-child(1) { grid-column: 1; grid-row: 1 / 3; }
+.project-media-grid-gold .media-box:nth-child(2) { grid-column: 2; grid-row: 1; }
+.project-media-grid-gold .media-box:nth-child(3) { grid-column: 2; grid-row: 2; }
+
+#scalable-grid-4 .media-box:nth-child(1) { grid-column: 2; grid-row: 1 / 3; }
+#scalable-grid-4 .media-box:nth-child(2) { grid-column: 1; grid-row: 1; }
+#scalable-grid-4 .media-box:nth-child(3) { grid-column: 1; grid-row: 2; }
+
+.project-media-grid-gallery .media-box:nth-child(1) { grid-column: 1; grid-row: 1; }
+.project-media-grid-gallery .media-box:nth-child(2) { grid-column: 1; grid-row: 2; }
+.project-media-grid-gallery .media-box:nth-child(3) { grid-column: 2; grid-row: 1; }
+.project-media-grid-gallery .media-box:nth-child(4) { grid-column: 2; grid-row: 2; }
+.project-media-grid-gallery .media-box:nth-child(5) { grid-column: 3; grid-row: 1 / 3; }
+.project-media-grid-gallery .media-box:nth-child(6) { grid-column: 4; grid-row: 1; }
+.project-media-grid-gallery .media-box:nth-child(7) { grid-column: 4; grid-row: 2; }
+
+/* ===== SPECIAL PROJECT ELEMENTS ===== */
+.project-title-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 6px;
+  display: inline-block;
+  margin-right: 10px;
+  vertical-align: middle;
+  flex-shrink: 0;
+  position: relative;
+  top: -2px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.gold-goblins-icon {
+  background-image: url('assets/svg/projects icons/Gold and Goblins.png');
+}
+
+.lumber-inc-icon {
+  background-image: url('assets/svg/projects icons/Lumber inc.png');
+}
+
+.lumber-description {
+  margin-top: 30px;
+  margin-bottom: 76px;
+  text-align: center;
+  padding: 0 20px;
+}
+
+.lumber-description p {
+  font-size: 16px;
+  font-weight: 300;
+  font-variation-settings: "wght" 300;
+  color: #939393;
+  line-height: 1.21;
+  margin: 0;
+  cursor: pointer;
+}
+
+.gallery-link {
+  color: #b2ff26;
+  text-decoration: underline;
+  text-decoration-color: #b2ff26;
+  text-decoration-thickness: 2px;
+  font-weight: 300;
+  font-variation-settings: "wght" 400;
+  cursor: pointer;
+}
+
+.gallery-link-full {
+  color: inherit;
+  text-decoration: none;
+  font-weight: 300;
+  font-variation-settings: "wght" 400;
+  cursor: pointer;
+}
+
+/* ===== CONTACTS SECTION ===== */
+.contacts-section {
+  margin-top: 246px;
+  margin-bottom: 150px;
+  max-width: 1040px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.contacts-container {
+  display: flex;
+  justify-content: center;
+}
+
+.contacts-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 34px;
+  width: 100%;
+  max-width: 575px;
+}
+
+/* Status indicator CSS variables */
+:root {
+  --status-size: 14px;
+  --status-gap: 0%;
+  --status-offset: 0%;
+  --status-angle: 46deg;
+  --color-online: #80ff26;
+}
+
+/* Profile picture with status indicator */
+.contact-profile {
+  width: 149px;
+  height: 149px;
+  border-radius: 50%;
+  position: relative;
+  --d: calc(var(--status-size) + (var(--status-gap) * 2));
+  --r: calc((100% / 2) + var(--status-offset));
+  --x: calc(var(--r) * cos(var(--status-angle) - 96deg) + (100% / 2));
+  --y: calc(var(--r) * sin(var(--status-angle) - 96deg) + (100% / 2));
+}
+
+.contact-profile.status::after {
+  content: "";
+  aspect-ratio: 1;
+  background: var(--color-online);
+  border-radius: 100%;
+  position: absolute;
+  width: var(--status-size);
+  top: calc(var(--y) - (var(--status-size)/2));
+  left: calc(var(--x) - (var(--status-size)/2));
+  border: 2px solid #100D19;
+}
+
+.profile-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  border-radius: 50%;
+}
+
+.profile-image {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+/* Contact information */
+.contact-header {
+  font-family: "Inter", sans-serif;
+  font-size: 18px;
+  font-weight: 300;
+  font-variation-settings: "wght" 300;
+  color: #FFFFFF;
+  margin: 0;
+  text-align: center;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  max-width: 383px;
+  margin: 0 auto;
+  padding: 18px 0;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  transform-origin: center center;
+  position: relative;
+}
+
+.contact-item:hover {
+  transform: scale(1.05);
+}
+
+/* Copy feedback tooltip */
+.copy-feedback {
+  position: absolute;
+  bottom: 80%;
+  left: 50%;
+  transform: translateX(-50%) translateY(5px);
+  margin-bottom: 0px;
+  font-family: "Inter", sans-serif;
+  font-size: 16px;
+  font-weight: 300;
+  font-variation-settings: "wght" 300;
+  color: #FFFFFF;
+  line-height: 22px;
+  white-space: nowrap;
+  background-color: rgba(0, 0, 0, 0.9);
+  border: none;
+  padding: 6px 12px;
+  border-radius: 4px;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: 10;
+}
+
+.copy-feedback.visible {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+.contact-text {
+  font-family: "Inter", sans-serif;
+  font-size: 28px;
+  font-weight: 400;
+  font-variation-settings: "wght" 400;
+  color: #FFFFFF;
+  flex: 1;
+  line-height: 1.21;
+  transition: all 0.2s ease;
+  text-decoration: none;
+}
+
+.contact-item:hover .contact-text {
+  text-decoration: underline;
+  text-decoration-color: #FFFFFF;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 6px;
+}
+
+.copy-icon {
+  width: 18px;
+  height: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  flex-shrink: 0;
+  color: #9A9A9A;
+  align-self: center;
+  margin-top: 0;
+  border-radius: 4px;
+  padding: 2px;
+}
+
+.copy-icon:active {
+  transform: scale(0.95);
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.copy-icon svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+  pointer-events: none;
+}
+
+/* Desktop copy icon alignment */
+@media (min-width: 768px) {
+  .copy-icon {
+    width: 18px;
+    height: 18px;
+    padding: 0;
+    align-self: center;
+    margin-top: 6px;
+  }
+}
+
+/* Mobile copy icon alignment */
+@media (max-width: 767px) {
+  .copy-icon {
+    width: 18px;
+    height: 18px;
+    align-self: center;
+    margin-top: 0;
+  }
+}
+
+.style-outline {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2.4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* Social media icons */
+.contact-social {
+  display: flex;
+  gap: 132px;
+  width: 100%;
+  max-width: 575px;
+  justify-content: center;
+  margin-top: 54px;
+}
+
+.social-icon {
+  width: 40px;
+  height: 39px;
+  background: transparent;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  cursor: pointer;
+  transform-origin: center center;
+}
+
+.social-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.social-icon:hover {
+  transform: scale(1.3);
+}
+
+.social-placeholder {
+  font-size: 20px;
+  line-height: 1;
+}
+
+/* ===== RESPONSIVE DESIGN ===== */
+
+/* Mobile grid line thickness fix */
+@media (max-width: 768px) {
+  :root {
+    --vg-grid-line-width: 2px;
+  }
+}
+
+/* Tablet layout adjustments */
+@media (max-width: 979px) and (min-width: 768px) {
+  .about-card {
+    height: auto;
+    min-height: 284px;
+  }
+
+  .about-text {
+    padding: 40px;
+  }
+
+  .badges-section {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .badges-row {
+    display: contents;
+  }
+
+  .badge {
+    padding: 10px 14px;
+    flex: 1 1 auto;
+    min-width: fit-content;
+    max-width: none;
+  }
+
+  .experience-grid {
+    grid-template-columns: 1fr;
+    column-gap: 0;
+  }
+
+  .experience-card:nth-child(1) .experience-description,
+  .experience-card:nth-child(2) .experience-description,
+  .experience-card:nth-child(3) .experience-description,
+  .experience-card:nth-child(4) .experience-description,
+  .experience-card:nth-child(5) .experience-description,
+  .experience-card:nth-child(6) .experience-description {
+    max-width: none;
+  }
+
+  .experience-card:nth-child(5),
+  .experience-card:nth-child(6) {
+    margin-top: 0;
+  }
+
+  .project-card {
+    flex-direction: column;
+    min-height: auto;
+  }
+
+  .project-content {
+    width: 100%;
+    padding: 40px;
+    order: 2;
+  }
+
+  .project-description {
+    max-width: none;
+  }
+
+  .project-media {
+    padding: 40px;
+    justify-content: center;
+    order: 1;
+    width: 100%;
+    flex: none;
+  }
+
+  .project-media-grid,
+  .project-media-grid-alt,
+  .project-media-grid-ai,
+  .project-media-grid-gold,
+  .project-media-grid-gallery {
+    width: 100%;
+    aspect-ratio: 465/270;
+    height: auto;
+  }
+
+  .project-media-grid-gallery {
+    aspect-ratio: 465/140;
+  }
+
+  .project-content .btn-primary {
+    margin-top: 36px;
+  }
+}
+
+/* Mobile layout */
+@media (max-width: 767px) {
+  .about-card {
+    height: auto;
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .about-media {
+    width: 100%;
+    flex: none;
+    min-height: 280px;
+  }
+
+  .about-accent {
+    display: none;
+  }
+
+  .about-photo {
+    width: 100%;
+  }
+
+  .about-text {
+    padding: 26px 20px 28px;
+    height: auto;
+  }
+
+  .badges-section {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .badges-row {
+    display: contents;
+  }
+
+  .badge {
+    padding: 10px 14px;
+    flex: 1 1 auto;
+    min-width: fit-content;
+    max-width: none;
+  }
+
+  .experience-grid {
+    grid-template-columns: 1fr;
+    column-gap: 0;
+  }
+
+  .section-title {
+    font-size: 30px;
+    margin-bottom: 24px;
+  }
+
+  .experience-card:nth-child(1) .experience-description,
+  .experience-card:nth-child(2) .experience-description,
+  .experience-card:nth-child(3) .experience-description,
+  .experience-card:nth-child(4) .experience-description,
+  .experience-card:nth-child(5) .experience-description,
+  .experience-card:nth-child(6) .experience-description {
+    max-width: none;
+  }
+
+  .experience-card:nth-child(5),
+  .experience-card:nth-child(6) {
+    margin-top: 0;
+  }
+
+  .about-lead-white {
+    font-size: 18px;
+    font-weight: 400;
+    font-variation-settings: "wght" 300;
+    color: #FFFFFF;
+    line-height: 1.4;
+  }
+
+  .badge {
+    font-size: 16px;
+    font-weight: 400;
+    font-variation-settings: "wght" 300;
+    color: #FFFFFF;
+    line-height: 1.4;
+  }
+
+  .about-text p {
+    font-size: 16px;
+    font-weight: 300;
+    font-variation-settings: "wght" 300;
+    color: #ababab;
+    line-height: 22px;
+  }
+
+  .projects-section {
+    margin-top: 60px;
+  }
+
+  .projects-category {
+    margin-bottom: 40px;
+  }
+
+  .category-line {
+    display: none;
+  }
+
+  .project-card {
+    flex-direction: column;
+    min-height: auto;
+  }
+
+  .project-card--compact {
+    min-height: auto;
+  }
+
+  .project-content {
+    width: 100%;
+    padding: 32px 20px;
+    order: 2;
+  }
+
+  .project-card--compact .project-content {
+    padding: 24px 20px;
+  }
+
+  .project-title {
+    font-size: 24px;
+  }
+
+  .project-description {
+    max-width: none;
+  }
+
+  .project-media {
+    padding: 20px 20px 15px 20px;
+    justify-content: center;
+    order: 1;
+  }
+
+  .project-card--compact .project-media {
+    padding: 15px 15px 10px 15px;
+    align-items: center;
+  }
+
+  .project-media-grid,
+  .project-media-grid-alt,
+  .project-media-grid-ai,
+  .project-media-grid-gold,
+  .project-media-grid-gallery {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 465/270;
+    max-width: 100%;
+    max-height: 100%;
+  }
+
+  .project-media-grid-gallery {
+    aspect-ratio: 465/140;
+  }
+
+  .project-content .btn-primary {
+    margin-top: 36px;
+  }
+
+  .project-card + .project-card {
+    margin-top: 60px;
+  }
+
+  .project-card--compact + .project-card,
+  .project-card + .project-card--compact {
+    margin-top: 40px;
+  }
+}
+
+/* Tablet badge spacing fix */
+@media (max-width: 979px) and (min-width: 370px) {
+  .badges-section {
+    gap: 6px;
+  }
+
+  .badge {
+    padding: 10px 6px;
+    gap: 6px;
+  }
+}
+
+/* Mobile hero adjustments */
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 42px;
+  }
+
+  .button-container {
+    gap: 12px;
+  }
+
+  .btn {
+    padding: 10px 20px;
+    font-size: 16px;
+  }
+
+  .btn-with-arrow {
+    padding-left: 20px;
+    padding-right: 8px;
+    align-self: flex-start;
+    min-width: auto;
+  }
+}
+
+/* Desktop project card adjustments */
+@media (min-width: 980px) {
+  .project-media-grid-gallery {
+    height: 140px;
+    min-height: 140px;
+    max-height: 140px;
+  }
+
+  .project-card--compact .project-description {
+    max-width: 300px;
+  }
+
+  .project-card--compact {
+    min-height: auto;
+    align-items: stretch;
+  }
+
+  .project-card--compact .project-content {
+    padding-top: 54px;
+    padding-bottom: 54px;
+  }
+
+  .project-card--compact .project-media {
+    padding-top: 54px;
+    padding-bottom: 54px;
+    align-items: flex-start;
+  }
+
+  .project-card--compact .btn-primary {
+    margin-top: 0;
+  }
+}
+
+/* Desktop social icon size */
+@media (min-width: 980px) {
+  .social-icon {
+    width: 48px;
+    height: 47px;
+  }
+}
+
+/* Tablet contacts adjustments */
+@media (max-width: 979px) and (min-width: 768px) {
+  .contacts-section {
+    margin-top: 246px;
+    margin-bottom: 150px;
+  }
+
+  .contacts-content {
+    gap: 34px;
+  }
+
+  .contact-profile {
+    width: 149px;
+    height: 149px;
+  }
+
+  .contact-item {
+    max-width: 383px;
+    padding: 18px 0;
+  }
+
+  .contact-social {
+    gap: 92px;
+    margin-top: 54px;
+  }
+
+  .social-icon {
+    width: 40px;
+    height: 39px;
+  }
+}
+
+/* Mobile contacts adjustments */
+@media (max-width: 767px) {
+  .contacts-section {
+    margin-top: 246px;
+    margin-bottom: 180px;
+  }
+
+  .contacts-content {
+    gap: 34px;
+  }
+
+  .contact-profile {
+    width: 149px;
+    height: 149px;
+  }
+
+  .contact-item {
+    max-width: 383px;
+    padding: 18px 0;
+    gap: 8px;
+  }
+
+  .contact-text {
+    font-size: 28px;
+  }
+
+  .contact-social {
+    gap: 20px;
+    margin-top: 54px;
+    width: 100%;
+    max-width: 383px;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+  }
+
+  .social-icon {
+    width: 40px;
+    height: 39px;
+  }
+}
+
+/* Small mobile contacts */
+@media (max-width: 480px) {
+  .contacts-section {
+    margin-top: 246px;
+    margin-bottom: 150px;
+  }
+
+  .contacts-content {
+    gap: 34px;
+  }
+
+  .contact-profile {
+    width: 149px;
+    height: 149px;
+  }
+
+  .contact-item {
+    max-width: 383px;
+    padding: 18px 0;
+  }
+
+  .contact-header {
+    font-size: 18px;
+  }
+
+  .contact-text {
+    font-size: 24px;
+    font-weight: 400;
+    font-variation-settings: "wght" 400;
+  }
+
+  .copy-icon {
+    width: 18px;
+    height: 18px;
+    margin-top: 0;
+    align-self: center;
+  }
+
+  .contact-social {
+    gap: 46px;
+    margin-top: 54px;
+    flex-wrap: wrap;
+  }
+
+  .social-icon {
+    width: 40px;
+    height: 39px;
+  }
+}
+
+/* ===== STAR RESPONSIVE STYLES ===== */
+@media (max-width: 979px) and (min-width: 768px) {
+  .stars-container {
+    height: 60vh;
+  }
+
+  body::after {
+    height: 60vh;
+  }
+}
+
+@media (max-width: 767px) {
+  .stars-container {
+    height: 80vh;
+  }
+
+  body::after {
+    height: 80vh;
+  }
+}
+
+@media (max-width: 480px) {
+  .stars-container {
+    height: 85vh;
+  }
+
+  body::after {
+    height: 85vh;
+  }
+}
+  </style>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon.svg" />
+  <link rel="manifest" href="site.webmanifest" />
+</head>
+
+<body>
+  <!-- Video Gallery Hero Section -->
+  <section class="vg-video-gallery" aria-label="Interactive 3D portfolio showcase">
+    <!-- Background layers -->
+    <div class="vg-background-container" id="vg-background-container">
+      <div class="vg-background-layer" id="vg-background-layer">
+        <img src="assets/noise.png" alt="Background texture" />
+      </div>
+    </div>
+
+    <!-- Gradient Canvas (WebGL) -->
+    <canvas id="vg-gradient-canvas" aria-hidden="true"></canvas>
+
+    <!-- Hero Content Overlay -->
+    <div class="vg-hero-overlay">
+      <div class="hero-content">
+        <p class="hero-supertitle">Моушн-дизайн</p>
+        <h1 class="hero-title">
+          <span class="hero-title-p">П</span>
+          <span class="hero-title-o1">О</span>
+          <span class="hero-title-r">Р</span>
+          <span class="hero-title-t">Т</span>
+          <span class="hero-title-f">Ф</span>
+          <span class="hero-title-o2">
+            О
+            <span class="star-container" aria-hidden="true">
+              <svg class="star-svg" viewBox="0 0 100 100" focusable="false" aria-hidden="true" preserveAspectRatio="xMidYMid meet">
+                <path class="star-path" d="M50 0 L56 44 L100 50 L56 56 L50 100 L44 56 L0 50 L44 44 Z"></path>
+              </svg>
+            </span>
+          </span>
+          <span class="hero-title-l">Л</span>
+          <span class="hero-title-i">И</span>
+          <span class="hero-title-o3">О</span>
+        </h1>
+
+        <div class="button-container">
+          <a href="#projects" class="btn btn-primary" id="projects-btn">Проекты</a>
+          <a href="gallery/gallery.html" class="btn btn-secondary" id="gallery-btn">Галерея</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3D Scene Container -->
+    <div class="vg-scene-container">
+      <!-- Grid System -->
+      <div class="vg-grid-container">
+        <div class="vg-grid-plane vg-grid-floor-plane"></div>
+        <div class="vg-grid-plane vg-grid-right-plane"></div>
+        <div class="vg-grid-plane vg-grid-left-plane"></div>
+        <div class="vg-grid-plane vg-grid-ceiling-plane"></div>
+      </div>
+
+      <!-- 3D Walls -->
+      <div class="vg-wall vg-wall-right" id="vg-wall-right"></div>
+      <div class="vg-wall vg-wall-left" id="vg-wall-left"></div>
+      <div class="vg-wall vg-wall-floor" id="vg-wall-floor"></div>
+      <div class="vg-wall vg-wall-ceiling" id="vg-wall-ceiling"></div>
+      <div class="vg-wall vg-wall-end" id="vg-wall-end"></div>
+    </div>
+  </section>
+
+  <!-- Main Content -->
+  <main class="container">
+    <!-- About Section -->
+    <section id="about" class="about" aria-labelledby="about-heading" style="scroll-margin-top: 80px;">
+      <div class="about-card">
+        <div class="about-media" aria-label="Profile photo">
+          <div class="about-accent" aria-hidden="true"></div>
+          <img
+            class="about-photo"
+            src="assets/exported_assets/Photo.png"
+            alt="Portrait photo of Vlad Dmitrishin"
+            loading="lazy"
+          />
+        </div>
+
+        <div class="about-text">
+          <p>
+            <span class="about-lead-white">Привет, я&nbsp;Влад — дизайнер с&nbsp;8-летним опытом в&nbsp;графическом<br>и&nbsp;моушн-дизайне.</span>
+          </p>
+          <p>Создаю конверсионный контент для&nbsp;мобильных игр, сервисов и&nbsp;приложений: 3D&nbsp;графика, рекламные креативы, анимация.</p>
+          <p>Главное — чтобы каждый проект вовлекал аудиторию и&nbsp;приносил измеримый результат.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="skills" aria-labelledby="skills-heading">
+      <div class="badges-section">
+        <div class="badges-row">
+          <div class="badge" role="listitem">
+            <span class="badge-icon icon-blender" aria-hidden="true">
+              <img src="assets/svg/skills badges/Blender.png" alt="" />
+            </span>
+            <span>Blender</span>
+          </div>
+          <div class="badge" role="listitem">
+            <span class="badge-icon icon-ae" aria-hidden="true">
+              <img src="assets/svg/skills badges/ae.png" alt="" />
+            </span>
+            <span>After Effects</span>
+          </div>
+          <div class="badge" role="listitem">
+            <span class="badge-icon icon-ps" aria-hidden="true">
+              <img src="assets/svg/skills badges/ps.png" alt="" />
+            </span>
+            <span>Photoshop</span>
+          </div>
+          <div class="badge" role="listitem">
+            <span class="badge-icon icon-ai" aria-hidden="true">
+              <img src="assets/svg/skills badges/ai.png" alt="" />
+            </span>
+            <span>Illustrator</span>
+          </div>
+          <div class="badge" role="listitem">
+            <span class="badge-icon icon-figma" aria-hidden="true">
+              <img src="assets/svg/skills badges/figma.png" alt="" />
+            </span>
+            <span>Figma</span>
+          </div>
+          <div class="badge" role="listitem">
+            <span>Моделирование</span>
+          </div>
+        </div>
+
+        <div class="badges-row">
+          <div class="badge" role="listitem"><span>3D графика</span></div>
+          <div class="badge" role="listitem"><span>UI/UX анимация</span></div>
+          <div class="badge" role="listitem"><span>Риг и анимация персонажей</span></div>
+          <div class="badge" role="listitem"><span>3D симуляции</span></div>
+          <div class="badge" role="listitem"><span>AI инструменты</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="experience-section" aria-labelledby="experience-heading">
+      <h2 id="experience-heading" class="section-title">Опыт</h2>
+
+      <div class="experience-grid">
+        <article class="experience-card">
+          <header class="company-name">
+            <span class="company-icon" aria-hidden="true">
+              <img src="assets/svg/experience icons/ADQ icon.png" alt="ADQ company icon" width="24" height="24">
+            </span>
+            <span>AdQuantum</span>
+          </header>
+          <p class="experience-role">Моушн-дизайнер. 2020–2025 (5 лет)</p>
+          <div class="experience-description">
+            <p>Полный цикл производства 3D и&nbsp;2D креативов для мобильных игр в&nbsp;Blender и&nbsp;After Effects: риг персонажей и&nbsp;техники, анимация, шейдинг, освещение, рендер.</p>
+            <p>Разработка кастомных шейдеров и&nbsp;симуляций (rigid body, частицы, системы дыма и&nbsp;жидкостей).</p>
+            <p>UI&nbsp;элементы в&nbsp;Photoshop, интеграция в&nbsp;Blender. Композитинг в&nbsp;After Effects, работа с&nbsp;VFX и&nbsp;музыкой.</p>
+          </div>
+        </article>
+
+        <article class="experience-card">
+          <header class="company-name">
+            <span class="company-icon no-radius" aria-hidden="true">
+              <img src="assets/svg/experience icons/interes icon.svg" alt="Interes company icon" width="24" height="24">
+            </span>
+            <span class="company-icon no-radius" aria-hidden="true">
+              <img src="assets/svg/experience icons/Yandex icon.png" alt="Yandex company icon" width="24" height="24">
+            </span>
+            <span>Интерес · Яндекс аутсорс</span>
+          </header>
+          <p class="experience-role">Дизайнер, иллюстратор. 2018 (1 год)</p>
+          <div class="experience-description">
+            <p>Графический дизайн и&nbsp;иллюстрации в&nbsp;фирменном стиле Яндекса: от&nbsp;иконок для Яндекс.Музыки до&nbsp;крупноформатных баннеров Кинопоиска.</p>
+            <p>Пиксель-перфект полировка, ретушь, цветокоррекция и&nbsp;ресайзы макетов под разные платформы.</p>
+          </div>
+        </article>
+
+        <article class="experience-card">
+          <header class="company-name">
+            <span class="company-icon" aria-hidden="true">
+              <img src="assets/svg/experience icons/WakeApp icon.png" alt="WakeApp company icon" width="24" height="24">
+            </span>
+            <span>WakeApp</span>
+          </header>
+          <p class="experience-role">Моушн-дизайнер. 2019 (1 год)</p>
+          <div class="experience-description">
+            <p>Производство рекламных креативов для мобильных игр и&nbsp;приложений с&nbsp;упором на&nbsp;2D-анимацию персонажей.</p>
+            <p>Комплексный риггинг в&nbsp;After Effects на&nbsp;базе DUIK.</p>
+            <p>2D-эффекты, монтаж, озвучка роликов.</p>
+            <p>Работа с&nbsp;проектами в&nbsp;разных жанрах и&nbsp;стилях: приложения-переводчики, VPN&nbsp;сервисы, idle&nbsp;игры.</p>
+          </div>
+        </article>
+
+        <article class="experience-card">
+          <header class="company-name">
+            <span class="company-icon" aria-hidden="true">
+              <img src="assets/svg/experience icons/Rapport icon.png" alt="Rapport company icon" width="24" height="24">
+            </span>
+            <span>Rapport</span>
+          </header>
+          <p class="experience-role">Дизайнер. 2017–2018 (1 год)</p>
+          <div class="experience-description">
+            <p>Рекламные коммуникации и&nbsp;моушн-дизайн для бизнеса разных масштабов и&nbsp;направлений: Музыканты, фитнес-сети, центры развития для детей, фастфуд и&nbsp;рестораны.</p>
+            <p>Разработка визуала для соцсетей: монтаж видео, сторис, рекламные креативы, лендинги, презентации, баннеры и&nbsp;фирменный стиль.</p>
+          </div>
+        </article>
+
+        <article class="experience-card">
+          <header class="company-name">
+            <span>УРТК им. А. С. Попова</span>
+          </header>
+          <p class="experience-role">Дизайн (по отраслям). 2013–2017 (4 года)</p>
+          <div class="experience-description">
+            <p>Профессиональное образование: графический дизайн, реклама, полиграфия, основы веб-дизайна.</p>
+            <p>Академический рисунок и&nbsp;живопись, работа с&nbsp;композицией, цветом и&nbsp;шрифтами. История дизайна и&nbsp;искусства.</p>
+          </div>
+        </article>
+
+        <article class="experience-card">
+          <header class="company-name">
+            <span>Дизайн-студия Четверка</span>
+          </header>
+          <p class="experience-role">Практика. Январь 2017 — апрель 2017 (4 месяца)</p>
+          <div class="experience-description">
+            <p>Практическая работа с&nbsp;реальными задачами дизайн-студии. Разработка логотипов и&nbsp;фирменного стиля.</p>
+            <p>Обучение дизайну логотипов и&nbsp;товарных знаков: читабельность, защита товарного знака, работа с&nbsp;шрифтами.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects-section" aria-labelledby="projects-heading">
+      <h2 id="projects-heading" class="section-title">Проекты</h2>
+
+      <div class="projects-category">
+        <div class="category-tab">Коммуникационный дизайн</div>
+        <div class="category-line"></div>
+      </div>
+
+      <!-- 3D Graphics Project -->
+      <article class="project-card">
+        <div class="project-content">
+          <div class="project-info">
+            <h3 class="project-title">3D Графика</h3>
+            <div class="project-description">
+              <p>Иллюстрации и&nbsp;продуктовые рендеры. Анимация, работа со&nbsp;светом и&nbsp;материалами.</p>
+              <p>Примеры работ под разные стили и&nbsp;форматы.</p>
+            </div>
+          </div>
+
+          <a href="gallery/gallery.html" class="btn btn-primary btn-with-arrow">
+            <span>Галерея</span>
+            <span class="btn-arrow-icon" aria-hidden="true">
+              <svg viewBox="0 0 9 9" fill="none" aria-hidden="true">
+                <path d="M1 8L8 1M8 1H1M8 1V8" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </span>
+          </a>
+        </div>
+
+        <div class="project-media">
+          <div class="project-media-grid" id="scalable-grid-1">
+            <div class="media-box" aria-label="Project preview 1">
+              <img src="assets/project cards/3D графика/Hearts.png" alt="3D Graphics preview 1" loading="lazy" />
+            </div>
+            <div class="media-box" aria-label="Project preview 2">
+              <img src="assets/project cards/3D графика/Coins 2.png" alt="3D Graphics preview 2" loading="lazy" />
+            </div>
+            <div class="media-box" aria-label="Project preview 3">
+              <img src="assets/project cards/3D графика/Terminal 2.png" alt="3D Graphics preview 3" loading="lazy" />
+            </div>
+            <div class="media-box" aria-label="Project preview 4">
+              <img src="assets/project cards/3D графика/Cards.png" alt="3D Graphics preview 4" loading="lazy" />
+            </div>
+            <div class="media-box" aria-label="Project preview 5">
+              <img src="assets/project cards/3D графика/Number 2.png" alt="3D Graphics preview 5" loading="lazy" />
+            </div>
+            <div class="media-box" aria-label="Project preview 6">
+              <img src="assets/project cards/3D графика/Fun.png" alt="3D Graphics preview 6" loading="lazy" />
+            </div>
+            <div class="media-box" aria-label="Project preview 7">
+              <img src="assets/project cards/3D графика/Serum 2.png" alt="3D Graphics preview 7" loading="lazy" />
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Advertising & Identity Project -->
+      <article class="project-card">
+        <div class="project-content">
+          <div class="project-info">
+            <h3 class="project-title">Рекламные креативы</h3>
+            <div class="project-description">
+              <p>Баннеры, in-app, рассылки и&nbsp;промо.</p>
+              <p>Типографика, верстка, работа с&nbsp;фото и&nbsp;3D&nbsp;графикой, векторными иллюстрациями и&nbsp;AI&nbsp;элементами.</p>
+            </div>
+          </div>
+
+          <a href="gallery/gallery.html" class="btn btn-primary btn-with-arrow">
+            <span>Галерея</span>
+            <span class="btn-arrow-icon" aria-hidden="true">
+              <svg viewBox="0 0 9 9" fill="none" aria-hidden="true">
+                <path d="M1 8L8 1M8 1H1M8 1V8" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </span>
+          </a>
+        </div>
+
+        <div class="project-media">
+          <div class="project-media-grid-gold" id="scalable-grid-2">
+            <div class="media-box" aria-label="Project preview 1">
+              <img src="assets/project cards/Рекламные креативы/Gamepad.png" alt="Advertising preview 1" loading="lazy" />
+            </div>
+            <div class="media-box" aria-label="Project preview 2">
+              <img src="assets/project cards/Рекламные креативы/Flowers.png" alt="Advertising preview 2" loading="lazy" />
+            </div>
+            <div class="media-box" aria-label="Project preview 3">
+              <img src="assets/project cards/Рекламные креативы/Gift.png" alt="Advertising preview 3" loading="lazy" />
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- AI Project -->
+      <article class="project-card">
+        <div class="project-content">
+          <div class="project-info">
+            <h3 class="project-title">AI графика</h3>
+            <div class="project-description">
+              <p>Примеры генераций в&nbsp;Nano Banana, Sora и&nbsp;Grok.</p>
+              <p>Наборы промптов под различные дизайн-задачи, позволяющие значительно ускорять рабочие процессы.</p>
+            </div>
+          </div>
+
+          <a href="gallery/gallery.html" class="btn btn-primary btn-with-arrow">
+            <span>Галерея</span>
+            <span class="btn-arrow-icon" aria-hidden="true">
+              <svg viewBox="0 0 9 9" fill="none" aria-hidden="true">
+                <path d="M1 8L8 1M8 1H1M8 1V8" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </span>
+          </a>
+        </div>
+
+        <div class="project-media">
+          <div class="project-media-grid-ai" id="scalable-grid-3">
+            <div class="media-box" aria-label="Project preview 1">
+              <img src="assets/project cards/AI/Avatars.png" alt="AI preview 1" loading="lazy" />
+            </div>
+            <div class="media-box" aria-label="Project preview 2">
+              <img src="assets/project cards/AI/Numbers.png" alt="AI preview 2" loading="lazy" />
+            </div>
+            <div class="media-box" aria-label="Project preview 3">
+              <img src="assets/project cards/AI/Suitcase.png" alt="AI preview 3" loading="lazy" />
+            </div>
+            <div class="media-box" aria-label="Project preview 4">
+              <img src="assets/project cards/AI/Hands.png" alt="AI preview 4" loading="lazy" />
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <div class="projects-category second-category">
+        <div class="category-tab">Моушн-дизайн для игр и сервисов</div>
+        <div class="category-line"></div>
+      </div>
+
+      <!-- Gold & Goblins Project -->
+      <article class="project-card">
+        <div class="project-content">
+          <div class="project-info">
+            <h3 class="project-title">
+              <span class="project-title-icon gold-goblins-icon" aria-hidden="true"></span>
+              Gold & Goblins
+            </h3>
+            <div class="project-description">
+              <p>3D&nbsp;анимация для мобильной idle-игры про гоблинов-шахтёров, добывающих золото и&nbsp;минералы в&nbsp;подземельях.</p>
+              <p>Примеры креативов передающих азарт бесконечного прогресса и&nbsp;оптимизации.</p>
+            </div>
+          </div>
+
+          <a href="mobile-games-case-page/mobile-games-case.html" class="btn btn-primary btn-with-arrow">
+            <span>Подробнее</span>
+            <span class="btn-arrow-icon" aria-hidden="true">
+              <svg viewBox="0 0 9 9" fill="none" aria-hidden="true">
+                <path d="M1 8L8 1M8 1H1M8 1V8" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </span>
+          </a>
+        </div>
+
+        <div class="project-media">
+          <div class="project-media-grid-gold" id="scalable-grid-4">
+            <div class="media-box" aria-label="Project preview 1">
+              <img src="assets/project cards/Gold & Goblins/Gold & Goblins 01.png" alt="Gold & Goblins preview 1" loading="lazy" />
+            </div>
+            <div class="media-box" aria-label="Project preview 2">
+              <img src="assets/project cards/Gold & Goblins/Gold & Goblins 02.png" alt="Gold & Goblins preview 2" loading="lazy" />
+            </div>
+            <div class="media-box" aria-label="Project preview 3">
+              <img src="assets/project cards/Gold & Goblins/Gold & Goblins 03.png" alt="Gold & Goblins preview 3" loading="lazy" />
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Lumber Inc Project -->
+      <article class="project-card">
+        <div class="project-content">
+          <div class="project-info">
+            <h3 class="project-title">
+              <span class="project-title-icon lumber-inc-icon" aria-hidden="true"></span>
+              Lumber inc.
+            </h3>
+            <div class="project-description">
+              <p>Конвейеры, пилорамы и постоянное расширение производства.</p>
+              <p>Анимация лесорубов, транспорта и&nbsp;конвейеров. ASMR&nbsp;анимации сбора ресурсов и&nbsp;огромные горы брёвен.</p>
+            </div>
+          </div>
+
+          <a href="mobile-games-case-page/mobile-games-case.html" class="btn btn-primary btn-with-arrow">
+            <span>Подробнее</span>
+            <span class="btn-arrow-icon" aria-hidden="true">
+              <svg viewBox="0 0 9 9" fill="none" aria-hidden="true">
+                <path d="M1 8L8 1M8 1H1M8 1V8" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </span>
+          </a>
+        </div>
+
+        <div class="project-media">
+          <div class="project-media-grid-gold" id="scalable-grid-6">
+            <div class="media-box" aria-label="Project preview 1">
+              <img src="assets/project cards/Lumber inc/Lumber inc01.png" alt="Lumber Inc preview 1" loading="lazy" />
+            </div>
+            <div class="media-box" aria-label="Project preview 2">
+              <img src="assets/project cards/Lumber inc/Lumber inc02.png" alt="Lumber Inc preview 2" loading="lazy" />
+            </div>
+            <div class="media-box" aria-label="Project preview 3">
+              <img src="assets/project cards/Lumber inc/Lumber inc03.png" alt="Lumber Inc preview 3" loading="lazy" />
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Gallery Description -->
+      <div class="lumber-description">
+        <p><a href="gallery/gallery.html" class="gallery-link-full">Больше игровых проектов можно посмотреть в <span class="gallery-link">галерее</span></a></p>
+      </div>
+
+      <!-- Gallery Project (Compact) -->
+      <article class="project-card project-card--compact">
+        <div class="project-content">
+          <div class="project-info">
+            <h3 class="project-title">Галерея</h3>
+            <div class="project-description">
+              <p>Архив с избранными работами</p>
+            </div>
+          </div>
+
+          <a href="gallery/gallery.html" class="btn btn-primary btn-with-arrow">
+            <span>Смотреть</span>
+            <span class="btn-arrow-icon" aria-hidden="true">
+              <svg viewBox="0 0 9 9" fill="none" aria-hidden="true">
+                <path d="M1 8L8 1M8 1H1M8 1V8" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </span>
+          </a>
+        </div>
+
+        <div class="project-media">
+          <div class="project-media-grid-gallery" id="scalable-grid-5">
+            <div class="media-box" aria-label="Gallery preview 1">
+              <img src="assets/project cards/Галерея/Gallery preview 01.png" alt="Gallery preview 1" loading="lazy" />
+            </div>
+            <div class="media-box" aria-label="Gallery preview 2">
+              <img src="assets/project cards/Галерея/Gallery preview 02.png" alt="Gallery preview 2" loading="lazy" />
+            </div>
+            <div class="media-box" aria-label="Gallery preview 3">
+              <img src="assets/project cards/Галерея/Gallery preview 03.png" alt="Gallery preview 3" loading="lazy" />
+            </div>
+            <div class="media-box" aria-label="Gallery preview 4">
+              <img src="assets/project cards/Галерея/Gallery preview 04.png" alt="Gallery preview 4" loading="lazy" />
+            </div>
+            <div class="media-box" aria-label="Gallery preview 5">
+              <img src="assets/project cards/Галерея/Gallery preview 05.png" alt="Gallery preview 5" loading="lazy" />
+            </div>
+            <div class="media-box" aria-label="Gallery preview 6">
+              <img src="assets/project cards/Галерея/Gallery preview 06.png" alt="Gallery preview 6" loading="lazy" />
+            </div>
+            <div class="media-box" aria-label="Gallery preview 7">
+              <img src="assets/project cards/Галерея/Gallery preview 07.png" alt="Gallery preview 7" loading="lazy" />
+            </div>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <!-- Contacts Section -->
+    <section id="contacts" class="contacts-section" aria-labelledby="contacts-heading">
+      <div class="contacts-container">
+        <div class="contacts-content">
+          <!-- Profile Picture with Status Indicator -->
+          <div class="contact-profile status online" aria-label="Profile picture with online status">
+            <div class="profile-wrapper">
+              <img
+                class="profile-image"
+                src="assets/photo 2.png"
+                alt="Profile photo of Vlad Dmitrishin"
+                loading="lazy"
+              />
+            </div>
+          </div>
+
+          <!-- Contact Information -->
+          <div class="contact-info">
+            <h3 id="contacts-heading" class="contact-header">Связаться со мной:</h3>
+
+            <!-- Email with Copy Functionality -->
+            <div class="contact-item" role="button" tabindex="0" aria-label="Copy email address to clipboard">
+              <div class="copy-feedback" aria-live="polite" aria-atomic="true">Скопировано</div>
+              <span class="contact-text">mindlineswork@gmail.com</span>
+              <div class="copy-icon" aria-hidden="true">
+                <svg class="style-outline" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                  <rect x="9" y="9" width="13" height="13" rx="2" ry="2"/>
+                  <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
+                </svg>
+              </div>
+            </div>
+
+            <!-- Social Media Links -->
+            <div class="contact-social">
+              <a href="https://t.me/mindlines" class="social-icon" aria-label="Telegram" target="_blank" rel="noopener">
+                <img src="assets/svg/contact icons/Telegram.png" alt="Telegram" />
+              </a>
+              <a href="https://hh.ru/resume/ed1a6a0eff0324cb310039ed1f5478344e6271" class="social-icon" aria-label="HH.ru" target="_blank" rel="noopener">
+                <img src="assets/svg/contact icons/hh.png" alt="HH.ru" />
+              </a>
+              <a href="https://www.linkedin.com/in/vladislav-dmitrishin-20b879141/" class="social-icon" aria-label="LinkedIn" target="_blank" rel="noopener">
+                <img src="assets/svg/contact icons/in.png" alt="LinkedIn" />
+              </a>
+              <a href="https://www.behance.net/mindlines" class="social-icon" aria-label="Behance" target="_blank" rel="noopener">
+                <img src="assets/svg/contact icons/be.png" alt="Behance" />
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Generative Stars Background -->
+  <div class="stars-container" id="stars-container" aria-hidden="true"></div>
+
+  <!-- WebGL Shaders for Video Gallery -->
+  <script id="vg-fragShader" type="x-shader/x-fragment">
+precision mediump float;
+
+uniform vec2 u_resolution;
+uniform float u_time;
+uniform vec3 u_colors[10];
+uniform int u_colorCount;
+uniform float u_speed;
+uniform float u_brightness;
+uniform float u_gradientPower;
+uniform float u_bubbleFadeStart;
+uniform float u_bubbleFadeEnd;
+uniform float u_bubbleDistThreshold;
+uniform float u_flowScale;
+uniform float u_bubbleCount;
+uniform float u_cycleLength;
+uniform float u_bubbleSize;
+uniform float u_viscosity;
+uniform float u_surfaceTension;
+uniform float u_aspect;
+uniform float u_offsetX;
+uniform float u_offsetY;
+uniform float u_tunnelWidth;
+uniform float u_tunnelHeight;
+uniform float u_tunnelPerspective;
+uniform float u_tunnelPositionZ;
+uniform float u_parallaxX;
+uniform float u_parallaxY;
+uniform float u_liquidSpeed;
+float tunnelDistance(vec2 uv) {
+  float widthScale = u_tunnelWidth;
+  float heightScale = u_tunnelHeight;
+  float zOffset = u_tunnelPositionZ * 0.5;
+  float perspective = u_tunnelPerspective;
+  float perspectiveFactor = 1.0 + perspective * length(uv);
+
+  uv.x *= u_aspect;
+  uv *= (1.0 + zOffset);
+
+  float distX = abs(uv.x) / (0.5 * widthScale * perspectiveFactor);
+  float distY = abs(uv.y) / (0.5 * heightScale * perspectiveFactor);
+
+  return max(distX, distY);
+}
+
+float noise(vec2 p) {
+  return fract(sin(dot(p, vec2(12.9898, 78.233))) * 43758.5453123);
+}
+
+float smoothNoise(vec2 p) {
+  vec2 i = floor(p);
+  vec2 f = fract(p);
+  float a = noise(i);
+  float b = noise(i + vec2(1.0, 0.0));
+  float c = noise(i + vec2(0.0, 1.0));
+  float d = noise(i + vec2(1.0, 1.0));
+  vec2 u = f * f * (3.0 - 2.0 * f);
+  return mix(a, b, u.x) + (c - a) * u.y * (1.0 - u.x) + (d - b) * u.x * u.y;
+}
+
+float blobField(vec2 uv, float t) {
+  float dist = tunnelDistance(uv);
+  if (dist < u_bubbleDistThreshold) return 0.0;
+
+  float distanceFade = smoothstep(u_bubbleFadeStart, u_bubbleFadeEnd, dist);
+
+  float totalBlobs = 0.0;
+  for (int i = 0; i < 30; i++) {
+    if (float(i) >= u_bubbleCount) break;
+
+    float fi = float(i);
+    float cycleLength = u_cycleLength;
+    float bubbleClock = t + fi * (cycleLength / u_bubbleCount);
+    float bubbleTime = fract(bubbleClock / cycleLength);
+
+    float activePhase = smoothstep(0.0, 0.22, bubbleTime) * (1.0 - smoothstep(0.75, 0.92, bubbleTime));
+    if (activePhase < 0.001) continue;
+
+    float instanceId = floor(bubbleClock / cycleLength);
+    float seed1 = fi * 78.233 + instanceId * 12.9898;
+    float seed2 = fi * 12.9898 + instanceId * 54.123;
+
+    float angle = fract(seed1) * 6.28318;
+    float radialDist = 1.0 - (bubbleTime / 0.92);
+    float wobble = sin(bubbleTime * 6.0 + fi) * 0.02 + cos(bubbleTime * 4.3 + fi) * 0.015;
+    radialDist = clamp(radialDist + wobble, u_bubbleDistThreshold, 1.0);
+
+    vec2 blobCenter = vec2(cos(angle) * radialDist, sin(angle) * radialDist);
+    blobCenter.x *= u_aspect;
+
+    float blobPerspective = 1.0 + u_tunnelPerspective * length(blobCenter);
+    blobCenter /= blobPerspective;
+
+    float zOffset = u_tunnelPositionZ * 0.5;
+    blobCenter *= (1.0 + zOffset);
+
+    vec2 delta = uv - blobCenter;
+    float distToBlob = length(delta);
+
+    vec2 noiseCoord = delta * u_flowScale * 0.3 + t * u_viscosity;
+    float surfaceNoise = smoothNoise(noiseCoord + vec2(seed1 * 0.1, seed2 * 0.1)) * 0.4;
+
+    float baseShape = 1.0 - smoothstep(0.0, u_bubbleSize, distToBlob + surfaceNoise);
+    float blobShape = pow(baseShape, u_surfaceTension);
+
+    totalBlobs += blobShape * activePhase;
+  }
+
+  return min(totalBlobs * distanceFade, 1.0);
+}
+
+void main() {
+  vec2 uv = gl_FragCoord.xy / u_resolution.xy;
+  uv -= 0.5;
+
+  // Apply parallax offset to UV coordinates with separate X and Y intensities
+  uv.x += u_offsetX * u_parallaxX;
+  uv.y += u_offsetY * u_parallaxY;
+
+  float t = u_time * u_speed * 0.05;
+  float liquidT = u_time * u_liquidSpeed * 0.05;
+
+  float dist = tunnelDistance(uv);
+  dist = min(dist, 1.0); // Clamp to ensure we don't exceed edge
+
+  // Use global gradient power
+  float baseGradient = pow(dist, u_gradientPower);
+
+  // IMPROVED: Calculate gradient intensity with smooth transitions
+  // Use smoothstep for much smoother transitions between transparent and opaque regions
+  float gradientIntensity = smoothstep(0.0, 0.8, baseGradient);
+
+  // IMPROVED: Use only the purple color with smooth alpha transitions
+  vec3 gradientColor = u_colors[1]; // Always use the purple color
+
+  float blobMask = blobField(uv, t);
+  vec3 finalColor = gradientColor;
+
+  // Edge distortion with aspect awareness
+  vec2 uvDist = uv * 2.0;
+  float edgeNoise1 = smoothNoise(uvDist * 5.0 + liquidT) * 0.22; // Fixed edge frequency (5.0) and distortion (0.22)
+  float edgeNoise2 = smoothNoise(uvDist * 10.0 + liquidT * 1.5) * 0.11;
+  float edgeNoise3 = smoothNoise(uvDist * 20.0 + liquidT * 2.0) * 0.055;
+  float totalEdgeNoise = (edgeNoise1 + edgeNoise2 + edgeNoise3) * 0.7;
+
+  // Use fixed edge mask start (0.63)
+  float distortionFade = smoothstep(0.63 - 0.15, 0.63, dist);
+  totalEdgeNoise *= distortionFade;
+
+  // Aspect-corrected edge mask with fixed parameters
+  float edgeMask = smoothstep(0.63 + totalEdgeNoise, 1.0, dist); // Fixed edge mask end (1.0)
+  vec3 edgeColor = u_colors[1] * 0.9; // Fixed edge intensity (0.9)
+  finalColor = mix(finalColor, edgeColor, edgeMask);
+
+  finalColor *= u_brightness;
+
+  // IMPROVED: Calculate alpha with much smoother transitions
+  // Use multiple smoothstep functions for ultra-smooth blending
+  float alpha = gradientIntensity;
+
+  // IMPROVED: Smooth blending for bubbles
+  alpha = max(alpha, blobMask * smoothstep(0.0, 0.3, gradientIntensity) * 0.8);
+
+  // IMPROVED: Smooth blending for edges
+  alpha = max(alpha, edgeMask * 0.9);
+
+  // IMPROVED: Apply smooth fade-out for very low values instead of hard cutoff
+  // This creates a much smoother transition from transparent to opaque
+  alpha *= smoothstep(0.0, 0.15, baseGradient);
+
+  // IMPROVED: Ensure minimum alpha for very bright areas to prevent completely transparent spots
+  alpha = max(alpha, baseGradient * 0.3);
+
+  gl_FragColor = vec4(finalColor, alpha);
+}
+  </script>
+
+  <script id="vg-vertShader" type="x-shader/x-vertex">
+attribute vec2 position;
+void main() {
+  gl_Position = vec4(position, 0.0, 1.0);
+}
+  </script>
+
+  <!-- Inline JavaScript -->
+  <script>
+/**
+ * Video Gallery System - WebGL 3D Tunnel
+ * Complex 3D video gallery with WebGL shaders and interactive controls
+ */
+
+const VideoGallery = (function() {
+  // ===== BROWSER DETECTION FOR VIDEO WORKAROUND =====
+  function isYandexBrowser() {
+    const ua = navigator.userAgent;
+    return ua.includes('YaBrowser') || ua.includes('Yowser');
+  }
+
+  function isFirefox() {
+    return navigator.userAgent.includes('Firefox');
+  }
+
+  function needsVideoWorkaround() {
+    return isYandexBrowser() || isFirefox();
+  }
+
+  // ===== VIDEO TO GIF MAPPING =====
+  const videoToGifMapping = {
+    'assets/hero page vids/10.mp4': 'assets/YaGif/10.gif',
+    'assets/hero page vids/8.mp4': 'assets/YaGif/8.gif',
+    'assets/new hero content/Terminal.mp4': 'assets/YaGif/Terminal.gif',
+    'assets/hero page vids/16.mp4': 'assets/YaGif/16.gif',
+    'gallery/vids/Night serum final.mp4': 'assets/YaGif/Night serum final.gif',
+    'assets/hero page vids/9_1_1.mp4': 'assets/YaGif/9_1_1.gif',
+    'assets/hero page vids/17.mp4': 'assets/YaGif/17.gif',
+    'assets/hero page vids/5_1.mp4': 'assets/YaGif/5_1.gif',
+    'assets/new hero content/Coins hero.mp4': 'assets/YaGif/Coins hero.gif',
+    'assets/hero page vids/18_1_1.mp4': 'assets/YaGif/18_1_1.gif',
+    'assets/hero page vids/7_3.mp4': 'assets/YaGif/7_3.gif',
+    'assets/hero page vids/1.1.mp4': 'assets/YaGif/1.1.gif'
+  };
+
+  // ===== PRIVATE VARIABLES =====
+  let gradientBackground = null;
+  let controlManager = null;
+  let mediaManager = null;
+  let responsiveManager = null;
+  let mediaEditor = null;
+  let vgCurrentMediaPreset = null;
+  let vgRuntimeStyleElement = null;
+  let vgRuntimeStyleDeclaration = null;
+  let vgRuntimeStyleValues = {};
+  let devModeEnabled = localStorage.getItem('devMode') === 'true';
+  let devModeHotkeyBound = false;
+
+  // ===== CONFIGURATION =====
+  const VG_MAX_COLORS = 2;
+  const VG_IMAGE_RENDER_MULTIPLIER = 3;
+  const VG_IMAGE_RENDER_MULTIPLIER_MAX = 8;
+  const VG_VIDEO_RENDER_MULTIPLIER = 3;
+  const VG_VIDEO_RENDER_MULTIPLIER_MAX = 6;
+  const VG_RUNTIME_STYLE_ID = 'vg-runtime-style';
+  const VG_RUNTIME_STYLE_SELECTOR = '.vg-video-gallery';
+  const VG_GRADIENT_DEFAULTS = {
+    colors: ["#000000", "#131127"],
+    speed: 0.0000,
+    brightness: 0.7700,
+    gradientPower: 10.0000,
+    liquidSpeed: 22.0000,
+    bubbleFadeStart: 0.0000,
+    bubbleFadeEnd: 0.8200,
+    bubbleDistThreshold: 0.0000,
+    flowScale: 9,
+    bubbleCount: 15.0000,
+    cycleLength: 5,
+    bubbleSize: 0.6000,
+    viscosity: 0.5000,
+    surfaceTension: 1.8000,
+    tunnelWidth: 1.0,
+    tunnelHeight: 0.6000,
+    tunnelPerspective: 1.0000,
+    tunnelPositionZ: -0.2000,
+    parallaxX: 0.0015,
+    parallaxY: 0.002
+  };
+
+  let vg_gradientParams = JSON.parse(JSON.stringify(VG_GRADIENT_DEFAULTS));
+
+  // ===== DEVICE DETECTION =====
+  const VG_Device = {
+    isMobile: /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent),
+    isIOS: /iPhone|iPad|iPod/.test(navigator.userAgent),
+    get isPortrait() { return window.innerHeight > window.innerWidth; },
+    get isDesktop() { return window.innerWidth >= 1024; }
+  };
+
+  // ===== UTILITY FUNCTIONS =====
+  function vg_hexToRgb(hex) {
+    const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+    return result ? [
+      parseInt(result[1], 16) / 255,
+      parseInt(result[2], 16) / 255,
+      parseInt(result[3], 16) / 255
+    ] : [0, 0, 0];
+  }
+
+  function updateDevMode() {
+    document.body.classList.toggle('dev-mode-active', devModeEnabled);
+  }
+
+  function bindDevModeHotkey() {
+    if (devModeHotkeyBound) return;
+
+    document.addEventListener('keydown', (e) => {
+      if ((e.key.toLowerCase() === 'h' || e.key.toLowerCase() === 'р') && !e.target.matches('input, select, textarea')) {
+        devModeEnabled = !devModeEnabled;
+        localStorage.setItem('devMode', devModeEnabled);
+        updateDevMode();
+      }
+    });
+
+    devModeHotkeyBound = true;
+  }
+
+  function extractMediaTagNumber(url) {
+    const filename = url.split('/').pop() || '';
+    const match = filename.match(/^(.+?)(\.[^.]+)?$/);
+    return match ? match[1] : filename;
+  }
+
+  function isImageUrl(url) {
+    return ['.jpg', '.jpeg', '.png', '.gif', '.bmp', '.webp', '.svg']
+      .some(ext => url.toLowerCase().includes(ext));
+  }
+
+  function normalizeMediaUrl(url) {
+    return String(url).replace(/\\/g, '/');
+  }
+
+  function cloneMediaConfig(config) {
+    return JSON.parse(JSON.stringify(config));
+  }
+
+  function getVideoGalleryElement() {
+    return document.querySelector('.vg-video-gallery');
+  }
+
+  function ensureVgRuntimeStyleElement() {
+    if (vgRuntimeStyleElement && document.head.contains(vgRuntimeStyleElement)) {
+      return vgRuntimeStyleElement;
+    }
+
+    vgRuntimeStyleElement = document.getElementById(VG_RUNTIME_STYLE_ID);
+    if (!vgRuntimeStyleElement) {
+      vgRuntimeStyleElement = document.createElement('style');
+      vgRuntimeStyleElement.id = VG_RUNTIME_STYLE_ID;
+      document.head.appendChild(vgRuntimeStyleElement);
+    }
+
+    return vgRuntimeStyleElement;
+  }
+
+  function ensureVgRuntimeStyleDeclaration() {
+    const styleElement = ensureVgRuntimeStyleElement();
+    if (vgRuntimeStyleDeclaration && styleElement.sheet) {
+      return vgRuntimeStyleDeclaration;
+    }
+
+    if (!styleElement.textContent.trim()) {
+      styleElement.textContent = `${VG_RUNTIME_STYLE_SELECTOR} {}`;
+    }
+
+    if (styleElement.sheet && !styleElement.sheet.cssRules.length) {
+      styleElement.sheet.insertRule(`${VG_RUNTIME_STYLE_SELECTOR} {}`, 0);
+    }
+
+    vgRuntimeStyleDeclaration = styleElement.sheet?.cssRules?.[0]?.style || null;
+    return vgRuntimeStyleDeclaration;
+  }
+
+  function setVgRuntimeCssVars(nextValues) {
+    const styleDeclaration = ensureVgRuntimeStyleDeclaration();
+    if (!styleDeclaration) return;
+
+    Object.entries(nextValues).forEach(([prop, value]) => {
+      const normalizedValue = value === undefined || value === null || value === ''
+        ? null
+        : String(value);
+
+      if (normalizedValue === null) {
+        if (Object.prototype.hasOwnProperty.call(vgRuntimeStyleValues, prop)) {
+          delete vgRuntimeStyleValues[prop];
+          styleDeclaration.removeProperty(prop);
+        }
+        return;
+      }
+
+      if (vgRuntimeStyleValues[prop] !== normalizedValue) {
+        vgRuntimeStyleValues[prop] = normalizedValue;
+        styleDeclaration.setProperty(prop, normalizedValue);
+      }
+    });
+  }
+
+  function getVgComputedStyles() {
+    return getComputedStyle(getVideoGalleryElement() || document.documentElement);
+  }
+
+  function getMediaConfigStoreForViewport() {
+    return VG_Device.isMobile ? VG_MEDIA_CONFIG_MOBILE : VG_MEDIA_CONFIG_DESKTOP;
+  }
+
+  function syncActiveMediaConfig(force = false) {
+    const nextPreset = VG_Device.isMobile ? 'mobile' : 'desktop';
+    if (!force && vgCurrentMediaPreset === nextPreset && Object.keys(VG_MEDIA_CONFIG).length > 0) {
+      return false;
+    }
+
+    vgCurrentMediaPreset = nextPreset;
+    VG_MEDIA_CONFIG = cloneMediaConfig(getMediaConfigStoreForViewport());
+
+    if (mediaEditor) {
+      mediaEditor.refreshContainers();
+    }
+
+    return true;
+  }
+
+  function snapValue(value, step) {
+    if (typeof value !== 'number' || Number.isNaN(value)) return value;
+    return Math.round(value / step) * step;
+  }
+
+  function finalizeMediaRenderConfig(config) {
+    const finalConfig = { ...config };
+
+    finalConfig.x = snapValue(finalConfig.x, 0.5);
+    finalConfig.y = snapValue(finalConfig.y, 0.5);
+    finalConfig.z = snapValue(finalConfig.z ?? 0, 0.5);
+    finalConfig.scale = snapValue(finalConfig.scale ?? 1, 0.01);
+
+    if (finalConfig.width !== undefined) {
+      finalConfig.width = snapValue(finalConfig.width, 1);
+    }
+
+    if (finalConfig.height !== undefined) {
+      finalConfig.height = snapValue(finalConfig.height, 1);
+    }
+
+    return finalConfig;
+  }
+
+  function resolveMediaRenderConfig(config) {
+    const normalizedUrl = normalizeMediaUrl(config.url);
+    const isImage = isImageUrl(normalizedUrl);
+
+    if (!isImage) {
+      return finalizeMediaRenderConfig({ ...config, url: normalizedUrl });
+    }
+
+    const baseWidth = config.width || 150;
+    const baseHeight = config.height || 100;
+    const autoMultiplier = isImage
+      ? Math.min(
+          VG_IMAGE_RENDER_MULTIPLIER_MAX,
+          Math.max(VG_IMAGE_RENDER_MULTIPLIER, Math.ceil((config.scale || 1) * 2.5))
+        )
+      : Math.min(
+          VG_VIDEO_RENDER_MULTIPLIER_MAX,
+          Math.max(VG_VIDEO_RENDER_MULTIPLIER, Math.ceil((config.scale || 1) * 1.75))
+        );
+    const multiplier = config.renderMultiplier
+      ? Math.max(1, config.renderMultiplier)
+      : autoMultiplier;
+
+    return finalizeMediaRenderConfig({
+      ...config,
+      url: normalizedUrl,
+      x: config.x - ((baseWidth * multiplier) - baseWidth) / 2,
+      y: config.y - ((baseHeight * multiplier) - baseHeight) / 2,
+      width: baseWidth * multiplier,
+      height: baseHeight * multiplier,
+      scale: (config.scale || 1) / multiplier
+    });
+  }
+
+  function formatConfigNumber(value) {
+    if (Number.isInteger(value)) return String(value);
+    return parseFloat(value.toFixed(4)).toString();
+  }
+
+  function escapeConfigString(value) {
+    return String(value)
+      .replace(/\\/g, '\\\\')
+      .replace(/"/g, '\\"');
+  }
+
+  // ===== GRADIENT BACKGROUND CLASS =====
+  class VG_GradientBackground {
+    constructor() {
+      this.canvas = document.getElementById('vg-gradient-canvas');
+      this.gl = this.canvas.getContext('webgl', {
+        alpha: true,
+        antialias: false,
+        depth: false,
+        stencil: false,
+        preserveDrawingBuffer: false,
+        powerPreference: 'low-power'
+      });
+
+      if (!this.gl) {
+        return;
+      }
+
+      // Enable blending for transparency
+      this.gl.enable(this.gl.BLEND);
+      this.gl.blendFunc(this.gl.SRC_ALPHA, this.gl.ONE_MINUS_SRC_ALPHA);
+
+      this.resize();
+      window.addEventListener('resize', () => this.resize());
+
+      this.setupShaders();
+      this.setupBuffers();
+      this.uniforms = this.getUniformLocations();
+
+      this.startTime = performance.now();
+
+      // ===== PERFORMANCE OPTIMIZATIONS =====
+      this.isVisible = false;
+      this.isHovering = false;
+      this.lastFrameTime = 0;
+      this.lastVisibleTime = performance.now();
+      this.targetFPS = 60;
+      this.lowFPS = 30; // Reduced FPS when not interacting
+      this.frameInterval = 1000 / this.targetFPS;
+      this.lowFrameInterval = 1000 / this.lowFPS;
+      this.setupVisibilityObserver();
+      this.optimizeForDevice();
+    }
+
+    setupVisibilityObserver() {
+      const videoGallery = document.querySelector('.vg-video-gallery');
+      if (!videoGallery) return;
+
+      this.visibilityObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach(entry => {
+            this.isVisible = entry.isIntersecting;
+            if (entry.isIntersecting) {
+              this.lastVisibleTime = performance.now();
+            }
+          });
+        },
+        {
+          threshold: 0.1, // Trigger when 10% visible
+          rootMargin: '50px' // Add margin for pre-loading
+        }
+      );
+
+      this.visibilityObserver.observe(videoGallery);
+
+      // Also observe mouse hover state
+      videoGallery.addEventListener('mouseenter', () => {
+        this.isHovering = true;
+        this.lastVisibleTime = performance.now();
+      });
+
+      videoGallery.addEventListener('mouseleave', () => {
+        this.isHovering = false;
+      });
+
+      document.addEventListener('visibilitychange', () => {
+        if (!document.hidden) {
+          this.lastVisibleTime = performance.now();
+        }
+      });
+    }
+
+    optimizeForDevice() {
+      // Detect weak devices and reduce quality
+      const isWeakDevice = this.detectWeakDevice();
+
+      if (isWeakDevice) {
+        // Reduce canvas size on weak devices
+        const scale = 0.75;
+        this.canvas.width = Math.floor(window.innerWidth * scale);
+        this.canvas.height = Math.floor(window.innerHeight * scale);
+        this.canvas.style.width = '100%';
+        this.canvas.style.height = '100%';
+
+        // Reduce frame rate further
+        this.targetFPS = 20;
+        this.lowFPS = 15;
+        this.frameInterval = 1000 / this.targetFPS;
+        this.lowFrameInterval = 1000 / this.lowFPS;
+
+        // Reduce bubble count for performance
+        if (vg_gradientParams.bubbleCount > 10) {
+          vg_gradientParams.bubbleCount = 10;
+        }
+      }
+    }
+
+    detectWeakDevice() {
+      // Check for weak device indicators
+      const connection = navigator.connection ||
+                        navigator.mozConnection ||
+                        navigator.webkitConnection;
+
+      const isSlowConnection = connection &&
+                              (connection.effectiveType === 'slow-2g' ||
+                               connection.effectiveType === '2g');
+
+      const isOldDevice = /Android [2-6]|iPhone OS [1-9]|Windows Phone/i.test(navigator.userAgent);
+
+      const hasLowMemory = navigator.deviceMemory && navigator.deviceMemory < 4;
+
+      return isSlowConnection || isOldDevice || hasLowMemory;
+    }
+
+    resize() {
+      this.canvas.width = window.innerWidth;
+      this.canvas.height = window.innerHeight;
+      if (this.gl) {
+        this.gl.viewport(0, 0, this.gl.drawingBufferWidth, this.gl.drawingBufferHeight);
+      }
+    }
+
+    setupShaders() {
+      if (!this.gl) return;
+
+      const vertShader = this.compileShader(document.getElementById('vg-vertShader').text, this.gl.VERTEX_SHADER);
+      const fragShader = this.compileShader(document.getElementById('vg-fragShader').text, this.gl.FRAGMENT_SHADER);
+
+      this.program = this.gl.createProgram();
+      this.gl.attachShader(this.program, vertShader);
+      this.gl.attachShader(this.program, fragShader);
+      this.gl.linkProgram(this.program);
+      if (!this.gl.getProgramParameter(this.program, this.gl.LINK_STATUS)) {
+        console.error('VG Program link error:', this.gl.getProgramInfoLog(this.program));
+        throw new Error('VG Program link failed');
+      }
+      this.gl.useProgram(this.program);
+    }
+
+    compileShader(source, type) {
+      const shader = this.gl.createShader(type);
+      this.gl.shaderSource(shader, source);
+      this.gl.compileShader(shader);
+      if (!this.gl.getShaderParameter(shader, this.gl.COMPILE_STATUS)) {
+        const error = this.gl.getShaderInfoLog(shader);
+        console.error('VG Shader compilation error:', error);
+        throw new Error(error);
+      }
+      return shader;
+    }
+
+    setupBuffers() {
+      if (!this.gl) return;
+
+      const positionBuffer = this.gl.createBuffer();
+      this.gl.bindBuffer(this.gl.ARRAY_BUFFER, positionBuffer);
+      this.gl.bufferData(this.gl.ARRAY_BUFFER, new Float32Array([-1,-1, 1,-1, -1,1, -1,1, 1,-1, 1,1]), this.gl.STATIC_DRAW);
+
+      const positionLocation = this.gl.getAttribLocation(this.program, 'position');
+      this.gl.enableVertexAttribArray(positionLocation);
+      this.gl.vertexAttribPointer(positionLocation, 2, this.gl.FLOAT, false, 0, 0);
+    }
+
+    getUniformLocations() {
+      if (!this.gl) return {};
+
+      const uniforms = {
+        resolution: this.gl.getUniformLocation(this.program, 'u_resolution'),
+        time: this.gl.getUniformLocation(this.program, 'u_time'),
+        colorCount: this.gl.getUniformLocation(this.program, 'u_colorCount'),
+        speed: this.gl.getUniformLocation(this.program, 'u_speed'),
+        brightness: this.gl.getUniformLocation(this.program, 'u_brightness'),
+        gradientPower: this.gl.getUniformLocation(this.program, 'u_gradientPower'),
+        bubbleFadeStart: this.gl.getUniformLocation(this.program, 'u_bubbleFadeStart'),
+        bubbleFadeEnd: this.gl.getUniformLocation(this.program, 'u_bubbleFadeEnd'),
+        bubbleDistThreshold: this.gl.getUniformLocation(this.program, 'u_bubbleDistThreshold'),
+        flowScale: this.gl.getUniformLocation(this.program, 'u_flowScale'),
+        bubbleCount: this.gl.getUniformLocation(this.program, 'u_bubbleCount'),
+        cycleLength: this.gl.getUniformLocation(this.program, 'u_cycleLength'),
+        bubbleSize: this.gl.getUniformLocation(this.program, 'u_bubbleSize'),
+        viscosity: this.gl.getUniformLocation(this.program, 'u_viscosity'),
+        surfaceTension: this.gl.getUniformLocation(this.program, 'u_surfaceTension'),
+        aspect: this.gl.getUniformLocation(this.program, 'u_aspect'),
+        offsetX: this.gl.getUniformLocation(this.program, 'u_offsetX'),
+        offsetY: this.gl.getUniformLocation(this.program, 'u_offsetY'),
+        tunnelWidth: this.gl.getUniformLocation(this.program, 'u_tunnelWidth'),
+        tunnelHeight: this.gl.getUniformLocation(this.program, 'u_tunnelHeight'),
+        tunnelPerspective: this.gl.getUniformLocation(this.program, 'u_tunnelPerspective'),
+        tunnelPositionZ: this.gl.getUniformLocation(this.program, 'u_tunnelPositionZ'),
+        parallaxX: this.gl.getUniformLocation(this.program, 'u_parallaxX'),
+        parallaxY: this.gl.getUniformLocation(this.program, 'u_parallaxY'),
+        liquidSpeed: this.gl.getUniformLocation(this.program, 'u_liquidSpeed'),
+        colors: []
+      };
+
+      for (let i = 0; i < VG_MAX_COLORS; i++) {
+        uniforms.colors.push(this.gl.getUniformLocation(this.program, `u_colors[${i}]`));
+      }
+
+      return uniforms;
+    }
+
+    render(offsetX, offsetY) {
+      if (!this.gl) return;
+
+      const currentTime = performance.now();
+      if (document.hidden) {
+        return;
+      }
+
+      if (!this.isVisible && currentTime - this.lastVisibleTime > 1000) {
+        return;
+      }
+
+      const timeSinceLastFrame = currentTime - this.lastFrameTime;
+
+      // Determine target frame interval based on visibility and interaction
+      const targetInterval = this.isVisible
+        ? (this.isHovering ? this.frameInterval : this.lowFrameInterval)
+        : this.lowFrameInterval * 2; // Even slower when not visible
+
+      // Skip frame if not enough time has passed
+      if (timeSinceLastFrame < targetInterval) {
+        return;
+      }
+
+      this.lastFrameTime = currentTime;
+
+      const time = (currentTime - this.startTime) * 0.001; // Convert to seconds
+      const aspect = this.canvas.width / this.canvas.height;
+
+      this.gl.useProgram(this.program);
+
+      this.gl.uniform2f(this.uniforms.resolution, this.canvas.width, this.canvas.height);
+      this.gl.uniform1f(this.uniforms.time, time);
+      this.gl.uniform1f(this.uniforms.aspect, aspect);
+      this.gl.uniform1f(this.uniforms.offsetX, offsetX);
+      this.gl.uniform1f(this.uniforms.offsetY, offsetY);
+      this.gl.uniform1f(this.uniforms.tunnelWidth, vg_gradientParams.tunnelWidth);
+      this.gl.uniform1f(this.uniforms.tunnelHeight, vg_gradientParams.tunnelHeight);
+      this.gl.uniform1f(this.uniforms.tunnelPerspective, vg_gradientParams.tunnelPerspective);
+      this.gl.uniform1f(this.uniforms.tunnelPositionZ, vg_gradientParams.tunnelPositionZ);
+      this.gl.uniform1f(this.uniforms.parallaxX, vg_gradientParams.parallaxX);
+      this.gl.uniform1f(this.uniforms.parallaxY, vg_gradientParams.parallaxY);
+      this.gl.uniform1f(this.uniforms.liquidSpeed, vg_gradientParams.liquidSpeed);
+
+      for (let i = 0; i < VG_MAX_COLORS; i++) {
+        const color = i < vg_gradientParams.colors.length ? vg_gradientParams.colors[i] : '#000000';
+        const rgb = vg_hexToRgb(color);
+        this.gl.uniform3fv(this.uniforms.colors[i], rgb);
+      }
+
+      this.gl.uniform1i(this.uniforms.colorCount, vg_gradientParams.colors.length);
+      this.gl.uniform1f(this.uniforms.speed, vg_gradientParams.speed);
+      this.gl.uniform1f(this.uniforms.brightness, vg_gradientParams.brightness);
+      this.gl.uniform1f(this.uniforms.gradientPower, vg_gradientParams.gradientPower);
+      this.gl.uniform1f(this.uniforms.bubbleFadeStart, vg_gradientParams.bubbleFadeStart);
+      this.gl.uniform1f(this.uniforms.bubbleFadeEnd, vg_gradientParams.bubbleFadeEnd);
+      this.gl.uniform1f(this.uniforms.bubbleDistThreshold, vg_gradientParams.bubbleDistThreshold);
+      this.gl.uniform1f(this.uniforms.flowScale, vg_gradientParams.flowScale);
+      this.gl.uniform1f(this.uniforms.bubbleCount, vg_gradientParams.bubbleCount);
+      this.gl.uniform1f(this.uniforms.cycleLength, vg_gradientParams.cycleLength);
+      this.gl.uniform1f(this.uniforms.bubbleSize, vg_gradientParams.bubbleSize);
+      this.gl.uniform1f(this.uniforms.viscosity, vg_gradientParams.viscosity);
+      this.gl.uniform1f(this.uniforms.surfaceTension, vg_gradientParams.surfaceTension);
+
+      this.gl.drawArrays(this.gl.TRIANGLES, 0, 6);
+    }
+  }
+
+  // ===== MEDIA CONFIGURATION =====
+  let VG_MEDIA_CONFIG_DESKTOP = {
+    'right-0': { x: 857, y: 58.5, z: 16, scale: 1.58, url: "assets/hero page vids/10.mp4" },
+    'right-1': { x: 655, y: 73, z: 16, scale: 1.63, url: "gallery/img and gif posts/обложка ai аватары.png" },
+    'right-2': { x: 478, y: 146, z: 16, scale: 2.86, url: "assets/hero page vids/8.mp4" },
+    'right-3': { x: 920, y: 219, z: 16, scale: 1.47, url: "assets/new hero content/Terminal.mp4" },
+    'right-4': { x: 735, y: 230, z: 16, scale: 1.51, url: "assets/hero page vids/16.mp4" },
+    'left-0': { x: -48.5, y: -285, z: 16, scale: 0.27, width: 450, height: 800, tagNumber: "9_1_1", url: "gallery/vids/Night serum final.mp4" },
+    'left-1': { x: 254.5, y: 43.5, z: 16, scale: 1, url: "assets/new hero content/Cards.png" },
+    'left-2': { x: 500.5, y: 140, z: 15, scale: 2.78, url: "assets/hero page vids/9_1_1.mp4" },
+    'left-3': { x: 149, y: 217, z: 16, scale: 1.45, url: "assets/hero page vids/17.mp4" },
+    'left-4': { x: 334, y: 194.5, z: 16, scale: 1.88, url: "assets/hero page vids/5_1.mp4" },
+    'floor-0': { x: 60, y: 733, z: 16, scale: 1.8, url: "assets/new hero content/Fun.png" },
+    'floor-1': { x: 202, y: 722, z: 16, scale: 2, url: "assets/new hero content/Coins hero.mp4" },
+    'floor-2': { x: 340, y: 732, z: 16, scale: 1.8, url: "assets/new hero content/Gamepad.png" },
+    'floor-3': { x: 112, y: 514, z: 16, scale: 1.6, url: "gallery/img and gif posts/Flowers.png" },
+    'floor-4': { x: 326, y: 502, z: 16, scale: 1.6, url: "assets/project cards/3D графика/Number 2.png" },
+    'ceiling-0': { x: 82, y: 129, z: 16, scale: 1.06, renderMultiplier: 5, url: "assets/project cards/3D графика/Hearts.png" },
+    'ceiling-1': { x: 201, y: 147, z: 16, scale: 1.46, url: "assets/hero page vids/18_1_1.mp4" },
+    'ceiling-2': { x: 318, y: 130, z: 16, scale: 1.09, url: "assets/new hero content/hands.png" },
+    'ceiling-3': { x: 91.5, y: 273, z: 16, scale: 1.5, url: "assets/hero page vids/7_3.mp4" },
+    'ceiling-4': { x: 312, y: 275, z: 16, scale: 1.08, url: "assets/hero page vids/1.1.mp4" },
+  };
+
+  let VG_MEDIA_CONFIG_MOBILE = {
+    'right-0': { x: 857, y: 58.5, z: 16, scale: 1.58, url: "assets/hero page vids/10.mp4" },
+    'right-1': { x: 655, y: 73, z: 16, scale: 1.63, url: "gallery/img and gif posts/обложка ai аватары.png" },
+    'right-2': { x: 478, y: 146, z: 16, scale: 2.86, url: "assets/hero page vids/8.mp4" },
+    'right-3': { x: 920, y: 219, z: 16, scale: 1.47, url: "assets/new hero content/Terminal.mp4" },
+    'right-4': { x: 735, y: 230, z: 16, scale: 1.51, url: "assets/hero page vids/16.mp4" },
+    'left-0': { x: -48.5, y: -285, z: 16, scale: 0.27, width: 450, height: 800, tagNumber: "9_1_1", url: "gallery/vids/Night serum final.mp4" },
+    'left-1': { x: 254.5, y: 43.5, z: 16, scale: 1, url: "assets/new hero content/Cards.png" },
+    'left-2': { x: 500.5, y: 140, z: 15, scale: 2.78, url: "assets/hero page vids/9_1_1.mp4" },
+    'left-3': { x: 149, y: 217, z: 16, scale: 1.45, url: "assets/hero page vids/17.mp4" },
+    'left-4': { x: 334, y: 194.5, z: 16, scale: 1.88, url: "assets/hero page vids/5_1.mp4" },
+    'floor-0': { x: 60, y: 733, z: 16, scale: 1.8, url: "assets/new hero content/Fun.png" },
+    'floor-1': { x: 202, y: 722, z: 16, scale: 2, url: "assets/project cards/3D графика/Terminal.png" },
+    'floor-2': { x: 340, y: 732, z: 16, scale: 1.8, url: "assets/new hero content/Gamepad.png" },
+    'floor-3': { x: 112, y: 514, z: 16, scale: 1.6, url: "assets/new hero content/Cards.png" },
+    'floor-4': { x: 326, y: 502, z: 16, scale: 1.6, url: "assets/project cards/3D графика/Number 2.png" },
+    'ceiling-0': { x: 82, y: 129, z: 16, scale: 1.06, renderMultiplier: 5, url: "assets/project cards/3D графика/Hearts.png" },
+    'ceiling-1': { x: 201, y: 147, z: 16, scale: 1.46, url: "assets/project cards/3D графика/Serum.png" },
+    'ceiling-2': { x: 318, y: 130, z: 16, scale: 1.09, url: "assets/new hero content/hands.png" },
+    'ceiling-3': { x: 91.5, y: 273, z: 16, scale: 1.5, url: "assets/hero page vids/7_3.mp4" },
+    'ceiling-4': { x: 312, y: 275, z: 16, scale: 1.08, url: "gallery/img and gif posts/обложка ai аватары.png" },
+  };
+
+  let VG_MEDIA_CONFIG = {};
+
+  // ===== GRID CONFIGURATION =====
+  const VG_PLANE_GRID_CONFIG = {
+    floor: {
+      remove: { horizontal: 3, vertical: 3 },
+      thickness: {
+        horizontal: [3.4, 3, 2.8, 2.6, 2.4, 1.6, 1, 1, 1, 1],
+        vertical: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+      },
+      behavior: { horizontal: 'remove-from-beginning', vertical: 'shorten-from-beginning' }
+    },
+    ceiling: {
+      remove: { horizontal: 3.2, vertical: 3.2 },
+      thickness: {
+        horizontal: [1, 1, 1.6, 1.8, 2.2, 2.8, 3, 3.2, 3.6, 1],
+        vertical: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+      },
+      behavior: { horizontal: 'remove-from-end', vertical: 'shorten-from-end' }
+    },
+    left: {
+      remove: { horizontal: 3.67, vertical: 3 },
+      thickness: {
+        horizontal: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+        vertical: [1, 1, 1, 1, 1.8, 2, 2.2, 2.8, 3.2, 1]
+      },
+      behavior: { horizontal: 'shorten-from-end', vertical: 'remove-from-end' }
+    },
+    right: {
+      remove: { horizontal: 2.99, vertical: 3 },
+      thickness: {
+        horizontal: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+        vertical: [3, 2.8, 2.2, 2, 1.8, 1, 1, 1, 1, 1]
+      },
+      behavior: { horizontal: 'shorten-from-beginning', vertical: 'remove-from-beginning' }
+    }
+  };
+
+  // ===== MEDIA MANAGER CLASS =====
+  class VG_SimpleMediaManager {
+    constructor() {
+      this.containers = new Map();
+      this.config = {};
+      this.initialConfig = new Map();
+      this.floorAdjustment = 0;
+      this.ceilingAdjustment = 0;
+      this.leftAdjustment = 0;
+      this.rightAdjustment = 0;
+      this.intersectionObserver = null;
+      this.videoElements = new Map(); // Track video elements for off-screen pause/resume
+    }
+
+    shouldSkipSideWalls() {
+      // Only skip side walls on very small screens to preserve video content
+      return VG_Device.isMobile && VG_Device.isPortrait && window.innerWidth < 480;
+    }
+
+    loadHardcodedMedia() {
+      syncActiveMediaConfig();
+
+      ['right', 'left', 'floor', 'ceiling'].forEach(wall => {
+        const wallElement = document.getElementById(`vg-wall-${wall}`);
+        if (wallElement) wallElement.innerHTML = '';
+      });
+
+      Object.keys(VG_MEDIA_CONFIG).forEach(containerId => {
+        const wallName = containerId.split('-')[0];
+        if (this.shouldSkipSideWalls() && (wallName === 'left' || wallName === 'right')) {
+          return;
+        }
+
+        const renderConfig = resolveMediaRenderConfig(VG_MEDIA_CONFIG[containerId]);
+        const container = this.createMediaContainer(containerId, renderConfig);
+        const wallElement = document.getElementById(`vg-wall-${wallName}`);
+        if (wallElement) wallElement.appendChild(container);
+        this.initialConfig.set(containerId, { ...renderConfig });
+      });
+
+      this.initializeTransforms();
+      this.setupIntersectionObserver();
+    }
+
+    createMediaContainer(containerId, config) {
+      const container = document.createElement('div');
+      container.className = 'vg-media-container';
+      container.dataset.containerId = containerId;
+      container.dataset.tagNumber = config.tagNumber || extractMediaTagNumber(config.url);
+      if (config.width) container.style.width = config.width + 'px';
+      if (config.height) container.style.height = config.height + 'px';
+
+      const wallName = containerId.split('-')[0];
+      let x = config.x;
+      let y = config.y;
+
+      if (wallName === 'floor') {
+        y += this.floorAdjustment;
+      } else if (wallName === 'ceiling') {
+        y += this.ceilingAdjustment;
+      } else if (wallName === 'left') {
+        x += this.leftAdjustment;
+      } else if (wallName === 'right') {
+        x += this.rightAdjustment;
+      }
+
+      container.style.left = x + 'px';
+      container.style.top = y + 'px';
+
+      const mediaElement = this.createMediaElement(config, containerId);
+      container.appendChild(mediaElement);
+
+      // Special handling for floor-1 GIF - apply width and position adjustments
+      if (containerId === 'floor-1' && needsVideoWorkaround()) {
+        const normalizedUrl = normalizeMediaUrl(config.url);
+        if (!isImageUrl(normalizedUrl) && videoToGifMapping[normalizedUrl]) {
+          // This is a GIF replacement for floor-1
+          container.style.width = '62px';
+          container.style.left = '242px';
+        }
+      }
+
+      this.config[containerId] = { ...config };
+      return container;
+    }
+
+    createMediaElement(config, containerId) {
+      const url = config.url;
+      const normalizedUrl = normalizeMediaUrl(url);
+      let isImage = isImageUrl(normalizedUrl);
+      let isGifReplacement = false;
+      
+      // Check if this is a video that should be replaced with GIF for problematic browsers
+      let actualUrl = url;
+      if (!isImage && needsVideoWorkaround() && videoToGifMapping[normalizedUrl]) {
+        actualUrl = videoToGifMapping[normalizedUrl];
+        isImage = true; // Treat GIF as image for proper element creation
+        isGifReplacement = true;
+      }
+
+      const element = document.createElement(isImage ? 'img' : 'video');
+
+      if (isImage) {
+        element.src = actualUrl;
+        element.alt = 'Media content';
+        element.loading = "eager";
+        element.decoding = "sync";
+        element.fetchPriority = "high";
+      } else {
+        element.autoplay = true;
+        element.muted = true;
+        element.loop = true;
+        element.playsInline = true;
+        element.preload = "auto";
+        const attemptPlayback = () => {
+          element.play().catch((error) => {
+            if (devModeEnabled) {
+              console.warn('Autoplay blocked for video:', url, error);
+            }
+          });
+        };
+
+        element.addEventListener('canplay', attemptPlayback, { once: true });
+        element.src = normalizedUrl;
+      }
+
+      element.style.width = '100%';
+      element.style.height = '100%';
+      element.style.objectFit = 'contain';
+      element.style.objectPosition = 'center center';
+      element.dataset.mediaUrl = url;
+
+      return element;
+    }
+
+    #getWallOffsets(wallName) {
+      return {
+        x: wallName === 'left' ? this.leftAdjustment : wallName === 'right' ? this.rightAdjustment : 0,
+        y: wallName === 'floor' ? this.floorAdjustment : wallName === 'ceiling' ? this.ceilingAdjustment : 0
+      };
+    }
+
+    updateMediaConfig(containerId, nextConfig) {
+      if (!VG_MEDIA_CONFIG[containerId]) return;
+
+      const mergedConfig = { ...VG_MEDIA_CONFIG[containerId], ...nextConfig };
+
+      ['width', 'height'].forEach((prop) => {
+        if (mergedConfig[prop] === '' || mergedConfig[prop] === null || Number.isNaN(mergedConfig[prop])) {
+          delete mergedConfig[prop];
+        }
+      });
+
+      if (!mergedConfig.tagNumber) {
+        delete mergedConfig.tagNumber;
+      }
+
+      const renderConfig = resolveMediaRenderConfig(mergedConfig);
+
+      VG_MEDIA_CONFIG[containerId] = mergedConfig;
+      getMediaConfigStoreForViewport()[containerId] = { ...mergedConfig };
+      this.initialConfig.set(containerId, { ...renderConfig });
+      this.config[containerId] = { ...renderConfig };
+
+      const container = document.querySelector(`[data-container-id="${containerId}"]`);
+      if (!container) {
+        this.loadHardcodedMedia();
+        return;
+      }
+
+      container.dataset.tagNumber = renderConfig.tagNumber || extractMediaTagNumber(renderConfig.url);
+      container.style.width = renderConfig.width ? renderConfig.width + 'px' : '';
+      container.style.height = renderConfig.height ? renderConfig.height + 'px' : '';
+
+      const wallName = containerId.split('-')[0];
+      const offsets = this.#getWallOffsets(wallName);
+      container.style.left = (renderConfig.x + offsets.x) + 'px';
+      container.style.top = (renderConfig.y + offsets.y) + 'px';
+
+      const currentMediaElement = container.querySelector('img, video');
+      const shouldReplaceMedia = !currentMediaElement ||
+        currentMediaElement.dataset.mediaUrl !== renderConfig.url ||
+        currentMediaElement.tagName.toLowerCase() !== (isImageUrl(renderConfig.url) ? 'img' : 'video');
+
+      if (shouldReplaceMedia) {
+        const newMediaElement = this.createMediaElement(renderConfig, containerId);
+
+        if (currentMediaElement) {
+          currentMediaElement.replaceWith(newMediaElement);
+        } else {
+          container.appendChild(newMediaElement);
+        }
+      }
+
+      // Special handling for floor-1 GIF - apply width and position adjustments
+      if (containerId === 'floor-1' && needsVideoWorkaround()) {
+        const normalizedUrl = normalizeMediaUrl(mergedConfig.url);
+        if (!isImageUrl(normalizedUrl) && videoToGifMapping[normalizedUrl]) {
+          // This is a GIF replacement for floor-1
+          container.style.width = '62px';
+          container.style.left = '292px';
+        } else {
+          // Reset to default for video
+          container.style.width = '';
+          container.style.left = '';
+        }
+      }
+
+      const transformState = this.containers.get(containerId) || { translateX: 0, translateY: 0 };
+      this.containers.set(containerId, {
+        translateX: transformState.translateX || 0,
+        translateY: transformState.translateY || 0,
+        translateZ: renderConfig.z || 0,
+        scale: renderConfig.scale || 1
+      });
+      this.updateContainerTransform(containerId);
+    }
+
+    initializeTransforms() {
+      this.containers.clear();
+      Object.keys(VG_MEDIA_CONFIG).forEach(key => {
+        if (!(this.shouldSkipSideWalls() && /^(left|right)/.test(key))) {
+          this.containers.set(key, {
+            translateX: 0,
+            translateY: 0,
+            translateZ: this.config[key].z || 0,
+            scale: this.config[key].scale || 1
+          });
+        }
+      });
+      this.updateAllTransforms();
+    }
+
+    updateAllTransforms() {
+      this.containers.forEach((_, key) => this.updateContainerTransform(key));
+    }
+
+    updateContainerTransform(key) {
+      const container = document.querySelector(`[data-container-id="${key}"]`);
+      if (!container) return;
+
+      const t = this.containers.get(key);
+      container.style.transform = `translate3d(${t.translateX}px, ${t.translateY}px, ${t.translateZ}px) scale(${t.scale})`;
+    }
+
+    adjustWallPositions(floorAdj, ceilingAdj, leftAdj, rightAdj) {
+      this.floorAdjustment = floorAdj;
+      this.ceilingAdjustment = ceilingAdj;
+      this.leftAdjustment = leftAdj;
+      this.rightAdjustment = rightAdj;
+
+      document.querySelectorAll('[data-container-id^="floor-"]').forEach(container => {
+        const containerId = container.dataset.containerId;
+        const initial = this.initialConfig.get(containerId);
+        if (initial) {
+          container.style.top = (initial.y + floorAdj) + 'px';
+        }
+      });
+
+      document.querySelectorAll('[data-container-id^="ceiling-"]').forEach(container => {
+        const containerId = container.dataset.containerId;
+        const initial = this.initialConfig.get(containerId);
+        if (initial) {
+          container.style.top = (initial.y + ceilingAdj) + 'px';
+        }
+      });
+
+      document.querySelectorAll('[data-container-id^="left-"]').forEach(container => {
+        const containerId = container.dataset.containerId;
+        const initial = this.initialConfig.get(containerId);
+        if (initial) {
+          container.style.left = (initial.x + leftAdj) + 'px';
+        }
+      });
+
+      document.querySelectorAll('[data-container-id^="right-"]').forEach(container => {
+        const containerId = container.dataset.containerId;
+        const initial = this.initialConfig.get(containerId);
+        if (initial) {
+          container.style.left = (initial.x + rightAdj) + 'px';
+        }
+      });
+    }
+
+    setupIntersectionObserver() {
+      if (this.intersectionObserver) {
+        this.intersectionObserver.disconnect();
+      }
+
+      this.intersectionObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          const video = entry.target;
+          const containerId = video.closest('[data-container-id]')?.dataset.containerId;
+
+          if (entry.isIntersecting) {
+            this.resumeVideo(video, containerId);
+          } else {
+            this.pauseVideo(video, containerId);
+          }
+        });
+      }, {
+        threshold: 0.1,
+        rootMargin: '50px'
+      });
+
+      document.querySelectorAll('.vg-video-gallery video').forEach((video) => {
+        this.intersectionObserver.observe(video);
+      });
+    }
+
+    pauseVideo(video) {
+      if (video && !video.paused) {
+        video.pause();
+      }
+    }
+
+    resumeVideo(video) {
+      if (!video) return;
+
+      if (video.paused && video.readyState >= 3) {
+        video.play().catch(() => {});
+      }
+    }
+  }
+
+  // ===== CONTROL MANAGER CLASS =====
+  class VG_ControlManager {
+    constructor(gridLineManager) {
+      this.gridLineManager = gridLineManager;
+      this.isMouseControlActive = true;
+      this.sceneX = 0;
+      this.sceneY = 0;
+      this.pendingMouseX = 0.5;
+      this.pendingMouseY = 0.5;
+      this.sceneFrame = null;
+      this.gradientOffsetX = 0;
+      this.gradientOffsetY = 0;
+    }
+
+    #calculateDependentValues(sceneX, sceneY, perspective) {
+      return {
+        leftWallZ: -298 + (sceneX / 96) * 11,
+        rightWallZ: -300 - (sceneX / 96) * 11,
+        ceilingZ: -160 - (sceneY / 53) * 6,
+        floorZ: -162 + (sceneY / 53) * 5,
+        leftGridWidth: 715 + (1171 - 715) * ((perspective - 100) / 630),
+        rightGridWidth: 640 + (1170 - 622) * ((perspective - 100) / 630)
+      };
+    }
+
+    updateScene() {
+      const perspective = 730;
+      const values = this.#calculateDependentValues(this.sceneX, this.sceneY, perspective);
+
+      setVgRuntimeCssVars({
+        '--vg-left-translateZ': values.leftWallZ + 'px',
+        '--vg-right-translateZ': values.rightWallZ + 'px',
+        '--vg-ceiling-translateZ': values.ceilingZ + 'px',
+        '--vg-floor-translateZ': values.floorZ + 'px',
+        '--vg-left-grid-width': values.leftGridWidth + 'px',
+        '--vg-right-grid-width': values.rightGridWidth + 'px',
+        '--vg-grid-color': '#151325',
+        '--vg-scene-translateX': this.sceneX + 'px',
+        '--vg-scene-translateY': this.sceneY + 'px'
+      });
+
+      this.gradientOffsetX = -this.sceneX * 0.7;
+      this.gradientOffsetY = this.sceneY * 0.7;
+
+      const backgroundLayer = document.getElementById('vg-background-layer');
+      if (backgroundLayer) {
+        const bgOffsetX = this.sceneX * 0.1;
+        const bgOffsetY = -this.sceneY * 0.1;
+        backgroundLayer.style.transform = `translate(${bgOffsetX}px, ${bgOffsetY}px)`;
+      }
+    }
+
+    #queueSceneUpdate() {
+      if (this.sceneFrame !== null) return;
+
+      this.sceneFrame = requestAnimationFrame(() => {
+        this.sceneFrame = null;
+        this.sceneX += ((this.pendingMouseX - 0.5) * 50 - this.sceneX) * 0.1;
+        this.sceneY += ((this.pendingMouseY - 0.5) * 45 - this.sceneY) * 0.1;
+        this.updateScene();
+      });
+    }
+
+    handleMouseMove(event) {
+      if (!this.isMouseControlActive || !VG_Device.isDesktop || document.body.classList.contains('vg-media-editor-open')) return;
+
+      this.pendingMouseX = event.clientX / window.innerWidth;
+      this.pendingMouseY = event.clientY / window.innerHeight;
+      this.#queueSceneUpdate();
+    }
+
+    toggleMouseControl() {
+      this.isMouseControlActive = !document.body.classList.contains('vg-media-editor-open');
+    }
+  }
+
+  // ===== MEDIA EDITOR =====
+  class VG_MediaEditor {
+    constructor(mediaManager) {
+      this.mediaManager = mediaManager;
+      this.containerIds = [];
+      this.selectedContainerId = null;
+      this.panelElement = null;
+      this.outputElement = null;
+      this.copyButton = null;
+      this.fields = {};
+      this.wasDevModeEnabled = devModeEnabled;
+
+      this.build();
+      this.bindHotkey();
+      this.refreshContainers();
+    }
+
+    build() {
+      const panel = document.createElement('aside');
+      panel.className = 'vg-media-editor';
+      panel.innerHTML = `
+        <div class="vg-media-editor__header">
+          <div class="vg-media-editor__title">Hero Media Editor</div>
+          <button type="button" class="vg-media-editor__button" data-action="close">Close</button>
+        </div>
+        <div class="vg-media-editor__hint">Press <strong>P</strong> to toggle. Number fields support arrow keys with a tiny step. Edit a URL directly to swap media for the selected container.</div>
+        <div class="vg-media-editor__grid">
+          <label class="vg-media-editor__field vg-media-editor__field--full">
+            <span class="vg-media-editor__label">Container</span>
+            <select class="vg-media-editor__select" data-field="containerId"></select>
+          </label>
+          <label class="vg-media-editor__field">
+            <span class="vg-media-editor__label">X</span>
+            <input class="vg-media-editor__input" data-field="x" type="number" step="0.1" />
+          </label>
+          <label class="vg-media-editor__field">
+            <span class="vg-media-editor__label">Y</span>
+            <input class="vg-media-editor__input" data-field="y" type="number" step="0.1" />
+          </label>
+          <label class="vg-media-editor__field">
+            <span class="vg-media-editor__label">Z</span>
+            <input class="vg-media-editor__input" data-field="z" type="number" step="0.1" />
+          </label>
+          <label class="vg-media-editor__field">
+            <span class="vg-media-editor__label">Scale</span>
+            <input class="vg-media-editor__input" data-field="scale" type="number" step="0.0025" />
+          </label>
+          <label class="vg-media-editor__field">
+            <span class="vg-media-editor__label">Width</span>
+            <input class="vg-media-editor__input" data-field="width" type="number" step="0.1" />
+          </label>
+          <label class="vg-media-editor__field">
+            <span class="vg-media-editor__label">Height</span>
+            <input class="vg-media-editor__input" data-field="height" type="number" step="0.1" />
+          </label>
+          <label class="vg-media-editor__field vg-media-editor__field--full">
+            <span class="vg-media-editor__label">Tag</span>
+            <input class="vg-media-editor__input" data-field="tagNumber" type="text" />
+          </label>
+          <label class="vg-media-editor__field vg-media-editor__field--full">
+            <span class="vg-media-editor__label">URL</span>
+            <input class="vg-media-editor__input" data-field="url" type="text" />
+          </label>
+        </div>
+        <div class="vg-media-editor__actions">
+          <button type="button" class="vg-media-editor__button vg-media-editor__button--primary" data-action="export">Export Settings</button>
+          <button type="button" class="vg-media-editor__button" data-action="copy">Copy Export</button>
+        </div>
+        <label class="vg-media-editor__field">
+          <span class="vg-media-editor__label">Export Output</span>
+          <textarea class="vg-media-editor__textarea" readonly data-field="exportOutput"></textarea>
+        </label>
+      `;
+
+      document.body.appendChild(panel);
+      this.panelElement = panel;
+      this.outputElement = panel.querySelector('[data-field="exportOutput"]');
+      this.copyButton = panel.querySelector('[data-action="copy"]');
+
+      const select = panel.querySelector('[data-field="containerId"]');
+      this.containerIds.forEach((containerId) => {
+        const option = document.createElement('option');
+        option.value = containerId;
+        option.textContent = containerId;
+        select.appendChild(option);
+      });
+
+      panel.querySelectorAll('[data-field]').forEach((field) => {
+        const fieldName = field.dataset.field;
+        this.fields[fieldName] = field;
+      });
+
+      select.addEventListener('change', () => {
+        this.selectedContainerId = select.value;
+        this.syncForm();
+      });
+
+      ['x', 'y', 'z', 'scale', 'width', 'height', 'tagNumber', 'url'].forEach((fieldName) => {
+        const input = this.fields[fieldName];
+        input.addEventListener('input', () => this.handleFieldInput(fieldName, input.value));
+      });
+
+      panel.querySelector('[data-action="close"]').addEventListener('click', () => this.toggle(false));
+      panel.querySelector('[data-action="export"]').addEventListener('click', () => this.exportSettings());
+      this.copyButton.addEventListener('click', () => this.copyExport());
+    }
+
+    bindHotkey() {
+      document.addEventListener('keydown', (event) => {
+        if ((event.key.toLowerCase() === 'p' || event.key.toLowerCase() === 'з') && !event.target.matches('input, textarea, select')) {
+          event.preventDefault();
+          this.toggle();
+        }
+      });
+    }
+
+    refreshContainers() {
+      this.containerIds = Object.keys(VG_MEDIA_CONFIG);
+      if (!this.containerIds.includes(this.selectedContainerId)) {
+        this.selectedContainerId = this.containerIds[0];
+      }
+
+      const select = this.fields.containerId;
+      select.innerHTML = '';
+      this.containerIds.forEach((containerId) => {
+        const option = document.createElement('option');
+        option.value = containerId;
+        option.textContent = containerId;
+        select.appendChild(option);
+      });
+
+      this.syncForm();
+    }
+
+    toggle(forceState) {
+      const shouldOpen = typeof forceState === 'boolean' ? forceState : !this.panelElement.classList.contains('active');
+      this.panelElement.classList.toggle('active', shouldOpen);
+      document.body.classList.toggle('vg-media-editor-open', shouldOpen);
+
+      if (shouldOpen) {
+        this.wasDevModeEnabled = devModeEnabled;
+        document.body.classList.add('dev-mode-active');
+        this.syncForm();
+      } else {
+        document.body.classList.toggle('dev-mode-active', this.wasDevModeEnabled);
+      }
+    }
+
+    syncForm() {
+      const config = VG_MEDIA_CONFIG[this.selectedContainerId];
+      if (!config) return;
+
+      this.fields.containerId.value = this.selectedContainerId;
+      this.fields.x.value = config.x ?? '';
+      this.fields.y.value = config.y ?? '';
+      this.fields.z.value = config.z ?? '';
+      this.fields.scale.value = config.scale ?? '';
+      this.fields.width.value = config.width ?? '';
+      this.fields.height.value = config.height ?? '';
+      this.fields.tagNumber.value = config.tagNumber ?? '';
+      this.fields.url.value = config.url ?? '';
+    }
+
+    handleFieldInput(fieldName, rawValue) {
+      const nextConfig = {};
+      if (['x', 'y', 'z', 'scale', 'width', 'height'].includes(fieldName)) {
+        nextConfig[fieldName] = rawValue === '' ? '' : parseFloat(rawValue);
+      } else {
+        nextConfig[fieldName] = fieldName === 'url' ? normalizeMediaUrl(rawValue) : rawValue;
+      }
+
+      this.mediaManager.updateMediaConfig(this.selectedContainerId, nextConfig);
+    }
+
+    serializeConfigEntry(containerId, config) {
+      const orderedFields = ['x', 'y', 'z', 'scale', 'width', 'height', 'tagNumber', 'url'];
+      const serializedFields = [];
+
+      orderedFields.forEach((fieldName) => {
+        if (config[fieldName] === undefined) return;
+
+        if (typeof config[fieldName] === 'number') {
+          serializedFields.push(`${fieldName}: ${formatConfigNumber(config[fieldName])}`);
+        } else {
+          serializedFields.push(`${fieldName}: "${escapeConfigString(config[fieldName])}"`);
+        }
+      });
+
+      return `    '${containerId}': { ${serializedFields.join(', ')} },`;
+    }
+
+    exportSettings() {
+      const lines = ['const VG_MEDIA_CONFIG = {'];
+      this.containerIds.forEach((containerId) => {
+        lines.push(this.serializeConfigEntry(containerId, VG_MEDIA_CONFIG[containerId]));
+      });
+      lines.push('  };');
+
+      this.outputElement.value = lines.join('\n');
+      this.outputElement.focus();
+      this.outputElement.select();
+    }
+
+    async copyExport() {
+      if (!this.outputElement.value) {
+        this.exportSettings();
+      }
+
+      try {
+        await navigator.clipboard.writeText(this.outputElement.value);
+        this.copyButton.textContent = 'Copied';
+        setTimeout(() => {
+          this.copyButton.textContent = 'Copy Export';
+        }, 1200);
+      } catch (error) {
+        this.outputElement.focus();
+        this.outputElement.select();
+      }
+    }
+  }
+
+  // ===== RESPONSIVE MANAGER CLASS =====
+  class VG_ResponsiveManager {
+    constructor(controlManager, mediaManager) {
+      this.controlManager = controlManager;
+      this.mediaManager = mediaManager;
+      this.orientation = this.#getOrientation();
+      this.init();
+    }
+
+    #getOrientation() {
+      return window.innerWidth > window.innerHeight ? 'landscape' : 'portrait';
+    }
+
+    init() {
+      this.updateResponsiveScale();
+      window.addEventListener('resize', this.#debounce(() => this.handleResize(), 100));
+      window.addEventListener('orientationchange', () => setTimeout(() => this.handleOrientationChange(), 300));
+    }
+
+    #debounce(fn, ms) {
+      let timer;
+      return (...args) => {
+        clearTimeout(timer);
+        timer = setTimeout(() => fn.apply(this, args), ms);
+      };
+    }
+
+    handleResize() {
+      const presetChanged = syncActiveMediaConfig();
+      const newOrientation = this.#getOrientation();
+      if (newOrientation !== this.orientation) {
+        this.orientation = newOrientation;
+        this.handleOrientationChange();
+      } else if (presetChanged) {
+        this.updateResponsiveScale();
+        this.mediaManager.loadHardcodedMedia();
+        this.applyIndividualLineThickness();
+      } else {
+        this.updateResponsiveScale();
+      }
+      vg_updateResponsiveGradientPower();
+    }
+
+    handleOrientationChange() {
+      this.updateResponsiveScale();
+      setTimeout(() => {
+        this.mediaManager.loadHardcodedMedia();
+        this.applyIndividualLineThickness();
+        vg_updateResponsiveGradientPower();
+      }, 100);
+    }
+
+    updateResponsiveScale() {
+      const isPortrait = this.orientation === 'portrait';
+      const { innerWidth: w, innerHeight: h } = window;
+
+      let scaleX = 1.2, scaleY = 1.2;
+      let floorAdj = 0, ceilingAdj = 0, leftAdj = 0, rightAdj = 0;
+
+      if (VG_Device.isMobile) {
+        if (isPortrait) {
+          scaleX = 0.8; scaleY = 1.1;
+          ceilingAdj = 20; rightAdj = 70;
+        } else {
+          if (w >= 932 && h >= 430) {
+            scaleX = 1.0; scaleY = 1.0;
+          } else if (w >= 844 && h >= 390) {
+            scaleX = 0.95; scaleY = 0.95;
+          } else if (w >= 768 && h >= 375) {
+            scaleX = 0.85; scaleY = 0.85;
+          } else {
+            scaleX = Math.max(0.7, 1.0 * (w / 1024));
+            scaleY = scaleX;
+          }
+        }
+        this.applyIndividualLineThickness();
+      } else {
+        if (w < 1024) { scaleX = 1.0; scaleY = 1.0; }
+        if (w < 768) { scaleX = 0.8; scaleY = 0.8; }
+        if (w < 480) { scaleX = 0.6; scaleY = 0.6; }
+      }
+
+      setVgRuntimeCssVars({
+        '--vg-scene-scaleX': scaleX,
+        '--vg-scene-scaleY': scaleY
+      });
+
+      if (VG_Device.isMobile) {
+        this.mediaManager.adjustWallPositions(floorAdj, ceilingAdj, leftAdj, rightAdj);
+      }
+    }
+
+    applyIndividualLineThickness() {
+      const lineThicknessVars = {};
+
+      Object.entries(VG_PLANE_GRID_CONFIG).forEach(([plane, config]) => {
+        ['horizontal', 'vertical'].forEach(direction => {
+          config.thickness[direction].forEach((value, index) => {
+            const prop = `--vg-${plane}-${direction}-line-${index + 1}`;
+            lineThicknessVars[prop] = value;
+          });
+        });
+      });
+
+      setVgRuntimeCssVars(lineThicknessVars);
+    }
+  }
+
+  // ===== GRID RENDERING FUNCTIONS =====
+  function vg_createGridLines() {
+    ['floor', 'right', 'left', 'ceiling'].forEach(vg_createGridForPlane);
+  }
+
+  function vg_createGridForPlane(plane) {
+    const planeEl = document.querySelector(`.vg-grid-${plane}-plane`);
+    if (!planeEl) return;
+
+    planeEl.innerHTML = '';
+
+    const styles = getVgComputedStyles();
+    const width = parseInt(styles.getPropertyValue(`--vg-${plane}-grid-width`));
+    const height = parseInt(styles.getPropertyValue(`--vg-${plane}-grid-height`));
+    const gridSizeX = parseInt(styles.getPropertyValue(`--vg-${plane}-grid-size-x`));
+    const gridSizeY = parseInt(styles.getPropertyValue(`--vg-${plane}-grid-size-y`));
+    const posX = parseInt(styles.getPropertyValue(`--vg-${plane}-grid-pos-x`));
+    const posY = parseInt(styles.getPropertyValue(`--vg-${plane}-grid-pos-y`));
+
+    const config = VG_PLANE_GRID_CONFIG[plane];
+    const removeHorizontal = config.remove.horizontal;
+    const removeVertical = config.remove.vertical;
+    const behaviorH = config.behavior.horizontal;
+    const behaviorV = config.behavior.vertical;
+
+    // Horizontal lines
+    let hLineIndex = 1;
+    if (behaviorH === 'remove-from-end') {
+      const effectiveHeight = height - (removeHorizontal * gridSizeY);
+      for (let y = 0; y <= effectiveHeight; y += gridSizeY) {
+        const line = document.createElement('div');
+        line.className = 'vg-grid-line horizontal';
+        line.style.top = (y + posY) + 'px';
+        line.style.width = '100%';
+        line.style.height = `calc(var(--vg-grid-line-width) * var(--vg-${plane}-horizontal-line-${hLineIndex++}))`;
+        planeEl.appendChild(line);
+      }
+    } else if (behaviorH === 'remove-from-beginning') {
+      const startY = removeHorizontal * gridSizeY;
+      for (let y = startY; y <= height; y += gridSizeY) {
+        const line = document.createElement('div');
+        line.className = 'vg-grid-line horizontal';
+        line.style.top = (y + posY) + 'px';
+        line.style.width = '100%';
+        line.style.height = `calc(var(--vg-grid-line-width) * var(--vg-${plane}-horizontal-line-${hLineIndex++}))`;
+        planeEl.appendChild(line);
+      }
+    } else if (behaviorH === 'shorten-from-beginning') {
+      const shortenAmount = removeHorizontal * gridSizeX;
+      for (let y = 0; y <= height; y += gridSizeY) {
+        const line = document.createElement('div');
+        line.className = 'vg-grid-line horizontal';
+        line.style.top = (y + posY) + 'px';
+        line.style.left = (posX + shortenAmount) + 'px';
+        line.style.width = (width - shortenAmount) + 'px';
+        line.style.height = `calc(var(--vg-grid-line-width) * var(--vg-${plane}-horizontal-line-${hLineIndex++}))`;
+        planeEl.appendChild(line);
+      }
+    } else if (behaviorH === 'shorten-from-end') {
+      const shortenAmount = removeHorizontal * gridSizeX;
+      for (let y = 0; y <= height; y += gridSizeY) {
+        const line = document.createElement('div');
+        line.className = 'vg-grid-line horizontal';
+        line.style.top = (y + posY) + 'px';
+        line.style.left = posX + 'px';
+        line.style.width = (width - shortenAmount) + 'px';
+        line.style.height = `calc(var(--vg-grid-line-width) * var(--vg-${plane}-horizontal-line-${hLineIndex++}))`;
+        planeEl.appendChild(line);
+      }
+    }
+
+    // Vertical lines
+    let vLineIndex = 1;
+    if (behaviorV === 'remove-from-end') {
+      const effectiveWidth = width - (removeVertical * gridSizeX);
+      for (let x = 0; x <= effectiveWidth; x += gridSizeX) {
+        const line = document.createElement('div');
+        line.className = 'vg-grid-line vertical';
+        line.style.left = (x + posX) + 'px';
+        line.style.height = '100%';
+        line.style.width = `calc(var(--vg-grid-line-width) * var(--vg-${plane}-vertical-line-${vLineIndex++}))`;
+        planeEl.appendChild(line);
+      }
+    } else if (behaviorV === 'remove-from-beginning') {
+      const startX = removeVertical * gridSizeX;
+      for (let x = startX; x <= width; x += gridSizeX) {
+        const line = document.createElement('div');
+        line.className = 'vg-grid-line vertical';
+        line.style.left = (x + posX) + 'px';
+        line.style.height = '100%';
+        line.style.width = `calc(var(--vg-grid-line-width) * var(--vg-${plane}-vertical-line-${vLineIndex++}))`;
+        planeEl.appendChild(line);
+      }
+    } else if (behaviorV === 'shorten-from-beginning') {
+      const shortenAmount = removeVertical * gridSizeY;
+      for (let x = 0; x <= width; x += gridSizeX) {
+        const line = document.createElement('div');
+        line.className = 'vg-grid-line vertical';
+        line.style.left = (x + posX) + 'px';
+        line.style.top = (posY + shortenAmount) + 'px';
+        line.style.height = (height - shortenAmount) + 'px';
+        line.style.width = `calc(var(--vg-grid-line-width) * var(--vg-${plane}-vertical-line-${vLineIndex++}))`;
+        planeEl.appendChild(line);
+      }
+    } else if (behaviorV === 'shorten-from-end') {
+      const shortenAmount = removeVertical * gridSizeY;
+      for (let x = 0; x <= width; x += gridSizeX) {
+        const line = document.createElement('div');
+        line.className = 'vg-grid-line vertical';
+        line.style.left = (x + posX) + 'px';
+        line.style.top = posY + 'px';
+        line.style.height = (height - shortenAmount) + 'px';
+        line.style.width = `calc(var(--vg-grid-line-width) * var(--vg-${plane}-vertical-line-${vLineIndex++}))`;
+        planeEl.appendChild(line);
+      }
+    }
+  }
+
+  function vg_calculateResponsiveGradientPower() {
+    const screenWidth = window.innerWidth;
+
+    if (screenWidth >= 1920) return 10.0;
+    else if (screenWidth >= 1200) return 8.5;
+    else if (screenWidth >= 1024) return 7.2;
+    else if (screenWidth >= 768) return 6.0;
+    else if (screenWidth >= 430) return 4.6;
+    else if (screenWidth >= 375) return 4.2;
+    else return 3.8;
+  }
+
+  function vg_updateResponsiveGradientPower() {
+    vg_gradientParams.gradientPower = vg_calculateResponsiveGradientPower();
+  }
+
+  // ===== PUBLIC API =====
+  return {
+    init: function() {
+      updateDevMode();
+      bindDevModeHotkey();
+      syncActiveMediaConfig(true);
+      ensureVgRuntimeStyleElement();
+
+      // Create gradient background
+      gradientBackground = new VG_GradientBackground();
+
+      // Create media manager
+      mediaManager = new VG_SimpleMediaManager();
+
+      // Create control manager
+      controlManager = new VG_ControlManager(null);
+
+      // Load media
+      mediaManager.loadHardcodedMedia();
+
+      // Create media editor
+      mediaEditor = new VG_MediaEditor(mediaManager);
+
+      // Initialize UI
+      this.initializeUI();
+
+      // Update scene FIRST to set CSS variables
+      controlManager.updateScene();
+
+      // Apply individual line thickness CSS variables
+      responsiveManager = new VG_ResponsiveManager(controlManager, mediaManager);
+      responsiveManager.applyIndividualLineThickness();
+
+      // Create initial grid AFTER CSS variables are set
+      vg_createGridLines();
+
+      // Set initial responsive gradient power
+      vg_updateResponsiveGradientPower();
+
+      // Individual video autoplay is now handled per video in createMediaElement()
+
+      // Start render loop
+      if (gradientBackground) {
+        const renderLoop = () => {
+          gradientBackground.render(controlManager.gradientOffsetX, controlManager.gradientOffsetY);
+          requestAnimationFrame(renderLoop);
+        };
+        renderLoop();
+      }
+    },
+
+    initializeUI: function() {
+      if (VG_Device.isDesktop) {
+        const videoGallery = document.querySelector('.vg-video-gallery');
+        if (videoGallery) {
+          videoGallery.addEventListener('pointermove', (event) => {
+            controlManager.handleMouseMove(event);
+          }, { passive: true });
+
+          videoGallery.addEventListener('pointerenter', (event) => {
+            controlManager.handleMouseMove(event);
+          }, { passive: true });
+        }
+      }
+    },
+
+    // Public access to managers for debugging
+    getManagers: function() {
+      return {
+        gradientBackground,
+        controlManager,
+        mediaManager,
+        responsiveManager,
+        mediaEditor
+      };
+    }
+  };
+})();
+  </script>
+
+  <script>
+/**
+ * Vlad Dmitrishin Portfolio - Main JavaScript
+ * Modular architecture for better maintainability
+ */
+
+// ===== CONFIGURATION =====
+const CONFIG = {
+  starSystem: {
+    starCount: 30,
+    baseSize: 4,
+    animationDuration: 4
+  },
+  videoGallery: {
+    perspective: 730,
+    sceneScale: { x: 1.2, y: 1.2 },
+    gridColor: '#151325'
+  },
+  responsive: {
+    breakpoints: {
+      mobile: 767,
+      tablet: 979,
+      desktop: 1024
+    }
+  }
+};
+
+// ===== UTILITY FUNCTIONS =====
+const Utils = {
+  /**
+   * Debounce function for performance optimization
+   */
+  debounce: (func, wait) => {
+    let timeout;
+    return function executedFunction(...args) {
+      const later = () => {
+        clearTimeout(timeout);
+        func(...args);
+      };
+      clearTimeout(timeout);
+      timeout = setTimeout(later, wait);
+    };
+  },
+
+  /**
+   * Check if device is mobile/tablet
+   */
+  getDeviceType: () => {
+    const width = window.innerWidth;
+    if (width <= CONFIG.responsive.breakpoints.mobile) return 'mobile';
+    if (width <= CONFIG.responsive.breakpoints.tablet) return 'tablet';
+    return 'desktop';
+  },
+
+  /**
+   * Safe DOM query with error handling
+   */
+  querySelector: (selector) => {
+    try {
+      return document.querySelector(selector);
+    } catch (error) {
+      console.error(`Error querying selector "${selector}":`, error);
+      return null;
+    }
+  },
+
+  /**
+   * Add event listener with error handling
+   */
+  addEventListener: (element, event, handler) => {
+    if (!element) return;
+    try {
+      element.addEventListener(event, handler);
+    } catch (error) {
+      console.error(`Error adding ${event} listener:`, error);
+    }
+  }
+};
+
+// ===== STAR SYSTEM MODULE =====
+const StarSystem = {
+  config: CONFIG.starSystem,
+
+  /**
+   * Initialize star system
+   */
+  init: function() {
+    const container = Utils.querySelector('#stars-container');
+    if (!container) return;
+
+    // Optimize for weak devices
+    this.optimizeForDevice();
+
+    const stars = this.generateStars();
+    container.appendChild(stars);
+  },
+
+  /**
+   * Optimize star system for weak devices
+   */
+  optimizeForDevice: function() {
+    const isWeakDevice = this.detectWeakDevice();
+
+    if (isWeakDevice) {
+      // Reduce star count significantly on weak devices
+      this.config.starCount = Math.min(this.config.starCount, 15);
+
+      // Disable complex animations
+      document.documentElement.style.setProperty('--star-animation-duration', '8s');
+      document.documentElement.style.setProperty('--star-twinkle-disabled', 'true');
+    }
+  },
+
+  /**
+   * Detect weak devices for optimization
+   */
+  detectWeakDevice: function() {
+    const connection = navigator.connection ||
+                      navigator.mozConnection ||
+                      navigator.webkitConnection;
+
+    const isSlowConnection = connection &&
+                            (connection.effectiveType === 'slow-2g' ||
+                             connection.effectiveType === '2g');
+
+    const isOldDevice = /Android [2-6]|iPhone OS [1-9]|Windows Phone/i.test(navigator.userAgent);
+
+    const hasLowMemory = navigator.deviceMemory && navigator.deviceMemory < 4;
+
+    return isSlowConnection || isOldDevice || hasLowMemory;
+  },
+
+  /**
+   * Generate star elements using procedural algorithm
+   */
+  generateStars: function() {
+    const fragment = document.createDocumentFragment();
+    const starConfigs = this.generateProceduralStarConfigs();
+
+    starConfigs.forEach(config => {
+      const star = this.createStar(config);
+      fragment.appendChild(star);
+    });
+
+    return fragment;
+  },
+
+  /**
+   * Generate star configurations procedurally for better performance and maintainability
+   * @returns {Array<Object>} Array of star configuration objects with position, size, speed, and delay properties
+   */
+  generateProceduralStarConfigs: function() {
+    const configs = [];
+    const { starCount } = this.config;
+
+    // Pre-calculated star positions for consistent visual distribution
+    const positions = [
+      { y: 10, x: 15, size: 'small', speed: 'fast' },
+      { y: 8, x: 50, size: 'medium', speed: 'slow', center: true },
+      { y: 12, x: 80, size: 'small' },
+      { y: 35, x: 10, size: 'large' },
+      { y: 40, x: 50, size: 'medium', center: true },
+      { y: 38, x: 85, size: 'small', speed: 'fast' },
+      { y: 65, x: 20, size: 'medium', speed: 'slow' },
+      { y: 70, x: 50, size: 'large', center: true },
+      { y: 68, x: 75, size: 'small' },
+      { y: 85, x: 50, size: 'medium', speed: 'fast', center: true },
+      { y: 6, x: 25, size: 'small' },
+      { y: 5, x: 60, size: 'medium', speed: 'fast', center: true },
+      { y: 9, x: 70, size: 'small', speed: 'slow' },
+      { y: 20, x: 12, size: 'large' },
+      { y: 22, x: 45, size: 'medium', center: true },
+      { y: 18, x: 75, size: 'small', speed: 'fast' },
+      { y: 45, x: 8, size: 'medium', speed: 'slow' },
+      { y: 48, x: 55, size: 'large', center: true },
+      { y: 42, x: 82, size: 'small' },
+      { y: 55, x: 18, size: 'medium', speed: 'fast' },
+      { y: 58, x: 70, size: 'large', speed: 'slow', center: true },
+      { y: 52, x: 65, size: 'small' },
+      { y: 75, x: 25, size: 'medium' },
+      { y: 78, x: 40, size: 'large', speed: 'fast', center: true },
+      { y: 72, x: 60, size: 'small', speed: 'slow' },
+      { y: 88, x: 30, size: 'medium' },
+      { y: 90, x: 65, size: 'large', center: true },
+      { y: 85, x: 55, size: 'small', speed: 'fast' },
+      { y: 30, x: 5, size: 'medium', speed: 'slow' },
+      { y: 60, x: 95, size: 'large' }
+    ];
+
+    // Generate procedural delays for animation staggering
+    for (let i = 0; i < Math.min(starCount, positions.length); i++) {
+      const config = { ...positions[i] };
+      config.delay = this.calculateStarDelay(i, starCount);
+      configs.push(config);
+    }
+
+    return configs;
+  },
+
+  /**
+   * Calculate animation delay for star staggering
+   * @param {number} index - The star index in the array
+   * @param {number} total - Total number of stars
+   * @returns {number} Animation delay in seconds
+   */
+  calculateStarDelay: function(index, total) {
+    // Create natural staggering pattern
+    const baseDelays = [0, 0, 1, 0, 2.5, 0, 0, 1, 0, 0, 1, 0, 0, 0, 2.5, 0, 0, 1, 0, 0, 0, 1, 2.5, 0, 0, 0, 1, 0, 0, 2.5];
+    return baseDelays[index] || 0;
+  },
+
+  /**
+   * Create individual star element with CSS custom properties
+   * @param {Object} config - Star configuration object
+   * @param {string} config.size - Star size class ('small', 'medium', 'large')
+   * @param {string} [config.speed] - Optional speed class ('fast', 'slow')
+   * @param {number} config.y - Vertical position as percentage
+   * @param {number} config.x - Horizontal position as percentage
+   * @param {boolean} [config.center] - Whether star should be centered
+   * @param {number} [config.delay] - Animation delay in seconds
+   * @returns {HTMLElement} The created star element
+   */
+  createStar: function(config) {
+    const star = document.createElement('div');
+    let classes = ['star', config.size];
+    if (config.speed) classes.push(config.speed);
+    star.className = classes.join(' ');
+
+    star.style.setProperty('--y', `${config.y}%`);
+    star.style.setProperty('--x', `${config.x}%`);
+    if (config.center) star.setAttribute('data-center', 'true');
+    if (config.delay) star.style.setProperty('--delay', `${config.delay}s`);
+
+    return star;
+  }
+};
+
+// ===== CONTACT SYSTEM MODULE =====
+const ContactSystem = {
+  /**
+   * Initialize contact functionality
+   */
+  init: function() {
+    this.initCopyToClipboard();
+    this.initHoverEffects();
+  },
+
+  /**
+   * Initialize copy to clipboard functionality
+   */
+  initCopyToClipboard: function() {
+    const contactItem = Utils.querySelector('.contact-item');
+    const emailText = Utils.querySelector('.contact-text')?.innerText;
+    const feedback = Utils.querySelector('.copy-feedback');
+
+    if (!contactItem || !emailText || !feedback) return;
+
+    Utils.addEventListener(contactItem, 'click', () => {
+      this.copyToClipboard(emailText, feedback);
+    });
+  },
+
+  /**
+   * Copy text to clipboard with fallback
+   */
+  copyToClipboard: async function(text, feedback) {
+    try {
+      if (navigator.clipboard && window.isSecureContext) {
+        await navigator.clipboard.writeText(text);
+        this.showFeedback(feedback);
+      } else {
+        this.fallbackCopyText(text, feedback);
+      }
+    } catch (error) {
+      console.error('Clipboard API failed, trying fallback:', error);
+      this.fallbackCopyText(text, feedback);
+    }
+  },
+
+  /**
+   * Fallback copy method for older browsers
+   */
+  fallbackCopyText: function(text, feedback) {
+    const textArea = document.createElement("textarea");
+    textArea.value = text;
+
+    textArea.style.position = "fixed";
+    textArea.style.left = "-9999px";
+
+    document.body.appendChild(textArea);
+    textArea.focus();
+    textArea.select();
+
+    try {
+      const successful = document.execCommand('copy');
+      if (successful) {
+        this.showFeedback(feedback);
+      } else {
+        console.error('Fallback: Unable to copy');
+      }
+    } catch (error) {
+      console.error('Fallback: Oops, unable to copy', error);
+    }
+
+    document.body.removeChild(textArea);
+  },
+
+  /**
+   * Show copy feedback tooltip
+   */
+  showFeedback: function(feedback) {
+    if (!feedback) return;
+
+    feedback.classList.add('visible');
+    setTimeout(() => {
+      feedback.classList.remove('visible');
+    }, 600);
+  },
+
+  /**
+   * Initialize hover effects for contact items
+   */
+  initHoverEffects: function() {
+    const contactProfile = Utils.querySelector('.contact-profile');
+    const contactItem = Utils.querySelector('.contact-item');
+    const contactText = Utils.querySelector('.contact-text');
+
+    if (!contactProfile || !contactItem || !contactText) return;
+
+    const triggerHover = () => {
+      contactItem.style.transform = 'scale(1.05)';
+      contactText.style.textDecoration = 'underline';
+      contactText.style.textDecorationColor = '#FFFFFF';
+      contactText.style.textDecorationThickness = '2px';
+      contactText.style.textUnderlineOffset = '6px';
+    };
+
+    const resetHover = () => {
+      contactItem.style.transform = '';
+      contactText.style.textDecoration = '';
+      contactText.style.textDecorationColor = '';
+      contactText.style.textDecorationThickness = '';
+      contactText.style.textUnderlineOffset = '';
+    };
+
+    Utils.addEventListener(contactProfile, 'mouseenter', triggerHover);
+    Utils.addEventListener(contactProfile, 'mouseleave', resetHover);
+  }
+};
+
+// ===== RESPONSIVE GRID SYSTEM =====
+const ResponsiveGrid = {
+  grids: ['scalable-grid-1', 'scalable-grid-2', 'scalable-grid-3', 'scalable-grid-4', 'scalable-grid-5', 'scalable-grid-6'],
+
+  /**
+   * Initialize responsive grid scaling
+   */
+  init: function() {
+    this.updateScale();
+    this.bindResizeHandler();
+  },
+
+  /**
+   * Update grid scaling based on viewport width
+   * @param {number} [viewportWidth] - Optional viewport width override
+   */
+  updateScale: function(viewportWidth) {
+    viewportWidth = viewportWidth || window.innerWidth;
+    const scale = this.calculateAutoScale(viewportWidth);
+
+    this.grids.forEach(gridId => {
+      const grid = Utils.querySelector(`#${gridId}`);
+      if (grid) {
+        grid.style.setProperty('--scale', scale);
+      }
+    });
+  },
+
+  /**
+   * Calculate automatic scale based on viewport width
+   */
+  calculateAutoScale: function(viewportWidth) {
+    // Desktop: full size
+    if (viewportWidth >= 978) return 1.0;
+
+    // Define scaling segments
+    const segments = [
+      { x1: 322, y1: 0.50, x2: 390, y2: 0.68, name: "Mobile min to mid" },
+      { x1: 390, y1: 0.68, x2: 440, y2: 0.77, name: "Mobile mid to high" },
+      { x1: 440, y1: 0.77, x2: 767, y2: 1.44, name: "Mobile high to end" },
+      { x1: 768, y1: 1.36, x2: 800, y2: 1.46, name: "Tablet start to mid" },
+      { x1: 800, y1: 1.46, x2: 978, y2: 1.82, name: "Tablet mid to end" }
+    ];
+
+    // Calculate slopes for linear interpolation
+    segments.forEach(segment => {
+      segment.slope = (segment.y2 - segment.y1) / (segment.x2 - segment.x1);
+    });
+
+    // Find applicable segment
+    let selectedSegment = null;
+
+    if (viewportWidth >= 322 && viewportWidth < 390) {
+      selectedSegment = segments[0];
+    } else if (viewportWidth >= 390 && viewportWidth < 440) {
+      selectedSegment = segments[1];
+    } else if (viewportWidth >= 440 && viewportWidth < 767) {
+      selectedSegment = segments[2];
+    } else if (viewportWidth === 767) {
+      return 1.44;
+    } else if (viewportWidth === 768) {
+      return 1.36;
+    } else if (viewportWidth > 768 && viewportWidth < 800) {
+      selectedSegment = segments[3];
+    } else if (viewportWidth >= 800 && viewportWidth < 978) {
+      selectedSegment = segments[4];
+    }
+
+    if (selectedSegment) {
+      return selectedSegment.y1 + selectedSegment.slope * (viewportWidth - selectedSegment.x1);
+    }
+
+    // Edge cases
+    if (viewportWidth < 322) return 0.85; // Mobile min: scale up from smaller base
+
+    return 1.0;
+  },
+
+  /**
+   * Bind resize event handler
+   */
+  bindResizeHandler: function() {
+    const debouncedUpdate = Utils.debounce(() => this.updateScale(), 100);
+    Utils.addEventListener(window, 'resize', debouncedUpdate);
+  }
+};
+
+// ===== VIDEO GALLERY SYSTEM =====
+// This is a complex system that requires the WebGL shader code
+// It will be implemented in a separate module file for better organization
+
+// ===== INITIALIZATION =====
+document.addEventListener('DOMContentLoaded', function() {
+  // Initialize all systems
+  StarSystem.init();
+  ContactSystem.init();
+  ResponsiveGrid.init();
+
+  // Initialize Video Gallery (complex system)
+  if (typeof VideoGallery !== 'undefined') {
+    VideoGallery.init();
+  } else {
+    console.warn('VideoGallery module not loaded, skipping initialization');
+  }
+});
+
+// ===== EXPORTS FOR MODULAR USE =====
+if (typeof module !== 'undefined' && module.exports) {
+  module.exports = {
+    StarSystem,
+    ContactSystem,
+    ResponsiveGrid,
+    Utils,
+    CONFIG
+  };
+}
+  </script>
+
+  <!-- Service Worker Registration (Blob-based for single file) -->
+  <script>
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', function() {
+    navigator.serviceWorker.getRegistrations()
+      .then(function(registrations) {
+        return Promise.all(registrations.map(function(registration) {
+          return registration.unregister();
+        }));
+      })
+      .catch(function(error) {
+        console.log('[SW] Unregister failed:', error);
+      });
+
+    if ('caches' in window) {
+      caches.keys()
+        .then(function(cacheNames) {
+          return Promise.all(
+            cacheNames
+              .filter(function(cacheName) {
+                return cacheName.startsWith('portfolio-');
+              })
+              .map(function(cacheName) {
+                return caches.delete(cacheName);
+              })
+          );
+        })
+        .catch(function(error) {
+          console.log('[SW] Cache cleanup failed:', error);
+        });
+    }
+  });
+}
+  </script>
+</body>
+</html>

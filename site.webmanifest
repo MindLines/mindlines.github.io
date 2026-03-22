@@ -1,0 +1,19 @@
+{
+  "name": "Владислав Дмитришин - Моушн-дизайн портфолио",
+  "short_name": "Владислав Дмитришин - Моушн-дизайн портфолио",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0D0C10",
+  "theme_color": "#b2ff26",
+  "icons": [
+    {
+      "src": "assets/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["portfolio", "design", "motion-graphics"],
+  "lang": "ru",
+  "dir": "ltr"
+}

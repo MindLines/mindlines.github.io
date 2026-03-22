@@ -1,0 +1,2312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D промо для мобильных игр</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg" />
+    <link rel="apple-touch-icon" sizes="180x180" href="../assets/favicon.svg" />
+    <link rel="manifest" href="../site.webmanifest" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Montserrat:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet" />
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+body {
+    background-color: #0D0C10;
+    background-image: url('../assets/noise.png');
+    background-repeat: repeat;
+    background-size: 220px 220px;
+    color: #FFFFFF;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    font-weight: 320;
+    line-height: 1.21;
+    min-height: 100vh;
+    padding: 20px 0;
+    position: relative;
+    transition: background-color 0.1s;
+}
+
+/* ===== STAR SYSTEM ===== */
+body::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 700px;
+    background: linear-gradient(to top,
+      rgba(22, 15, 44, 0.5) 0%,
+      rgba(22, 15, 44, 0.4) 30%,
+      rgba(22, 15, 44, 0.3) 60%,
+      rgba(22, 15, 44, 0) 100%
+    );
+    pointer-events: none;
+    z-index: 0;
+    opacity: 1;
+}
+
+.stars-container {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 700px;
+    pointer-events: none;
+    z-index: 0;
+    overflow: hidden;
+}
+
+.star {
+    position: absolute;
+    top: var(--y, 0);
+    left: var(--x, 0);
+    width: var(--size, 4px);
+    height: var(--size, 4px);
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' preserveAspectRatio='xMidYMid meet'%3E%3Cpath d='M50 0 L56 44 L100 50 L56 56 L50 100 L44 56 L0 50 L44 44 Z' fill='white'/%3E%3C/svg%3E");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: transparent;
+    animation: twinkle var(--duration, 4s) ease-in-out infinite var(--delay, 0s);
+    opacity: 1;
+    filter: drop-shadow(0 0 2px rgba(255, 255, 255, 0.4));
+    will-change: transform, opacity;
+}
+
+.star[data-center="true"] {
+    margin-left: calc(var(--size) / -2);
+}
+
+.star.small { --size: 3px; }
+.star.medium { --size: 6px; }
+.star.large { --size: 9px; }
+.star.fast { --duration: 3s; }
+.star.slow { --duration: 6s; }
+
+@keyframes twinkle {
+    0%, 100% { opacity: 0.2; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(1.2); }
+}
+
+        /* Prevent body from scrolling when modals are open */
+        body.modal-open {
+            overflow: hidden;
+            width: 100%;
+            padding-right: var(--scrollbar-width, 0px);
+        }
+
+        /* Custom scrollbar styling for consistent dark theme */
+        /* Webkit browsers (Chrome, Safari, Edge) */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #0D0C10; /* Match body background */
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #333333; /* Dark gray thumb */
+            border-radius: 4px;
+            border: 1px solid #0D0C10; /* Match track color */
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #555555; /* Lighter on hover */
+        }
+
+        ::-webkit-scrollbar-corner {
+            background: #0D0C10; /* Match body background */
+        }
+
+        /* Firefox */
+        * {
+            scrollbar-width: thin;
+            scrollbar-color: #333333 #0D0C10; /* thumb color, track color */
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1040px;
+            margin: 0 auto;
+            padding: 156px 20px 40px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .text-content {
+            max-width: 886px;
+            margin: 0 auto;
+        }
+
+        /* Navigation Bar Styles */
+        .navigation-bar {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            border-bottom: 1px solid #212121;
+            z-index: 10;
+        }
+
+        .nav-container {
+            max-width: 100%;
+            margin: 0 auto;
+            padding: 20px 60px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 80px;
+        }
+
+        .nav-link {
+            color: #FFFFFF;
+            text-decoration: none;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            font-size: 18px;
+            font-weight: 300;
+            font-variation-settings: "wght" 300;
+            transition: color 0.3s ease;
+            cursor: pointer;
+            padding: 8px 16px;
+            border-radius: 4px;
+            position: relative;
+            text-underline-offset: 8px;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 8px;
+            right: 8px;
+            height: 1px;
+            background-color: #b2ff26;
+            opacity: 0;
+            transition: opacity 0.2s ease;
+        }
+
+        .nav-link:hover {
+            color: #b2ff26;
+        }
+
+        .nav-link:hover::after {
+            opacity: 1;
+        }
+
+        .gallery-link {
+            color: #FFFFFF;
+        }
+
+        .gallery-link:hover {
+            color: #b2ff26;
+        }
+
+        /* Gallery link always has underline, unless any other link is hovered */
+        .nav-container:not(.link-hovered) .gallery-link::after {
+            opacity: 1;
+            transition: opacity 0.8s ease;
+        }
+
+        /* Delay gallery underline reappearance */
+        .nav-container.link-hovered .gallery-link::after {
+            transition: opacity 0.2s ease;
+        }
+
+        /* Content spacing */
+        .container h1 {
+            margin-bottom: 50px;
+        }
+
+        /* Content layout */
+        .content-layout {
+            display: flex;
+            gap: 80px;
+            align-items: flex-start;
+        }
+
+        .description-section {
+            flex: 1;
+            max-width: 48%;
+        }
+
+        .description-section p {
+            font-size: 16px;
+            line-height: 26px;
+            color: #FFFFFF;
+            font-weight: 300;
+            font-variation-settings: "wght" 300;
+            margin: 0;
+        }
+
+        /* Modal columns styles */
+        .modal-columns {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+            width: 300px;
+            flex-shrink: 0;
+        }
+
+        .column {
+            flex: none;
+        }
+
+        .post-tools-label {
+            font-size: 16px;
+            line-height: 22px;
+            color: #9a9a9a;
+            font-weight: 300;
+            font-variation-settings: "wght" 300;
+        }
+
+        .post-tools-content {
+            font-size: 16px;
+            line-height: 22px;
+            color: #FFFFFF;
+            font-weight: 300;
+            font-variation-settings: "wght" 300;
+            margin-top: 4px;
+            margin-bottom: 8px;
+        }
+
+        .post-category-label {
+            font-size: 16px;
+            line-height: 22px;
+            color: #9a9a9a;
+            font-weight: 300;
+            font-variation-settings: "wght" 300;
+        }
+
+        .post-category-content {
+            font-size: 16px;
+            line-height: 22px;
+            color: #FFFFFF;
+            font-weight: 300;
+            font-variation-settings: "wght" 300;
+            margin-top: 4px;
+        }
+
+        .additional-description {
+            font-size: 16px;
+            line-height: 26px;
+            color: #FFFFFF;
+            font-weight: 300;
+            font-variation-settings: "wght" 300;
+            margin: 68px 0 0 0;
+            max-width: 68%;
+        }
+
+        /* Tablet layout adjustments */
+        @media (max-width: 979px) and (min-width: 768px) {
+            .content-layout {
+                flex-direction: column;
+                gap: 40px;
+            }
+
+            .description-section {
+                max-width: none;
+            }
+
+            .modal-columns {
+                width: 100%;
+                flex-direction: row;
+                gap: 72px;
+                margin-top: 0;
+            }
+        }
+
+        /* Image Gallery Styles */
+        .image-gallery {
+            width: 100%;
+            max-width: 1040px;
+            margin: 68px auto 0;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+        }
+
+        .image-item {
+            position: relative;
+            border-radius: 8px;
+            background: #1a1a1a;
+            transition: transform 0.3s ease;
+            overflow: hidden;
+            aspect-ratio: 1;
+        }
+
+        .image-item:hover {
+            transform: translateY(-4px);
+        }
+
+        /* Video stacking for smooth transitions */
+        .image-item video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 6px;
+        }
+
+        .video-primary {
+            z-index: 2;
+        }
+
+
+
+        .case-image {
+            width: 100%;
+            height: 100%;
+            display: block;
+            object-fit: cover;
+            object-position: center;
+            transition: transform 0.3s ease;
+            border-radius: 6px;
+            transform-origin: center;
+        }
+
+        /* Videos need to be responsive and fill their containers */
+        .case-image.video-primary,
+        .case-image.video-secondary {
+            width: 100% !important;
+            height: 100% !important;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        .image-item:hover .case-image {
+            transform: scale(1.02);
+        }
+
+
+
+        .description-item {
+            font-size: 16px;
+            line-height: 22px;
+            color: #9a9a9a;
+            font-weight: 300;
+            font-variation-settings: "wght" 300;
+            text-align: center;
+        }
+
+        /* Video Gallery Styles */
+        .video-gallery {
+            width: 100%;
+            max-width: 1040px;
+            margin: 68px auto 0;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+        }
+
+        /* Video containers need dimensions for videos to fill */
+        .video-gallery .image-item {
+            aspect-ratio: 1;
+        }
+
+        .gallery-pair {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        /* Tablet layout adjustments */
+        @media (max-width: 979px) and (min-width: 768px) {
+            .content-layout {
+                flex-direction: column;
+                gap: 40px;
+            }
+
+            .description-section {
+                max-width: none;
+            }
+
+            .modal-columns {
+                width: 100%;
+                flex-direction: row;
+                gap: 72px;
+                margin-top: 0;
+            }
+
+            .image-gallery {
+                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+                gap: 20px;
+            }
+        }
+
+        /* Assets Section Styles */
+        .assets-section {
+            padding: 142px 20px 40px;
+        }
+
+        .assets-section h3 {
+            font-size: 28px;
+            font-weight: 400;
+            font-variation-settings: "wght" 400;
+            color: #FFFFFF;
+            line-height: 1.21;
+            margin: 0 0 24px 0;
+        }
+
+        .assets-section p {
+            font-size: 16px;
+            line-height: 26px;
+            color: #FFFFFF;
+            font-weight: 300;
+            font-variation-settings: "wght" 300;
+            margin: 0;
+        }
+
+        .bold-text {
+            font-weight: 600;
+            font-variation-settings: "wght" 600;
+        }
+
+        /* Horizontal Image Section Styles */
+        .horizontal-image-section {
+            width: 100%;
+            max-width: 1040px;
+            margin: 68px auto 0;
+            padding: 0 20px;
+        }
+
+        .horizontal-image-container {
+            width: 100%;
+            border-radius: 8px;
+            overflow: hidden;
+            background: #1a1a1a;
+            transition: transform 0.3s ease;
+        }
+
+        .horizontal-image-container:hover {
+            transform: translateY(-4px);
+        }
+
+        .horizontal-image {
+            width: 100%;
+            height: auto;
+            display: block;
+            object-fit: cover;
+            object-position: center;
+            transition: transform 0.3s ease;
+            transform-origin: center;
+        }
+
+        .horizontal-image-container:hover .horizontal-image {
+            transform: scale(1.02);
+        }
+
+        /* Three Image Gallery Styles */
+        .three-image-gallery {
+            grid-template-columns: repeat(3, 1fr);
+        }
+
+        /* Three Video Gallery Styles */
+        .three-video-gallery {
+            grid-template-columns: repeat(3, 1fr);
+        }
+
+        /* Vertical Gallery Styles */
+        .vertical-gallery .image-item {
+            aspect-ratio: 2/3;
+        }
+
+        /* --- PLAY BUTTON --- */
+        .play-button {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 48px;
+            height: 48px;
+            background: rgba(0, 0, 0, 0.4);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 5;
+        }
+
+        .play-button:hover {
+            background: rgba(0, 0, 0, 0.6);
+            transform: translate(-50%, -50%) scale(1.05);
+        }
+
+        .play-button::before {
+            content: '';
+            width: 0;
+            height: 0;
+            border-left: 10px solid #FFFFFF;
+            border-top: 7px solid transparent;
+            border-bottom: 7px solid transparent;
+            margin-left: 2px;
+            transition: border-color 0.3s ease;
+        }
+
+        .play-button:hover::before {
+            border-left-color: #FFFFFF;
+        }
+
+        /* --- MODAL BASE STYLES --- */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            overflow-y: scroll;
+            opacity: 0;
+            transition: opacity 0.2s ease;
+        }
+
+        .modal.visible {
+            opacity: 1;
+        }
+
+        /* Handle horizontal modals - position them lower for better media centering */
+        .modal.horizontal {
+            align-items: flex-start;
+            padding-top: 100px;
+        }
+
+        @media (max-width: 768px) {
+            .modal.horizontal {
+                padding-top: 100px;
+            }
+        }
+
+        .modal-content {
+            background: #040406;
+            border: 1px solid #212121;
+            border-radius: 8px;
+            width: 856px;
+            max-width: 95vw;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: rgba(255, 255, 255, 0.1);
+            border: none;
+            color: #fff;
+            font-size: 1.5rem;
+            cursor: pointer;
+            width: 36px;
+            height: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: background 0.2s;
+            z-index: 10;
+        }
+
+        .close-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        /* --- HORIZONTAL VIDEO LAYOUT (Default) --- */
+        .modal.horizontal .modal-content {
+            flex-direction: column;
+        }
+
+        .modal.horizontal .modal-video {
+            width: 100%;
+        }
+
+        .modal.horizontal .modal-video .aspect-ratio-box {
+            width: 100%;
+        }
+
+        .modal.horizontal .modal-info {
+            padding: 60px;
+        }
+
+        .modal.horizontal .post-title {
+            font-size: 28px;
+            font-weight: 400;
+            font-variation-settings: "wght" 400;
+            color: #FFFFFF;
+            margin-bottom: 10px;
+        }
+
+        .modal.horizontal .post-desc {
+            font-size: 16px;
+            line-height: 25px;
+            color: #FFFFFF;
+            font-weight: 300;
+            font-variation-settings: "wght" 300;
+            margin-top: 16px;
+        }
+
+        .modal.horizontal .modal-columns {
+            display: flex;
+            flex-direction: row;
+            gap: 72px;
+            margin-top: 52px;
+            align-items: flex-start;
+        }
+
+        .modal.horizontal .column {
+            flex: none;
+        }
+
+        .modal.horizontal .post-tools-label {
+            font-size: 16px;
+            line-height: 22px;
+            color: #9a9a9a;
+            font-weight: 300;
+            font-variation-settings: "wght" 300;
+        }
+
+        .modal.horizontal .post-tools-content {
+            font-size: 16px;
+            line-height: 22px;
+            color: #FFFFFF;
+            font-weight: 300;
+            font-variation-settings: "wght" 300;
+            margin-top: 4px;
+            margin-bottom: 8px;
+        }
+
+        .modal.horizontal .post-category-label {
+            font-size: 16px;
+            line-height: 22px;
+            color: #9a9a9a;
+            font-weight: 300;
+            font-variation-settings: "wght" 300;
+        }
+
+        .modal.horizontal .post-category-content {
+            font-size: 16px;
+            line-height: 22px;
+            color: #FFFFFF;
+            font-weight: 300;
+            font-variation-settings: "wght" 300;
+            margin-top: 4px;
+        }
+
+        /* --- VERTICAL VIDEO LAYOUT --- */
+        .modal.vertical .modal-content {
+            flex-direction: row;
+            height: 720px;
+        }
+
+        .modal.vertical .modal-video {
+            width: auto;
+            max-width: 405px;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #000;
+            border-radius: 8px;
+        }
+
+        .modal.vertical .modal-video .aspect-ratio-box-vertical {
+            width: auto;
+            height: 100%;
+            aspect-ratio: 9 / 16;
+            padding-bottom: 0;
+        }
+
+        .modal.vertical .modal-video .aspect-ratio-box-vertical iframe {
+            width: auto;
+            height: 100%;
+            aspect-ratio: 9 / 16;
+        }
+
+        .modal.vertical .modal-info {
+            padding: 60px;
+            overflow-y: auto;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .modal.vertical .post-tools-label {
+            font-size: 16px;
+            line-height: 22px;
+            color: #9a9a9a;
+            font-weight: 300;
+            font-variation-settings: "wght" 300;
+        }
+
+        .modal.vertical .post-tools-content {
+            font-size: 16px;
+            line-height: 22px;
+            color: #FFFFFF;
+            font-weight: 300;
+            font-variation-settings: "wght" 300;
+            margin-top: 4px;
+            margin-bottom: 8px;
+        }
+
+        .modal.vertical .modal-columns {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            margin-top: auto;
+            padding-top: 16px;
+            align-items: flex-start;
+        }
+
+        .modal.vertical .column {
+            flex: none;
+        }
+
+        .modal.vertical .post-category-label {
+            font-size: 16px;
+            line-height: 22px;
+            color: #9a9a9a;
+            font-weight: 300;
+            font-variation-settings: "wght" 300;
+        }
+
+        .modal.vertical .post-category-content {
+            font-size: 16px;
+            line-height: 22px;
+            color: #FFFFFF;
+            font-weight: 300;
+            font-variation-settings: "wght" 300;
+            margin-top: 4px;
+        }
+
+        .modal.vertical .post-title {
+            font-size: 28px;
+            font-weight: 400;
+            font-variation-settings: "wght" 400;
+            color: #FFFFFF;
+            margin-bottom: 10px;
+        }
+
+        .modal.vertical .post-desc {
+            font-size: 16px;
+            line-height: 26px;
+            color: #FFFFFF;
+            font-weight: 300;
+            font-variation-settings: "wght" 300;
+            margin-top: 16px;
+        }
+
+        /* Aspect Ratio Boxes for modal videos */
+        .aspect-ratio-box {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%;
+            height: 0;
+            background: #000;
+            border-radius: 8px 8px 0px 0px;
+            overflow: hidden;
+        }
+
+        .aspect-ratio-box-vertical {
+            position: relative;
+            width: 100%;
+            padding-bottom: 177.78%;
+            height: 0;
+            background: #000;
+            border-radius: 8px 0px 0px 8px;
+            overflow: hidden;
+        }
+
+        .aspect-ratio-box iframe,
+        .aspect-ratio-box-vertical iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+            pointer-events: auto;
+        }
+
+        /* Mobile responsive modal styles */
+        @media (max-width: 768px) {
+            .modal.horizontal .modal-content {
+                flex-direction: column;
+                height: auto;
+            }
+
+            .modal.horizontal .modal-video {
+                width: 100%;
+            }
+
+            .modal.horizontal .modal-video .aspect-ratio-box {
+                width: 100%;
+            }
+
+            .modal.horizontal .modal-info {
+                padding: 40px;
+                overflow-y: auto;
+                flex: 1;
+            }
+
+            .modal.horizontal .modal-columns {
+                flex-direction: column;
+                gap: 16px;
+                margin-top: auto;
+                padding-top: 16px;
+            }
+
+            .modal.vertical .modal-content {
+                flex-direction: column;
+                height: auto;
+            }
+
+            .modal.vertical {
+                align-items: flex-start;
+                padding-top: 100px;
+                padding-bottom: 20px;
+            }
+
+            .modal.vertical .modal-video {
+                width: 100%;
+                max-width: none;
+            }
+
+            .modal.vertical .modal-video .aspect-ratio-box-vertical {
+                width: 100%;
+            }
+
+            .modal.vertical .modal-info {
+                padding: 40px;
+                overflow-y: auto;
+                flex: 1;
+            }
+
+            .modal.vertical .modal-columns {
+                flex-direction: column;
+                gap: 16px;
+                margin-top: auto;
+                padding-top: 16px;
+            }
+        }
+
+        /* Mobile layout */
+        @media (max-width: 767px) {
+            .content-layout {
+                flex-direction: column;
+                gap: 40px;
+            }
+
+            .description-section {
+                max-width: none;
+            }
+
+            .modal-columns {
+                width: 100%;
+                flex-direction: column;
+                gap: 24px;
+                margin-top: 0;
+            }
+
+            .nav-container {
+                padding: 16px 22px;
+                gap: 24px;
+                justify-content: space-between;
+            }
+
+            .nav-link {
+                padding: 6px 0px;
+            }
+
+            .gallery-link::after {
+                left: 2px;
+                right: 2px;
+            }
+
+            .container {
+                padding: 120px 20px 60px;
+            }
+
+            .image-gallery {
+                grid-template-columns: 1fr;
+                gap: 20px;
+                margin: 48px auto 0;
+                padding: 0 20px;
+            }
+
+            .video-gallery {
+                grid-template-columns: 1fr;
+                gap: 20px;
+                margin: 48px auto 0;
+                padding: 0 20px;
+            }
+
+            .case-image {
+                width: 100%;
+                aspect-ratio: 1;
+                object-fit: cover;
+            }
+
+            .assets-section {
+                padding-top: 128px;
+            }
+
+            .horizontal-image-container {
+                aspect-ratio: 1;
+            }
+
+            .horizontal-image {
+                height: 100%;
+                object-fit: cover;
+                object-position: center;
+            }
+
+    .vertical-gallery .image-item {
+        aspect-ratio: 4/5;
+    }
+
+    .additional-description {
+        margin-top: 40px;
+    }
+        }
+
+        /* Project title icons */
+        .project-title-icon {
+            width: 30px;
+            height: 30px;
+            border-radius: 6px;
+            display: inline-block;
+            margin-right: 10px;
+            vertical-align: middle;
+            flex-shrink: 0;
+            position: relative;
+            top: -2px;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        .lumber-inc-icon {
+            background-image: url('../assets/svg/projects icons/Lumber inc.png');
+        }
+
+        .gold-goblins-icon {
+            background-image: url('../assets/svg/projects icons/Gold and Goblins.png');
+        }
+
+        /* Mobile-specific border-radius for app icons */
+        @media (max-width: 768px) {
+            .project-title-icon {
+                border-radius: 8px;
+            }
+        }
+
+        /* Modal link styles */
+        .modal-link {
+            color: #FFFFFF;
+            text-decoration: none;
+            transition: color 0.2s ease;
+            cursor: pointer;
+            font-weight: 300;
+            position: relative;
+            text-underline-offset: 8px;
+        }
+
+        .modal-link::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background-color: #b2ff26;
+            opacity: 0;
+            transition: opacity 0.2s ease;
+        }
+
+        /* First link in each column always has underline, unless any link is hovered */
+        .post-tools-content:not(.link-hovered) .modal-link:first-child::after,
+        .post-category-content:not(.link-hovered) .modal-link:first-child::after {
+            opacity: 1;
+        }
+
+        /* Hover on any link shows its underline */
+        .modal-link:hover {
+            color: #b2ff26;
+        }
+
+        .modal-link:hover::after {
+            opacity: 1;
+        }
+
+        /* "Подробнее" link always has green underline */
+        .modal-link.permanent-underline::after {
+            opacity: 1;
+        }
+
+        /* Case study gallery description styles - unique classes */
+        .case-gallery-description {
+            margin-top: 30px;
+            margin-bottom: 76px;
+            text-align: center;
+            padding: 0 20px;
+        }
+
+        .case-gallery-description p {
+            font-size: 16px;
+            font-weight: 300;
+            font-variation-settings: "wght" 300;
+            color: #ffffff;
+            line-height: 1.21;
+            margin: 0;
+            cursor: pointer;
+        }
+
+        .case-gallery-link {
+            color: #b2ff26;
+            text-decoration: underline;
+            text-decoration-color: #b2ff26;
+            text-decoration-thickness: 2px;
+            font-weight: 300;
+            font-variation-settings: "wght" 400;
+            cursor: pointer;
+        }
+
+        .case-gallery-link:hover {
+            text-decoration-color: #b2ff26;
+        }
+
+        .case-gallery-link-full {
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 300;
+            font-variation-settings: "wght" 300;
+            cursor: pointer;
+            transition: color 0.2s ease;
+        }
+
+        .case-gallery-link-full:hover {
+            color: #ffffff;
+        }
+
+        /* ===== CASE STUDY CONTACTS SECTION ===== */
+        .case-contacts-section {
+            margin-top: 276px;
+            margin-bottom: 220px;
+            max-width: 1040px;
+            margin-left: auto;
+            margin-right: auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .case-contacts-container {
+            display: flex;
+            justify-content: center;
+        }
+
+        .case-contacts-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 34px;
+            width: 100%;
+            max-width: 575px;
+        }
+
+        /* Status indicator CSS variables for case contacts */
+        :root {
+            --case-status-size: 14px;
+            --case-status-gap: 0%;
+            --case-status-offset: 0%;
+            --case-status-angle: 46deg;
+            --case-color-online: #80ff26;
+        }
+
+        /* Profile picture with status indicator for case */
+        .case-contact-profile {
+            width: 149px;
+            height: 149px;
+            border-radius: 50%;
+            position: relative;
+            --d: calc(var(--case-status-size) + (var(--case-status-gap) * 2));
+            --r: calc((100% / 2) + var(--case-status-offset));
+            --x: calc(var(--r) * cos(var(--case-status-angle) - 96deg) + (100% / 2));
+            --y: calc(var(--r) * sin(var(--case-status-angle) - 96deg) + (100% / 2));
+        }
+
+        .case-contact-profile.status::after {
+            content: "";
+            aspect-ratio: 1;
+            background: var(--case-color-online);
+            border-radius: 100%;
+            position: absolute;
+            width: var(--case-status-size);
+            top: calc(var(--y) - (var(--case-status-size)/2));
+            left: calc(var(--x) - (var(--case-status-size)/2));
+            border: 2px solid #100D19;
+        }
+
+        .case-profile-wrapper {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            border-radius: 50%;
+        }
+
+        .case-profile-image {
+            width: 100%;
+            height: 100%;
+            display: block;
+            object-fit: cover;
+        }
+
+        /* Contact information for case */
+        .case-contact-header {
+            font-family: "Inter", sans-serif;
+            font-size: 18px;
+            font-weight: 300;
+            font-variation-settings: "wght" 300;
+            color: #FFFFFF;
+            margin: 0;
+            text-align: center;
+        }
+
+        .case-contact-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            width: 100%;
+            max-width: 383px;
+            margin: 0 auto;
+            padding: 18px 0;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            transform-origin: center center;
+            position: relative;
+        }
+
+        .case-contact-item:hover {
+            transform: scale(1.05);
+        }
+
+        /* Copy feedback tooltip for case */
+        .case-copy-feedback {
+            position: absolute;
+            bottom: 80%;
+            left: 50%;
+            transform: translateX(-50%) translateY(5px);
+            margin-bottom: 0px;
+            font-family: "Inter", sans-serif;
+            font-size: 16px;
+            font-weight: 300;
+            font-variation-settings: "wght" 300;
+            color: #FFFFFF;
+            line-height: 22px;
+            white-space: nowrap;
+            background-color: rgba(0, 0, 0, 0.9);
+            border: none;
+            padding: 6px 12px;
+            border-radius: 4px;
+            opacity: 0;
+            pointer-events: none;
+            transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+            z-index: 10;
+        }
+
+        .case-copy-feedback.visible {
+            opacity: 1;
+            transform: translateX(-50%) translateY(0);
+        }
+
+        .case-contact-text {
+            font-family: "Inter", sans-serif;
+            font-size: 28px;
+            font-weight: 400;
+            font-variation-settings: "wght" 400;
+            color: #FFFFFF;
+            flex: 1;
+            line-height: 1.21;
+            transition: all 0.2s ease;
+            text-decoration: none;
+        }
+
+        .case-contact-item:hover .case-contact-text {
+            text-decoration: underline;
+            text-decoration-color: #FFFFFF;
+            text-decoration-thickness: 2px;
+            text-underline-offset: 6px;
+        }
+
+        .case-copy-icon {
+            width: 18px;
+            height: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            flex-shrink: 0;
+            color: #9A9A9A;
+            align-self: center;
+            margin-top: 0;
+            border-radius: 4px;
+            padding: 2px;
+        }
+
+        .case-copy-icon:active {
+            transform: scale(0.95);
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .case-copy-icon svg {
+            width: 100%;
+            height: 100%;
+            display: block;
+            pointer-events: none;
+        }
+
+        /* Desktop copy icon alignment for case */
+        @media (min-width: 768px) {
+            .case-copy-icon {
+                width: 18px;
+                height: 18px;
+                padding: 0;
+                align-self: center;
+                margin-top: 6px;
+            }
+        }
+
+        /* Mobile copy icon alignment for case */
+        @media (max-width: 767px) {
+            .case-copy-icon {
+                width: 18px;
+                height: 18px;
+                align-self: center;
+                margin-top: 0;
+            }
+        }
+
+        .case-style-outline {
+            fill: none;
+            stroke: currentColor;
+            stroke-width: 2.4;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+        /* Social media icons for case */
+        .case-contact-social {
+            display: flex;
+            gap: 132px;
+            width: 100%;
+            max-width: 575px;
+            justify-content: center;
+            margin-top: 54px;
+        }
+
+        .case-social-icon {
+            width: 46px;
+            height: 46px;
+            background: transparent;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+            cursor: pointer;
+            transform-origin: center center;
+        }
+
+        .case-social-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .case-social-icon:hover {
+            transform: scale(1.3);
+        }
+
+        /* Responsive adjustments for case contacts */
+        /* Tablet contacts adjustments */
+        @media (max-width: 979px) and (min-width: 768px) {
+            .case-contacts-section {
+                margin-top: 246px;
+                margin-bottom: 150px;
+            }
+
+            .case-contacts-content {
+                gap: 34px;
+            }
+
+            .case-contact-profile {
+                width: 149px;
+                height: 149px;
+            }
+
+            .case-contact-item {
+                max-width: 383px;
+                padding: 18px 0;
+            }
+
+            .case-contact-social {
+                gap: 92px;
+                margin-top: 54px;
+            }
+
+            .case-social-icon {
+                width: 40px;
+                height: 39px;
+            }
+        }
+
+        /* Mobile contacts adjustments */
+        @media (max-width: 767px) {
+            .case-contacts-section {
+                margin-top: 246px;
+                margin-bottom: 180px;
+            }
+
+            .case-contacts-content {
+                gap: 34px;
+            }
+
+            .case-contact-profile {
+                width: 149px;
+                height: 149px;
+            }
+
+            .case-contact-item {
+                max-width: 383px;
+                padding: 18px 0;
+                gap: 8px;
+            }
+
+            .case-contact-text {
+                font-size: 28px;
+            }
+
+            .case-contact-social {
+                gap: 20px;
+                margin-top: 54px;
+                width: 100%;
+                max-width: 383px;
+                justify-content: space-between;
+                flex-wrap: nowrap;
+            }
+
+            .case-social-icon {
+                width: 40px;
+                height: 39px;
+            }
+        }
+
+        /* Small mobile contacts */
+        @media (max-width: 480px) {
+            .case-contacts-section {
+                margin-top: 246px;
+                margin-bottom: 150px;
+            }
+
+            .case-contacts-content {
+                gap: 34px;
+            }
+
+            .case-contact-profile {
+                width: 149px;
+                height: 149px;
+            }
+
+            .case-contact-item {
+                max-width: 383px;
+                padding: 18px 0;
+            }
+
+            .case-contact-header {
+                font-size: 18px;
+            }
+
+            .case-contact-text {
+                font-size: 24px;
+                font-weight: 400;
+                font-variation-settings: "wght" 400;
+            }
+
+            .case-copy-icon {
+                width: 18px;
+                height: 18px;
+                margin-top: 0;
+                align-self: center;
+            }
+
+            .case-contact-social {
+                gap: 46px;
+                margin-top: 54px;
+                flex-wrap: wrap;
+            }
+
+            .case-social-icon {
+                width: 40px;
+                height: 39px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <header>
+        <nav class="navigation-bar">
+            <div class="nav-container">
+                <a href="../index.html#about" class="nav-link">Опыт</a>
+                <a href="../index.html#projects" class="nav-link">Проекты</a>
+                <a href="#case-contacts" class="nav-link">Контакты</a>
+                <a href="../gallery/gallery.html" class="nav-link gallery-link">Галерея</a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <div class="container">
+        <article class="text-content">
+            <!-- Case study content will go here -->
+            <h1>3D промо для мобильных игр</h1>
+
+            <div class="content-layout">
+                <div class="description-section">
+                    <p>Подборка креативов для мобильных idle-игр про развитие и оптимизацию производства.<br>
+Разбор и анализ пайплайна, инструментария, способов решения задач и оптимизации процесса по построению сцены и анимации.</p>
+                </div>
+
+                <aside class="modal-columns">
+                    <div class="column">
+                        <div class="post-category-label">Категория</div>
+                        <div class="post-category-content">Моушн дизайн · 3D Графика</div>
+                    </div>
+                    <div class="column">
+                        <div class="post-tools-label">Инструменты</div>
+                        <div class="post-tools-content">Blender · After Effects · Photoshop</div>
+                    </div>
+                </aside>
+            </div>
+
+            <p class="additional-description">Рассмотрим креативы для двух наиболее ярких и интересных проектов — Gold & Goblins и Lumber inc.</p>
+        </article>
+    </div>
+
+    <!-- Image Gallery -->
+    <div class="image-gallery">
+        <div class="gallery-pair">
+            <div class="image-item">
+                <img src="Assets/cover 1.png" alt="Cover 1" class="case-image">
+            </div>
+            <div class="description-item">Gold & Goblins</div>
+        </div>
+        <div class="gallery-pair">
+            <div class="image-item">
+                <img src="Assets/cover 2.png" alt="Cover 2" class="case-image">
+            </div>
+            <div class="description-item">Lumber inc.</div>
+        </div>
+    </div>
+
+    <!-- Additional Content Block -->
+    <section class="assets-section">
+        <div class="text-content">
+            <h3>Работа с ассетами</h3>
+            <p>Каждый ролик начинается с подготовки материалов для задуманной сцены.<br>
+Из библиотеки ассетов игры подбираются модели персонажей с нужным набором инструментов и внешностью. Также здания и техника, ресурсы, и прочее наполнение окружения.<br>
+Для основных проектов я постепенно формирую кастомную библиотеку ассетов — это делает процесс построения сцен удобным и ускоряет его. Например собираю одного персонажа "универсала" со всеми возможными элементами внешности и снаряжением, с возможностью переключать и контролировать каждый в отдельности. Это значительно ускоряет процесс.</p>
+        </div>
+    </section>
+
+    <!-- Video Gallery -->
+    <div class="video-gallery">
+        <div class="gallery-pair">
+            <div class="image-item">
+                <video autoplay muted playsinline preload="auto" class="case-image video-primary" data-container="1">
+                    <source src="Assets/1.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <video muted playsinline preload="auto" class="case-image video-secondary" data-container="1">
+                    <source src="Assets/2.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+        </div>
+        <div class="gallery-pair">
+            <div class="image-item">
+                <video autoplay muted playsinline preload="auto" class="case-image video-primary" data-container="2">
+                    <source src="Assets/3.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <video muted playsinline preload="auto" class="case-image video-secondary" data-container="2">
+                    <source src="Assets/4.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scene Assembly Section -->
+    <section class="assets-section">
+        <div class="text-content">
+            <h3>Сборка сцены</h3>
+            <p><span class="bold-text">Этап 1:</span> Блокаут, расстановка основных объектов, расположение камеры. Дизайн базовой локации с учетом всех этапов ее развития.</p>
+        </div>
+    </section>
+
+    <!-- Horizontal Image Section -->
+    <div class="horizontal-image-section">
+        <div class="horizontal-image-container">
+            <img src="Assets/blender-block-scene.png" alt="Blender Block Scene" class="horizontal-image">
+        </div>
+    </div>
+
+    <!-- Animation Preparation Section -->
+    <section class="assets-section">
+        <div class="text-content">
+            <p><span class="bold-text">Этап 2:</span> Детализация и подготовка к анимации со всеми этапами сюжета. От начала развития персонажей и локации до финальной эволюции.</p>
+        </div>
+    </section>
+
+    <!-- Three Image Gallery -->
+    <div class="image-gallery three-image-gallery vertical-gallery">
+        <div class="gallery-pair">
+            <div class="image-item">
+                <img src="Assets/1.png" alt="Image 1" class="case-image">
+            </div>
+        </div>
+        <div class="gallery-pair">
+            <div class="image-item">
+                <img src="Assets/2.png" alt="Image 2" class="case-image">
+            </div>
+        </div>
+        <div class="gallery-pair">
+            <div class="image-item">
+                <img src="Assets/3.png" alt="Image 3" class="case-image">
+            </div>
+        </div>
+    </div>
+
+    <!-- Animation Implementation Section -->
+    <section class="assets-section">
+        <div class="text-content">
+            <p><span class="bold-text">Этап 3:</span> Анимация персонажей, камеры и окружения. Настраиваются действия персонажей, реакции локации, работа камеры и эффекты. Особое внимание уделяется таймингам, читаемости действий и логике развития сюжета, чтобы ролик оставался понятным и вовлекающим, с минимальными паузами и просадками между ключевыми событиями.</p>
+        </div>
+    </section>
+
+    <!-- Three Video Gallery -->
+    <div class="video-gallery three-video-gallery vertical-gallery">
+        <div class="gallery-pair">
+            <div class="image-item">
+                <video autoplay muted playsinline loop preload="auto" class="case-image">
+                    <source src="Assets/Ряд анимашек- 1.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+        </div>
+        <div class="gallery-pair">
+            <div class="image-item">
+                <video autoplay muted playsinline loop preload="auto" class="case-image">
+                    <source src="Assets/Ряд анимашек- 2.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+        </div>
+        <div class="gallery-pair">
+            <div class="image-item">
+                <video autoplay muted playsinline loop preload="auto" class="case-image">
+                    <source src="Assets/Ряд анимашек- 3.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+        </div>
+    </div>
+
+    <!-- Results Section -->
+    <section class="assets-section">
+        <div class="text-content">
+            <h3>Результат</h3>
+            <p>Блок-аут превращается в полноценный ролик, демонстрирующий захватывающий прогресс развития от малого к огромному. Для Gold & Goblins и Lumber Inc. такие ролики становятся мини-демонстрацией главного удовольствия игры — видеть, как всё растёт и улучшается на глазах.</p>
+        </div>
+    </section>
+
+    <!-- Gallery Videos Section -->
+    <div class="video-gallery three-video-gallery vertical-gallery">
+        <div class="gallery-pair">
+            <div class="image-item" data-gallery-id="7">
+                <img src="../gallery/Обложки/Video 2f93e7c85f27f75ce45b6e16c9ec0fbd.png" alt="Gold & Goblins" class="case-image">
+                <div class="play-button"></div>
+            </div>
+        </div>
+        <div class="gallery-pair">
+            <div class="image-item" data-gallery-id="8">
+                <img src="../gallery/Обложки/Video 7466223d65a324332cfad5f94d108bf7.png" alt="Gold & Goblins 2" class="case-image">
+                <div class="play-button"></div>
+            </div>
+        </div>
+        <div class="gallery-pair">
+            <div class="image-item" data-gallery-id="16">
+                <img src="../gallery/Обложки/Video c412f7ed0e48d0a5e6c7b1991fcdffb1.png" alt="Lumber inc. 5" class="case-image">
+                <div class="play-button"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Case Gallery Description -->
+    <div class="case-gallery-description">
+        <p><a href="../gallery/gallery.html" class="case-gallery-link-full">Больше игровых проектов можно посмотреть в <span class="case-gallery-link">галерее</span></a></p>
+    </div>
+
+    <!-- Contacts Section -->
+    <section id="case-contacts" class="case-contacts-section" aria-labelledby="case-contacts-heading">
+      <div class="case-contacts-container">
+        <div class="case-contacts-content">
+          <!-- Profile Picture with Status Indicator -->
+          <div class="case-contact-profile status online" aria-label="Profile picture with online status">
+            <div class="case-profile-wrapper">
+              <img
+                class="case-profile-image"
+                src="../assets/photo 2.png"
+                alt="Profile photo of Vlad Dmitrishin"
+                loading="lazy"
+              />
+            </div>
+          </div>
+
+          <!-- Contact Information -->
+          <div class="case-contact-info">
+            <h3 id="case-contacts-heading" class="case-contact-header">Связаться со мной:</h3>
+
+            <!-- Email with Copy Functionality -->
+            <div class="case-contact-item" role="button" tabindex="0" aria-label="Copy email address to clipboard">
+              <div class="case-copy-feedback" aria-live="polite" aria-atomic="true">Скопировано</div>
+              <span class="case-contact-text">mindlineswork@gmail.com</span>
+              <div class="case-copy-icon" aria-hidden="true">
+                <svg class="case-style-outline" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                  <rect x="9" y="9" width="13" height="13" rx="2" ry="2"/>
+                  <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
+                </svg>
+              </div>
+            </div>
+
+            <!-- Social Media Links -->
+            <div class="case-contact-social">
+              <a href="https://t.me/mindlines" class="case-social-icon" aria-label="Telegram" target="_blank" rel="noopener">
+                <img src="../assets/svg/contact icons/Telegram.png" alt="Telegram" />
+              </a>
+              <a href="https://hh.ru/resume/ed1a6a0eff0324cb310039ed1f5478344e6271" class="case-social-icon" aria-label="HH.ru" target="_blank" rel="noopener">
+                <img src="../assets/svg/contact icons/hh.png" alt="HH.ru" />
+              </a>
+              <a href="https://www.linkedin.com/in/vladislav-dmitrishin-20b879141/" class="case-social-icon" aria-label="LinkedIn" target="_blank" rel="noopener">
+                <img src="../assets/svg/contact icons/in.png" alt="LinkedIn" />
+              </a>
+              <a href="https://www.behance.net/mindlines" class="case-social-icon" aria-label="Behance" target="_blank" rel="noopener">
+                <img src="../assets/svg/contact icons/be.png" alt="Behance" />
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    </main>
+
+    <!-- POST MODAL - Horizontal Videos -->
+    <div id="postModal" class="modal horizontal">
+        <div class="modal-content">
+            <div class="modal-video">
+                <!-- Video iframe injected here -->
+            </div>
+
+            <div class="modal-info">
+                <h2 class="post-title"></h2>
+                <p class="post-desc"></p>
+                <div class="modal-columns">
+                    <div class="column">
+                        <div class="post-tools-label">Инструменты</div>
+                        <div class="post-tools-content">Blender · After Effects · Photoshop</div>
+                    </div>
+                    <div class="column">
+                        <div class="post-category-label">Категория</div>
+                        <div class="post-category-content">Моушн дизайн · 3D Графика</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Handle hover effects for nav links to hide gallery underline
+        const navContainer = document.querySelector('.nav-container');
+
+        if (navContainer) {
+            navContainer.addEventListener('mouseenter', function(e) {
+                const navLink = e.target.closest('.nav-link');
+                if (navLink && !navLink.classList.contains('gallery-link')) {
+                    // Add link-hovered class to nav-container to hide gallery underline
+                    navContainer.classList.add('link-hovered');
+                }
+            }, true); // Use capture phase to ensure it fires first
+
+            navContainer.addEventListener('mouseleave', function(e) {
+                const navLink = e.target.closest('.nav-link');
+                if (navLink && !navLink.classList.contains('gallery-link')) {
+                    // Delay removing link-hovered class to nav-container to hide gallery underline reappearance
+                    setTimeout(() => {
+                        navContainer.classList.remove('link-hovered');
+                    }, 1000);
+                }
+            }, true); // Use capture phase to ensure it fires first
+        }
+
+        // Handle alternating video playback
+        function initializeVideoSwitching() {
+            // Get all primary videos (the ones that start playing)
+            const primaryVideos = document.querySelectorAll('.video-primary');
+
+            primaryVideos.forEach(primaryVideo => {
+                const containerId = primaryVideo.getAttribute('data-container');
+                const secondaryVideo = document.querySelector(`.video-secondary[data-container="${containerId}"]`);
+
+                if (secondaryVideo) {
+                    // When primary video ends, switch to secondary video
+                    primaryVideo.addEventListener('ended', function() {
+                        // Use requestAnimationFrame for smooth transition
+                        requestAnimationFrame(() => {
+                            // Bring secondary video to front
+                            primaryVideo.style.zIndex = '1';
+                            secondaryVideo.style.zIndex = '2';
+                            secondaryVideo.currentTime = 0; // Reset to beginning
+                            secondaryVideo.play().catch(error => {
+                                console.log('Error playing secondary video:', error);
+                            });
+                        });
+                    });
+
+                    // When secondary video ends, switch back to primary video
+                    secondaryVideo.addEventListener('ended', function() {
+                        // Use requestAnimationFrame for smooth transition
+                        requestAnimationFrame(() => {
+                            // Bring primary video to front
+                            secondaryVideo.style.zIndex = '1';
+                            primaryVideo.style.zIndex = '2';
+                            primaryVideo.currentTime = 0; // Reset to beginning
+                            primaryVideo.play().catch(error => {
+                                console.log('Error playing primary video:', error);
+                            });
+                        });
+                    });
+                }
+            });
+        }
+
+        // Initialize video switching when DOM is loaded
+        document.addEventListener('DOMContentLoaded', initializeVideoSwitching);
+
+        // Gallery videos data for modals
+        const galleryVideos = {
+            7: {
+                title: "Gold & Goblins",
+                desc: "Рекламный ролик для idle-игры про гоблинов-шахтёров золото, лаву и взрывы.",
+                videoId: "2f93e7c85f27f75ce45b6e16c9ec0fbd",
+                aspect: "horizontal",
+                tools: "Blender · After Effects · Photoshop",
+                category: "Моушн дизайн · 3D Графика"
+            },
+            8: {
+                title: "Gold & Goblins",
+                desc: "Рекламный ролик для idle-игры про гоблинов-шахтёров золото, лаву и взрывы.",
+                videoId: "4bfa0122159c958c06329267e2688017",
+                aspect: "horizontal",
+                tools: "Blender · After Effects · Photoshop",
+                category: "Моушн дизайн · 3D Графика"
+            },
+            16: {
+                title: "Lumber inc.",
+                desc: "Рекламный ролик для idle игры про оптимизацию производства древесины.",
+                videoId: "c412f7ed0e48d0a5e6c7b1991fcdffb1",
+                aspect: "vertical",
+                tools: "Blender · After Effects · Photoshop",
+                category: "Моушн дизайн · 3D Графика"
+            }
+        };
+
+        // Kinescope video mappings
+        const kinescopeVideos = {
+            // Horizontal videos (16:9)
+            '2f93e7c85f27f75ce45b6e16c9ec0fbd': 'https://kinescope.io/embed/nkRfpZ1XeR85dxYFvn9pRq',
+            '4bfa0122159c958c06329267e2688017': 'https://kinescope.io/embed/3Y6qDL6QxqLdUihtSUzV9z',
+
+            // Vertical videos (9:16)
+            'c412f7ed0e48d0a5e6c7b1991fcdffb1': 'https://kinescope.io/embed/mQEbX2tX3GLovugbEzLYb7'
+        };
+
+        // Function to get scrollbar width for modal compensation
+        function getScrollbarWidth() {
+            const scrollDiv = document.createElement('div');
+            scrollDiv.style.width = '100px';
+            scrollDiv.style.height = '100px';
+            scrollDiv.style.overflow = 'scroll';
+            scrollDiv.style.position = 'absolute';
+            scrollDiv.style.top = '-9999px';
+            document.body.appendChild(scrollDiv);
+
+            const scrollbarWidth = scrollDiv.offsetWidth - scrollDiv.clientWidth;
+            document.body.removeChild(scrollDiv);
+
+            return scrollbarWidth;
+        }
+
+        // Function to convert text entries to clickable links
+        function convertToLinks(text) {
+            if (!text) return '';
+            const entries = text.split(' · ');
+            return entries.map(entry => `<a href="#" class="modal-link">${entry}</a>`).join(' · ');
+        }
+
+        // Function to open gallery video modal
+        function openGalleryVideoModal(galleryId) {
+            const videoData = galleryVideos[galleryId];
+            if (!videoData) return;
+
+            const postModal = document.getElementById('postModal');
+            const modalVideo = postModal.querySelector('.modal-video');
+            const modalTitle = postModal.querySelector('.post-title');
+            const modalDesc = postModal.querySelector('.post-desc');
+            const modalToolsContent = postModal.querySelector('.post-tools-content');
+            const modalCategoryContent = postModal.querySelector('.post-category-content');
+
+            // Set modal layout type
+            postModal.className = 'modal ' + videoData.aspect;
+
+            // Clear previous video content
+            modalVideo.innerHTML = '';
+
+            // Create video container
+            const videoContainer = document.createElement('div');
+            const kinescopeUrl = kinescopeVideos[videoData.videoId];
+
+            if (kinescopeUrl) {
+                // Kinescope iframe
+                const kinescopeContainer = document.createElement('div');
+                kinescopeContainer.style.position = 'relative';
+                kinescopeContainer.style.width = '100%';
+
+                // Set aspect ratio based on video orientation
+                if (videoData.aspect === 'vertical') {
+                    kinescopeContainer.style.paddingTop = '177.78%'; // 9:16
+                    videoContainer.className = 'aspect-ratio-box-vertical';
+                } else {
+                    kinescopeContainer.style.paddingTop = '56.25%'; // 16:9
+                    videoContainer.className = 'aspect-ratio-box';
+                }
+
+                const kinescopeIframe = document.createElement('iframe');
+                kinescopeIframe.src = kinescopeUrl;
+                kinescopeIframe.allow = 'autoplay; fullscreen; picture-in-picture; encrypted-media; gyroscope; accelerometer; clipboard-write; screen-wake-lock;';
+                kinescopeIframe.frameBorder = '0';
+                kinescopeIframe.allowFullscreen = true;
+                kinescopeIframe.style.position = 'absolute';
+                kinescopeIframe.style.width = '100%';
+                kinescopeIframe.style.height = '100%';
+                kinescopeIframe.style.top = '0';
+                kinescopeIframe.style.left = '0';
+                kinescopeIframe.style.pointerEvents = 'auto';
+
+                kinescopeContainer.appendChild(kinescopeIframe);
+                videoContainer.appendChild(kinescopeContainer);
+            }
+
+            modalVideo.appendChild(videoContainer);
+
+            // Set modal content with project icons
+            if (videoData.title.includes('Gold & Goblins')) {
+                modalTitle.innerHTML = '<span class="project-title-icon gold-goblins-icon" aria-hidden="true"></span>' + videoData.title;
+            } else if (videoData.title.includes('Lumber inc')) {
+                modalTitle.innerHTML = '<span class="project-title-icon lumber-inc-icon" aria-hidden="true"></span>' + videoData.title;
+            } else {
+                modalTitle.textContent = videoData.title;
+            }
+            modalDesc.innerHTML = videoData.desc;
+            modalToolsContent.innerHTML = convertToLinks(videoData.tools);
+            modalCategoryContent.innerHTML = convertToLinks(videoData.category);
+
+            // Set scrollbar compensation before opening modal
+            const scrollbarWidth = getScrollbarWidth();
+            document.documentElement.style.setProperty('--scrollbar-width', scrollbarWidth + 'px');
+
+            // Show modal
+            postModal.style.display = 'flex';
+            postModal.offsetHeight; // Trigger reflow
+            postModal.classList.add('visible');
+            document.body.classList.add('modal-open');
+        }
+
+        // Function to close modal
+        function closePostModal() {
+            const postModal = document.getElementById('postModal');
+
+            postModal.classList.remove('visible');
+            // Add a small delay to allow fade-out animation before hiding
+            setTimeout(() => {
+                postModal.style.display = 'none';
+                // Clear video content
+                postModal.querySelector('.modal-video').innerHTML = '';
+                // Restore body scrolling and remove scrollbar compensation
+                document.body.classList.remove('modal-open');
+                document.documentElement.style.removeProperty('--scrollbar-width');
+            }, 200);
+        }
+
+        // Add click handlers to gallery video thumbnails
+        document.addEventListener('DOMContentLoaded', function() {
+            const galleryVideoItems = document.querySelectorAll('.video-gallery .image-item[data-gallery-id]');
+
+            galleryVideoItems.forEach(item => {
+                item.addEventListener('click', function() {
+                    const galleryId = parseInt(this.getAttribute('data-gallery-id'));
+                    openGalleryVideoModal(galleryId);
+                });
+            });
+        });
+
+        // Close modal when clicking outside or pressing Escape
+        document.addEventListener('click', function(event) {
+            const postModal = document.getElementById('postModal');
+            if (event.target === postModal) {
+                closePostModal();
+            }
+        });
+
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                const postModal = document.getElementById('postModal');
+                if (postModal.style.display === 'flex') {
+                    closePostModal();
+                }
+            }
+        });
+
+        // Handle modal link clicks for filtering (navigate to gallery)
+        postModal.addEventListener('click', function(e) {
+            const modalLink = e.target.closest('.modal-link');
+            if (modalLink) {
+                e.preventDefault();
+
+                // Check if this is a regular modal link (not a permanent underline link)
+                if (!modalLink.classList.contains('permanent-underline')) {
+                    // Get the tag text
+                    const tagText = modalLink.textContent.trim();
+
+                    // Create mapping for tag text to gallery filter parameters
+                    const tagMappings = {
+                        // Category mappings
+                        'Моушн дизайн': { type: 'category', value: 'motion-design' },
+                        '3D Графика': { type: 'category', value: '3d' },
+                        '2D Иллюстрации': { type: 'category', value: '2d' },
+                        'Нейросети': { type: 'category', value: 'ai' },
+
+                        // Tool mappings
+                        'Photoshop': { type: 'tool', value: 'photoshop' },
+                        'After Effects': { type: 'tool', value: 'after-effects' },
+                        'Blender': { type: 'tool', value: 'blender' },
+                        'Illustrator': { type: 'tool', value: 'illustrator' },
+                        'Cinema 4D': { type: 'tool', value: 'cinema4d' },
+                        'Nano Banana': { type: 'tool', value: 'nanobanana' }
+                    };
+
+                    // Check if the clicked tag exists in our mappings
+                    const tagMapping = tagMappings[tagText];
+                    if (tagMapping) {
+                        // Navigate to gallery with filter parameters
+                        const filterParam = `${tagMapping.type}=${tagMapping.value}`;
+                        window.location.href = `../gallery/gallery.html?${filterParam}`;
+
+                        // Close the modal
+                        closePostModal();
+                    }
+                }
+            }
+        });
+
+        // Handle hover effects for modal links to hide permanent underlines
+        postModal.addEventListener('mouseenter', function(e) {
+            const modalLink = e.target.closest('.modal-link');
+            if (modalLink) {
+                // Add link-hovered class to parent containers to hide permanent underlines
+                const toolsContent = modalLink.closest('.post-tools-content');
+                const categoryContent = modalLink.closest('.post-category-content');
+
+                if (toolsContent) toolsContent.classList.add('link-hovered');
+                if (categoryContent) categoryContent.classList.add('link-hovered');
+            }
+        }, true); // Use capture phase to ensure it fires first
+
+        postModal.addEventListener('mouseleave', function(e) {
+            const modalLink = e.target.closest('.modal-link');
+            if (modalLink) {
+                // Remove link-hovered class from parent containers to show permanent underlines again
+                const toolsContent = modalLink.closest('.post-tools-content');
+                const categoryContent = modalLink.closest('.post-category-content');
+
+                if (toolsContent) toolsContent.classList.remove('link-hovered');
+                if (categoryContent) categoryContent.classList.remove('link-hovered');
+            }
+        }, true); // Use capture phase to ensure it fires first
+
+        // ===== CASE STUDY CONTACTS FUNCTIONALITY =====
+        // Initialize case contacts functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            initCaseCopyToClipboard();
+            initCaseHoverEffects();
+        });
+
+        // Initialize copy to clipboard functionality for case contacts
+        function initCaseCopyToClipboard() {
+            const caseContactItem = document.querySelector('.case-contact-item');
+            const caseEmailText = document.querySelector('.case-contact-text')?.innerText;
+            const caseFeedback = document.querySelector('.case-copy-feedback');
+
+            if (!caseContactItem || !caseEmailText || !caseFeedback) return;
+
+            caseContactItem.addEventListener('click', () => {
+                caseCopyToClipboard(caseEmailText, caseFeedback);
+            });
+        }
+
+        // Copy text to clipboard with fallback for case contacts
+        async function caseCopyToClipboard(text, feedback) {
+            try {
+                if (navigator.clipboard && window.isSecureContext) {
+                    await navigator.clipboard.writeText(text);
+                    caseShowFeedback(feedback);
+                } else {
+                    caseFallbackCopyText(text, feedback);
+                }
+            } catch (error) {
+                console.error('Clipboard API failed, trying fallback:', error);
+                caseFallbackCopyText(text, feedback);
+            }
+        }
+
+        // Fallback copy method for older browsers for case contacts
+        function caseFallbackCopyText(text, feedback) {
+            const textArea = document.createElement("textarea");
+            textArea.value = text;
+
+            textArea.style.position = "fixed";
+            textArea.style.left = "-9999px";
+
+            document.body.appendChild(textArea);
+            textArea.focus();
+            textArea.select();
+
+            try {
+                const successful = document.execCommand('copy');
+                if (successful) {
+                    caseShowFeedback(feedback);
+                } else {
+                    console.error('Fallback: Unable to copy');
+                }
+            } catch (error) {
+                console.error('Fallback: Oops, unable to copy', error);
+            }
+
+            document.body.removeChild(textArea);
+        }
+
+        // Show copy feedback tooltip for case contacts
+        function caseShowFeedback(feedback) {
+            if (!feedback) return;
+
+            feedback.classList.add('visible');
+            setTimeout(() => {
+                feedback.classList.remove('visible');
+            }, 600);
+        }
+
+        // Initialize hover effects for case contact items
+        function initCaseHoverEffects() {
+            const caseContactProfile = document.querySelector('.case-contact-profile');
+            const caseContactItem = document.querySelector('.case-contact-item');
+            const caseContactText = document.querySelector('.case-contact-text');
+
+            if (!caseContactProfile || !caseContactItem || !caseContactText) return;
+
+            const triggerHover = () => {
+                caseContactItem.style.transform = 'scale(1.05)';
+                caseContactText.style.textDecoration = 'underline';
+                caseContactText.style.textDecorationColor = '#FFFFFF';
+                caseContactText.style.textDecorationThickness = '2px';
+                caseContactText.style.textUnderlineOffset = '6px';
+            };
+
+            const resetHover = () => {
+                caseContactItem.style.transform = '';
+                caseContactText.style.textDecoration = '';
+                caseContactText.style.textDecorationColor = '';
+                caseContactText.style.textDecorationThickness = '';
+                caseContactText.style.textUnderlineOffset = '';
+            };
+
+            caseContactProfile.addEventListener('mouseenter', triggerHover);
+            caseContactProfile.addEventListener('mouseleave', resetHover);
+        }
+
+        // ===== CASE STUDY STAR SYSTEM =====
+        // Initialize case study star system
+        document.addEventListener('DOMContentLoaded', function() {
+            initCaseStars();
+        });
+
+        // Initialize star system for case study
+        function initCaseStars() {
+            const starsContainer = document.querySelector('.stars-container');
+            if (!starsContainer) return;
+
+            const starsFragment = document.createDocumentFragment();
+            const starConfigs = generateCaseStarConfigs();
+
+            starConfigs.forEach(config => {
+                const star = createCaseStar(config);
+                starsFragment.appendChild(star);
+            });
+
+            starsContainer.appendChild(starsFragment);
+        }
+
+        // Generate star configurations for case study
+        function generateCaseStarConfigs() {
+            const configs = [];
+            const starCount = 25; // Fewer stars for case study to not overwhelm
+
+            // Pre-calculated star positions optimized for case study
+            const positions = [
+                { y: 15, x: 20, size: 'small', speed: 'fast' },
+                { y: 12, x: 55, size: 'medium', speed: 'slow', center: true },
+                { y: 18, x: 85, size: 'small' },
+                { y: 40, x: 15, size: 'large' },
+                { y: 45, x: 55, size: 'medium', center: true },
+                { y: 42, x: 88, size: 'small', speed: 'fast' },
+                { y: 70, x: 25, size: 'medium', speed: 'slow' },
+                { y: 75, x: 55, size: 'large', center: true },
+                { y: 72, x: 80, size: 'small' },
+                { y: 88, x: 55, size: 'medium', speed: 'fast', center: true },
+                { y: 8, x: 30, size: 'small' },
+                { y: 6, x: 65, size: 'medium', speed: 'fast', center: true },
+                { y: 11, x: 75, size: 'small', speed: 'slow' },
+                { y: 25, x: 18, size: 'large' },
+                { y: 28, x: 50, size: 'medium', center: true },
+                { y: 24, x: 82, size: 'small', speed: 'fast' },
+                { y: 50, x: 12, size: 'medium', speed: 'slow' },
+                { y: 53, x: 60, size: 'large', center: true },
+                { y: 48, x: 87, size: 'small' },
+                { y: 60, x: 22, size: 'medium', speed: 'fast' },
+                { y: 63, x: 75, size: 'large', speed: 'slow', center: true },
+                { y: 58, x: 70, size: 'small' },
+                { y: 80, x: 30, size: 'medium' },
+                { y: 83, x: 45, size: 'large', speed: 'fast', center: true },
+                { y: 78, x: 65, size: 'small', speed: 'slow' },
+                { y: 92, x: 35, size: 'medium' },
+                { y: 95, x: 70, size: 'large', center: true },
+                { y: 90, x: 60, size: 'small', speed: 'fast' },
+                { y: 35, x: 8, size: 'medium', speed: 'slow' },
+                { y: 65, x: 95, size: 'large' }
+            ];
+
+            // Generate procedural delays for animation staggering
+            for (let i = 0; i < Math.min(starCount, positions.length); i++) {
+                const config = { ...positions[i] };
+                config.delay = calculateCaseStarDelay(i, starCount);
+                configs.push(config);
+            }
+
+            return configs;
+        }
+
+        // Calculate animation delay for star staggering in case study
+        function calculateCaseStarDelay(index, total) {
+            // Create natural staggering pattern
+            const baseDelays = [0, 0, 1.2, 0, 2.8, 0, 0, 1.5, 0, 0, 1.8, 0, 0, 0, 3.2, 0, 0, 1.2, 0, 0, 0, 2.1, 3.5, 0, 0, 0, 1.8, 0, 0, 3.8];
+            return baseDelays[index] || 0;
+        }
+
+        // Create individual star element for case study
+        function createCaseStar(config) {
+            const star = document.createElement('div');
+            let classes = ['star', config.size];
+            if (config.speed) classes.push(config.speed);
+            star.className = classes.join(' ');
+
+            star.style.setProperty('--y', `${config.y}%`);
+            star.style.setProperty('--x', `${config.x}%`);
+            if (config.center) star.setAttribute('data-center', 'true');
+            if (config.delay) star.style.setProperty('--delay', `${config.delay}s`);
+
+            return star;
+        }
+    </script>
+
+    <!-- Generative Stars Background -->
+    <div class="stars-container" aria-hidden="true"></div>
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', function() {
+                navigator.serviceWorker.getRegistrations()
+                    .then(function(registrations) {
+                        return Promise.all(registrations.map(function(registration) {
+                            return registration.unregister();
+                        }));
+                    })
+                    .catch(function(error) {
+                        console.log('[SW] Unregister failed:', error);
+                    });
+
+                if ('caches' in window) {
+                    caches.keys()
+                        .then(function(cacheNames) {
+                            return Promise.all(
+                                cacheNames
+                                    .filter(function(cacheName) {
+                                        return cacheName.startsWith('portfolio-');
+                                    })
+                                    .map(function(cacheName) {
+                                        return caches.delete(cacheName);
+                                    })
+                            );
+                        })
+                        .catch(function(error) {
+                            console.log('[SW] Cache cleanup failed:', error);
+                        });
+                }
+            });
+        }
+    </script>
+</body>
+</html>
