@@ -1006,21 +1006,17 @@ body::after {
   object-fit: contain;
 }
 
+/* логотип занимает весь квадрат без полей — уравниваем оптически */
+.badge-icon.icon-higgsfield {
+  width: 17px;
+  height: 17px;
+}
+
 /* Desktop badges layout (980px and up) */
 @media (min-width: 980px) {
-  .badges-row { flex-wrap: nowrap; }
-  .badge:nth-child(1) { max-width: 140px; flex: 1 1 140px; }
-  .badge:nth-child(2) { max-width: 183px; flex: 1 1 183px; }
-  .badge:nth-child(3) { max-width: 168px; flex: 1 1 168px; }
-  .badge:nth-child(4) { max-width: 150px; flex: 1 1 150px; }
-  .badge:nth-child(5) { max-width: 122px; flex: 1 1 122px; }
-  .badge:nth-child(6) { max-width: 190px; flex: 1 1 190px; }
-
-  .badges-row:nth-child(2) .badge:nth-child(1) { max-width: 140px; flex: 1 1 140px; }
-  .badges-row:nth-child(2) .badge:nth-child(2) { max-width: 183px; flex: 1 1 183px; }
-  .badges-row:nth-child(2) .badge:nth-child(3) { max-width: 297px; flex: 1 1 297px; }
-  .badges-row:nth-child(2) .badge:nth-child(4) { max-width: 160px; flex: 1 1 160px; }
-  .badges-row:nth-child(2) .badge:nth-child(5) { max-width: 190px; flex: 1 1 190px; }
+  .badges-section { gap: 12px; }
+  .badges-row { flex-wrap: nowrap; gap: 10px; }
+  .badge { flex: 1 1 auto; max-width: none; }
 }
 
 /* ===== EXPERIENCE SECTION ===== */
@@ -2391,7 +2387,7 @@ body::after {
           <p>
             <span class="about-lead-white">Привет, я&nbsp;Влад — дизайнер с&nbsp;8-летним опытом в&nbsp;графическом<br>и&nbsp;моушн-дизайне.</span>
           </p>
-          <p>Создаю конверсионный контент для&nbsp;мобильных игр, сервисов и&nbsp;приложений: 3D&nbsp;графика, рекламные креативы, анимация.</p>
+          <p>Создаю рекламный контент для&nbsp;брендов, игр и&nbsp;сервисов: 3D-графика, Key&nbsp;Visual, анимация.</p>
           <p>Главное — чтобы каждый проект вовлекал аудиторию и&nbsp;приносил измеримый результат.</p>
         </div>
       </div>
@@ -2432,16 +2428,20 @@ body::after {
             <span>Figma</span>
           </div>
           <div class="badge" role="listitem">
-            <span>Моделирование</span>
+            <span class="badge-icon icon-higgsfield" aria-hidden="true">
+              <img src="assets/svg/skills badges/higgsfield.png" alt="" />
+            </span>
+            <span>Higgsfield</span>
           </div>
         </div>
 
         <div class="badges-row">
-          <div class="badge" role="listitem"><span>3D графика</span></div>
-          <div class="badge" role="listitem"><span>UI анимация</span></div>
-          <div class="badge" role="listitem"><span>Риг и анимация персонажей</span></div>
-          <div class="badge" role="listitem"><span>3D симуляции</span></div>
+          <div class="badge" role="listitem"><span>Key Visual</span></div>
+          <div class="badge" role="listitem"><span>3D-графика и анимация</span></div>
+          <div class="badge" role="listitem"><span>Свет и шейдинг</span></div>
+          <div class="badge" role="listitem"><span>Моделирование и риг</span></div>
           <div class="badge" role="listitem"><span>AI инструменты</span></div>
+          <div class="badge" role="listitem"><span>Ретушь</span></div>
         </div>
       </div>
     </section>
@@ -2454,13 +2454,28 @@ body::after {
         <article class="experience-card">
           <header class="company-name">
             <span class="company-icon" aria-hidden="true">
+              <img src="assets/svg/experience icons/Herocode icon.png" alt="Herocode company icon" width="24" height="24">
+            </span>
+            <span>Herocode</span>
+          </header>
+          <p class="experience-role">Графический дизайнер, ретушёр. 2026 (5 месяцев)</p>
+          <div class="experience-description">
+            <p>Разработка Key Visual для маркетинговых кампаний крупного международного бренда: сборка сцены, 3D-визуализация упаковки, постановка света, ретушь.</p>
+            <p>Дизайн email-рассылок, иллюстрации для лендингов и&nbsp;презентаций, ресайзы и&nbsp;адаптивы под форматы площадок.</p>
+            <p>Генеративные инструменты как часть продакшн-пайплайна, собственная система промптинга под специфику бренда и&nbsp;продукта.</p>
+          </div>
+        </article>
+
+        <article class="experience-card">
+          <header class="company-name">
+            <span class="company-icon" aria-hidden="true">
               <img src="assets/svg/experience icons/ADQ icon.png" alt="ADQ company icon" width="24" height="24">
             </span>
             <span>AdQuantum</span>
           </header>
           <p class="experience-role">Моушн-дизайнер. 2020–2025 (5 лет)</p>
           <div class="experience-description">
-            <p>Полный цикл производства 3D и&nbsp;2D креативов для мобильных игр в&nbsp;Blender и&nbsp;After Effects: риг персонажей и&nbsp;техники, анимация, шейдинг, освещение, рендер.</p>
+            <p>Полный цикл производства 3D-&nbsp;и&nbsp;2D-креативов для мобильных игр в&nbsp;Blender и&nbsp;After Effects: риг персонажей и&nbsp;техники, анимация, шейдинг, освещение, рендер.</p>
             <p>Разработка кастомных шейдеров и&nbsp;симуляций (rigid body, частицы, системы дыма и&nbsp;жидкостей).</p>
             <p>UI&nbsp;элементы в&nbsp;Photoshop, интеграция в&nbsp;Blender. Композитинг в&nbsp;After Effects, работа с&nbsp;VFX и&nbsp;музыкой.</p>
           </div>
@@ -2479,7 +2494,7 @@ body::after {
           <p class="experience-role">Дизайнер, иллюстратор. 2018 (1 год)</p>
           <div class="experience-description">
             <p>Графический дизайн и&nbsp;иллюстрации в&nbsp;фирменном стиле Яндекса: от&nbsp;иконок для Яндекс.Музыки до&nbsp;крупноформатных баннеров Кинопоиска.</p>
-            <p>Пиксель-перфект полировка, ретушь, цветокоррекция и&nbsp;ресайзы макетов под разные платформы.</p>
+            <p>Пиксель-перфект полировка, ретушь, цветокоррекция и&nbsp;ресайзы рекламных материалов под разные платформы и&nbsp;форматы размещения.</p>
           </div>
         </article>
 
@@ -2492,10 +2507,8 @@ body::after {
           </header>
           <p class="experience-role">Моушн-дизайнер. 2019 (1 год)</p>
           <div class="experience-description">
-            <p>Производство рекламных креативов для мобильных игр и&nbsp;приложений с&nbsp;упором на&nbsp;2D-анимацию персонажей.</p>
-            <p>Комплексный риггинг в&nbsp;After Effects на&nbsp;базе DUIK.</p>
-            <p>2D-эффекты, монтаж, озвучка роликов.</p>
-            <p>Работа с&nbsp;проектами в&nbsp;разных жанрах и&nbsp;стилях: приложения-переводчики, VPN&nbsp;сервисы, idle&nbsp;игры.</p>
+            <p>Производство рекламных креативов для мобильных игр и&nbsp;приложений с&nbsp;упором на&nbsp;2D-анимацию персонажей: приложения-переводчики, VPN&nbsp;сервисы, idle&nbsp;игры.</p>
+            <p>Комплексный риггинг в&nbsp;After Effects на&nbsp;базе DUIK, 2D-эффекты, монтаж и&nbsp;озвучка роликов.</p>
           </div>
         </article>
 
@@ -2523,17 +2536,6 @@ body::after {
             <p>Академический рисунок и&nbsp;живопись, работа с&nbsp;композицией, цветом и&nbsp;шрифтами. История дизайна и&nbsp;искусства.</p>
           </div>
         </article>
-
-        <article class="experience-card">
-          <header class="company-name">
-            <span>Дизайн-студия Четверка</span>
-          </header>
-          <p class="experience-role">Практика. Январь 2017 — апрель 2017 (4 месяца)</p>
-          <div class="experience-description">
-            <p>Практическая работа с&nbsp;реальными задачами дизайн-студии. Разработка логотипов и&nbsp;фирменного стиля.</p>
-            <p>Обучение дизайну логотипов и&nbsp;товарных знаков: читабельность, защита товарного знака, работа с&nbsp;шрифтами.</p>
-          </div>
-        </article>
       </div>
     </section>
 
@@ -2550,7 +2552,7 @@ body::after {
       <article class="project-card">
         <div class="project-content">
           <div class="project-info">
-            <h3 class="project-title">3D Графика</h3>
+            <h3 class="project-title">3D-графика</h3>
             <div class="project-description">
               <p>Иллюстрации и&nbsp;продуктовые рендеры. Анимация, работа со&nbsp;светом и&nbsp;материалами.</p>
               <p>Примеры работ под разные стили и&nbsp;форматы.</p>
@@ -2601,7 +2603,7 @@ body::after {
             <h3 class="project-title">Рекламные креативы</h3>
             <div class="project-description">
               <p>Баннеры, in-app, рассылки и&nbsp;промо.</p>
-              <p>Типографика, верстка, работа с&nbsp;фото и&nbsp;3D&nbsp;графикой, векторными иллюстрациями и&nbsp;AI&nbsp;элементами.</p>
+              <p>Типографика, верстка, работа с&nbsp;фото и&nbsp;3D-графикой, векторными иллюстрациями и&nbsp;AI&nbsp;элементами.</p>
             </div>
           </div>
 
@@ -2634,7 +2636,7 @@ body::after {
       <article class="project-card">
         <div class="project-content">
           <div class="project-info">
-            <h3 class="project-title">AI графика</h3>
+            <h3 class="project-title">AI-графика</h3>
             <div class="project-description">
               <p>Примеры генераций в&nbsp;Nano Banana, Sora и&nbsp;Grok.</p>
               <p>Наборы промптов под различные дизайн-задачи, позволяющие значительно ускорять рабочие процессы.</p>
@@ -2683,7 +2685,7 @@ body::after {
               Gold & Goblins
             </h3>
             <div class="project-description">
-              <p>3D&nbsp;анимация для мобильной idle-игры про гоблинов-шахтёров, добывающих золото и&nbsp;минералы в&nbsp;подземельях.</p>
+              <p>3D-анимация для мобильной idle-игры про гоблинов-шахтёров, добывающих золото и&nbsp;минералы в&nbsp;подземельях.</p>
               <p>Примеры креативов передающих азарт бесконечного прогресса и&nbsp;оптимизации.</p>
             </div>
           </div>
